@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar Bear Ice Bridge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #1a2a3a 0%, #0a1620 100%);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        #gameContainer {
+            text-align: center;
+        }
+        canvas {
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        #score {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        #instructions {
+            color: #8ab4d4;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="score">Score: 0</div>
+        <canvas id="gameCanvas" width="800" height="500"></canvas>
+        <div id="instructions">Hold SPACE or CLICK to extend bridge, release to drop</div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+
+        // Game constants
+        const PLATFORM_Y = 350;
+        const PLATFORM_HEIGHT = 100;
+        const BEAR_SIZE = 40;
+        const BRIDGE_WIDTH = 8;
+        const BRIDGE_GROWTH_RATE = 5;
+        const MAX_BRIDGE_LENGTH = 400;
+        const FALL_SPEED = 8;
+
+        // Game state
+        let platforms = [];
+        let bear = { x: 0, y: 0 };
+        let bridge = { length: 0, angle: 0, state: 'idle', falling: false };
+        let score = 0;
+        let gameOver = false;
+        let screenOffset = 0;
+        let targetOffset = 0;
+        let isHolding = false;
+
+        // Colors
+        const COLORS = {
+            sky: ['#1a3a5c', '#2a4a6c'],
+            water: '#1a5a8a',
+            platform: ['#e8f4f8', '#d0e8f0'],
+            platformDark: '#a0c8d8',
+            bear: '#ffffff',
+            bearDark: '#d0d8e0',
+            bearNose: '#2a3a4a',
+            bearEye: '#2a3a4a',
+            bridge: '#8b5a2b',
+            bridgeDark: '#6b4a1b'
+        };
+
+        function init() {
+            platforms = [
+                { x: 100, width: 100 },
+                { x: 350, width: 80 }
+            ];
+            bear = { x: 135, y: PLATFORM_Y - BEAR_SIZE };
+            bridge = { length: 0, angle: 0, state: 'idle', falling: false };
+            score = 0;
+            gameOver = false;
+            screenOffset = 0;
+            targetOffset = 0;
+            updateScore();
+        }
+
+        function generateNextPlatform() {
+            const lastPlatform = platforms[platforms.length - 1];
+            const minDistance = 100;
+            const maxDistance = 280;
+            const minWidth = 40;
+            const maxWidth = 100;
+            const distance = minDistance + Math.random() * (maxDistance - minDistance);
+            const width = minWidth + Math.random() * (maxWidth - minWidth);
+            platforms.push({
+                x: lastPlatform.x + lastPlatform.width + distance,
+                width: width
+            });
+        }
+
+        function updateScore() {
+            scoreEl.textContent = `Score: ${score}`;
+        }
+
+        function drawBackground() {
+            // Sky gradient
+            const skyGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            skyGrad.addColorStop(0, COLORS.sky[0]);
+            skyGrad.addColorStop(1, COLORS.sky[1]);
+            ctx.fillStyle = skyGrad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Water
+            ctx.fillStyle = COLORS.water;
+            ctx.fillRect(0, PLATFORM_Y + PLATFORM_HEIGHT, canvas.width, canvas.height - PLATFORM_Y - PLATFORM_HEIGHT);
+
+            // Water waves
+            ctx.strokeStyle = '#2a6a9a';
+            ctx.lineWidth = 2;
+            for (let i = 0; i < 5; i++) {
+                const waveY = PLATFORM_Y + PLATFORM_HEIGHT + 10 + i * 20;
+                ctx.beginPath();
+                for (let x = 0; x < canvas.width; x += 30) {
+                    const offset = Math.sin((x + Date.now() / 500 + i * 20) * 0.05) * 5;
+                    if (x === 0) {
+                        ctx.moveTo(x, waveY + offset);
+                    } else {
+                        ctx.lineTo(x, waveY + offset);
+                    }
+                }
+                ctx.stroke();
+            }
+        }
+
+        function drawPlatform(p) {
+            const x = p.x - screenOffset;
+            if (x > canvas.width || x + p.width < 0) return;
+
+            // Main platform
+            ctx.fillStyle = COLORS.platform[0];
+            ctx.fillRect(x, PLATFORM_Y, p.width, PLATFORM_HEIGHT);
+
+            // Top edge
+            ctx.fillStyle = COLORS.platform[1];
+            ctx.fillRect(x, PLATFORM_Y, p.width, 10);
+
+            // Side shadow
+            ctx.fillStyle = COLORS.platformDark;
+            ctx.fillRect(x + p.width - 5, PLATFORM_Y, 5, PLATFORM_HEIGHT);
+
+            // Ice texture
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            for (let i = 0; i < 3; i++) {
+                const tx = x + 10 + i * 30;
+                const ty = PLATFORM_Y + 20 + Math.sin(i) * 10;
+                ctx.beginPath();
+                ctx.ellipse(tx, ty, 15, 8, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function drawBear() {
+            const x = bear.x - screenOffset;
+            const y = bear.y;
+            const size = BEAR_SIZE;
+
+            // Body
+            ctx.fillStyle = COLORS.bear;
+            ctx.beginPath();
+            ctx.ellipse(x + size/2, y + size/2 + 5, size/2 - 2, size/2.5, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Head
+            ctx.beginPath();
+            ctx.ellipse(x + size/2, y + size/4, size/3, size/3.5, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Ears
+            ctx.beginPath();
+            ctx.arc(x + size/4, y + size/8, 6, 0, Math.PI * 2);
+            ctx.arc(x + size*0.75, y + size/8, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Eyes
+            ctx.fillStyle = COLORS.bearEye;
+            ctx.beginPath();
+            ctx.arc(x + size/2 - 7, y + size/4, 3, 0, Math.PI * 2);
+            ctx.arc(x + size/2 + 7, y + size/4, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Eye shine
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(x + size/2 - 6, y + size/4 - 1, 1, 0, Math.PI * 2);
+            ctx.arc(x + size/2 + 8, y + size/4 - 1, 1, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Nose
+            ctx.fillStyle = COLORS.bearNose;
+            ctx.beginPath();
+            ctx.ellipse(x + size/2, y + size/3, 4, 3, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Shadow
+            ctx.fillStyle = 'rgba(0,0,0,0.1)';
+            ctx.beginPath();
+            ctx.ellipse(x + size/2, y + size, size/2, 5, 0, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function drawBridge() {
+            if (bridge.length <= 0) return;
+
+            const currentPlatform = platforms[0];
+            const startX = currentPlatform.x + currentPlatform.width - screenOffset;
+            const startY = PLATFORM_Y;
+
+            ctx.save();
+            ctx.translate(startX, startY);
+            ctx.rotate(bridge.angle);
+
+            // Bridge
+            ctx.fillStyle = COLORS.bridge;
+            ctx.fillRect(0, -BRIDGE_WIDTH/2, bridge.length, BRIDGE_WIDTH);
+
+            // Bridge end piece
+            ctx.fillStyle = COLORS.bridgeDark;
+            ctx.fillRect(bridge.length - 10, -BRIDGE_WIDTH/2, 10, BRIDGE_WIDTH);
+
+            // Bridge texture
+            ctx.fillStyle = COLORS.bridgeDark;
+            for (let i = 20; i < bridge.length; i += 30) {
+                ctx.fillRect(i, -BRIDGE_WIDTH/2, 2, BRIDGE_WIDTH);
+            }
+
+            ctx.restore();
+        }
+
+        function drawGameOver() {
+            ctx.fillStyle = 'rgba(0,0,0,0.7)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Game Over!', canvas.width/2, canvas.height/2 - 40);
+
+            ctx.font = '24px Arial';
+            ctx.fillText(`Final Score: ${score}`, canvas.width/2, canvas.height/2 + 10);
+
+            ctx.font = '18px Arial';
+            ctx.fillStyle = '#8ab4d4';
+            ctx.fillText('Press SPACE or CLICK to restart', canvas.width/2, canvas.height/2 + 50);
+        }
+
+        function checkBridgeSuccess() {
+            const currentPlatform = platforms[0];
+            const nextPlatform = platforms[1];
+            const bridgeEnd = currentPlatform.x + currentPlatform.width + bridge.length;
+
+            const hit = bridgeEnd >= nextPlatform.x && bridgeEnd <= nextPlatform.x + nextPlatform.width;
+
+            if (hit) {
+                const center = nextPlatform.x + nextPlatform.width / 2;
+                const distance = Math.abs(bridgeEnd - center);
+                const bonus = distance < nextPlatform.width / 4 ? 1 : 0;
+                score += 1 + bonus;
+                updateScore();
+
+                // Move bear
+                const targetX = nextPlatform.x + nextPlatform.width / 2 - BEAR_SIZE / 2;
+                const duration = 500;
+                const startX = bear.x;
+                const startTime = Date.now();
+
+                function animateBear() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    bear.x = startX + (targetX - startX) * progress;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animateBear);
+                    } else {
+                        // Remove old platform and shift
+                        targetOffset = currentPlatform.x + currentPlatform.width;
+                        platforms.shift();
+                        generateNextPlatform();
+
+                        // Reset bridge
+                        setTimeout(() => {
+                            bridge = { length: 0, angle: 0, state: 'idle', falling: false };
+                        }, 300);
+                    }
+                }
+                animateBear();
+            } else {
+                gameOver = true;
+            }
+        }
+
+        function update() {
+            // Smooth camera scroll
+            screenOffset += (targetOffset - screenOffset) * 0.1;
+
+            // Bridge growing
+            if (bridge.state === 'growing' && !bridge.falling) {
+                bridge.length += BRIDGE_GROWTH_RATE;
+                if (bridge.length >= MAX_BRIDGE_LENGTH) {
+                    bridge.length = MAX_BRIDGE_LENGTH;
+                }
+            }
+
+            // Bridge falling
+            if (bridge.falling) {
+                bridge.angle += 0.05;
+                if (bridge.angle >= Math.PI / 2) {
+                    bridge.angle = Math.PI / 2;
+                    bridge.falling = false;
+                    checkBridgeSuccess();
+                }
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawBackground();
+
+            // Draw platforms
+            platforms.forEach(drawPlatform);
+
+            drawBridge();
+            drawBear();
+
+            if (gameOver) {
+                drawGameOver();
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Event handlers
+        function startHold(e) {
+            if (e.type === 'keydown' && e.code !== 'Space') return;
+            e.preventDefault();
+
+            if (gameOver) {
+                init();
+                return;
+            }
+
+            if (bridge.state === 'idle') {
+                bridge.state = 'growing';
+                bridge.length = 0;
+                bridge.angle = 0;
+            }
+            isHolding = true;
+        }
+
+        function endHold(e) {
+            if (e.type === 'keyup' && e.code !== 'Space') return;
+            if (!isHolding) return;
+            e.preventDefault();
+
+            if (bridge.state === 'growing' && !gameOver) {
+                bridge.state = 'falling';
+                bridge.falling = true;
+            }
+            isHolding = false;
+        }
+
+        document.addEventListener('keydown', startHold);
+        document.addEventListener('keyup', endHold);
+        canvas.addEventListener('mousedown', startHold);
+        canvas.addEventListener('mouseup', endHold);
+        canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startHold(e); });
+        canvas.addEventListener('touchend', (e) => { e.preventDefault(); endHold(e); });
+
+        // Start game
+        init();
+        generateNextPlatform();
+        gameLoop();
+    </script>
+</body>
+</html>
