@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Lander Physics Lite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lunar Lander</h1>
+        </header>
+
+        <div class="game-wrapper">
+            <div class="hud">
+                <div class="hud-item">
+                    <span class="hud-label">Fuel</span>
+                    <div class="fuel-bar">
+                        <div id="fuelBar" class="fuel-fill"></div>
+                    </div>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Speed</span>
+                    <span id="speed" class="hud-value">0.0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">Altitude</span>
+                    <span id="altitude" class="hud-value">0</span>
+                </div>
+            </div>
+
+            <canvas id="gameCanvas"></canvas>
+
+            <div class="controls-info">
+                <p>Hold <strong>SPACE</strong> or <strong>CLICK</strong> to thrust</p>
+            </div>
+        </div>
+
+        <div id="gameOver" class="overlay hidden">
+            <div class="message-box">
+                <h2 id="resultTitle">Game Over</h2>
+                <p id="resultMessage"></p>
+                <p id="resultScore" class="score"></p>
+                <button id="restartBtn" class="btn">Try Again</button>
+            </div>
+        </div>
+
+        <div id="startScreen" class="overlay">
+            <div class="message-box">
+                <h2>Lunar Lander</h2>
+                <p>Land safely on the flat pad</p>
+                <ul class="instructions">
+                    <li>Keep speed below 2.0 m/s</li>
+                    <li>Land on the flat platform</li>
+                    <li>Don't run out of fuel</li>
+                </ul>
+                <button id="startBtn" class="btn">Start Game</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

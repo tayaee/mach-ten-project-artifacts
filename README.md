@@ -8,6 +8,7 @@ This repository is maintained to observe the quality of apps automatically gener
 
 | Date | App Name | Description |
 |----------|----------|-------------|
+| 2026-02-07 | [Lunar Lander Physics Lite](category/games/2026/02/1738891527-lunar-lander-physics-lite/) | Guide your lander to a safe landing on the lunar surface with gravity physics. |
 | 2026-02-07 | [Sliding Number Classic Puzzle](category/games/2026/02/1738890307-sliding-number-classic-puzzle/) | Classic 15-puzzle game. Slide numbered tiles to arrange them in order. |
 | 2026-02-07 | [Circular Brick Breaker Classic](category/games/2026/02/1738886273-circular-brick-breaker-classic/) | 360-degree brick breaker with a ball spawning from center. Rotate the paddle to break circular brick layers. |
 | 2026-02-06 | [Gravity Stack Balance](category/games/2026/02/0713-gravity-stack-balance/) | Physics-based block stacking on a narrow platform. Blocks tilt and fall if unbalanced. |
@@ -28,6 +29,7 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
+|   |   │   │   ├── 1738891527-lunar-lander-physics-lite/
 |   |   │   │   ├── 1738890307-sliding-number-classic-puzzle/
 |   |   │   │   ├── 1738886273-circular-brick-breaker-classic/
 |   |   │   │   ├── 0713-gravity-stack-balance/
