@@ -6,6 +6,7 @@ Can we break the speed of Mach 10? Let’s find out. This repo challenges the li
 
 ### Games
 
+* 2026-02-07 | [Geometric Shape Sorter Pro](category/games/2026/02/1738935003-geometric-shape-sorter-pro/) | Match falling shapes to corresponding baskets in this fast-paced spatial puzzle game.
 * 2026-02-07 | [Polar Bear Ice Bridge](category/games/2026/02/1738933488-polar-bear-ice-bridge/) | Timing-based physics puzzle where you build bridges to help a polar bear cross ice floes.
 * 2026-02-07 | [Ocean Cleanup Bubble Pop](category/games/2026/02/1738918819-ocean-cleanup-bubble-pop/) | Trap ocean trash in bubbles to purify the sea in this addictive puzzle arcade game.
 * 2026-02-07 | [Binary Crossroad Traffic Control](category/games/2026/02/1738918960-binary-crossroad-traffic-control/) | Manage traffic signals at an intersection to pass vehicles without accidents.
@@ -30,6 +31,7 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
+|   |   │   │   │   ├── 1738935003-geometric-shape-sorter-pro/
 |   |   │   │   │   ├── 1738933488-polar-bear-ice-bridge/
 |   |   │   │   ├── 1738918819-ocean-cleanup-bubble-pop/
 |   |   │   │   ├── 1738918960-binary-crossroad-traffic-control/

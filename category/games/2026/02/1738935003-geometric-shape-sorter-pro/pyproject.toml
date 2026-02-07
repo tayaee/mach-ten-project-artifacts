@@ -1,0 +1,8 @@
+[project]
+name = "1738935003-geometric-shape-sorter-pro"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame>=2.6.1",
+]
