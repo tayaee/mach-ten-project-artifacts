@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Rhythmic Tile Tap Classic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            max-height: 700px;
+            background: #16213e;
+            border: 2px solid #0f3460;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            background: #0f3460;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .high-score {
+            font-size: 14px;
+            color: #888;
+        }
+        .canvas-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .judgment-line {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e94560, #ff6b6b);
+            box-shadow: 0 0 10px #e94560;
+        }
+        .lane-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+        }
+        .lane-btn {
+            flex: 1;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.1s;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .lane-btn:last-child {
+            border-right: none;
+        }
+        .lane-btn:active, .lane-btn.active {
+            background: rgba(233, 69, 96, 0.5);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            z-index: 100;
+        }
+        .overlay.hidden {
+            display: none;
+        }
+        .overlay h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #e94560;
+        }
+        .overlay p {
+            margin-bottom: 10px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .overlay .final-score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 20px 0;
+        }
+        .start-btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .start-btn:hover {
+            transform: scale(1.05);
+        }
+        .keys-hint {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+        @media (min-width: 768px) {
+            .lane-controls {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div class="score" id="score">0</div>
+            <div class="high-score">High Score: <span id="highScore">0</span></div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
+            <div class="judgment-line"></div>
+        </div>
+        <div class="lane-controls">
+            <button class="lane-btn" data-lane="0">D</button>
+            <button class="lane-btn" data-lane="1">F</button>
+            <button class="lane-btn" data-lane="2">J</button>
+            <button class="lane-btn" data-lane="3">K</button>
+        </div>
+        <div class="overlay" id="startOverlay">
+            <h1>Rhythmic Tile Tap</h1>
+            <p>Tap the black tiles when they reach the judgment line</p>
+            <p>Missing a tile or tapping an empty lane ends the game</p>
+            <p>Speed increases as you score higher!</p>
+            <button class="start-btn" id="startBtn">START</button>
+            <div class="keys-hint">Use D, F, J, K keys or tap the lanes</div>
+        </div>
+        <div class="overlay hidden" id="gameOverOverlay">
+            <h1>GAME OVER</h1>
+            <div class="final-score" id="finalScore">0</div>
+            <p id="gameOverReason"></p>
+            <button class="start-btn" id="restartBtn">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+        const highScoreEl = document.getElementById('highScore');
+        const startOverlay = document.getElementById('startOverlay');
+        const gameOverOverlay = document.getElementById('gameOverOverlay');
+        const finalScoreEl = document.getElementById('finalScore');
+        const gameOverReasonEl = document.getElementById('gameOverReason');
+        const startBtn = document.getElementById('startBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const laneBtns = document.querySelectorAll('.lane-btn');
+
+        let lanes = 4;
+        let tiles = [];
+        let score = 0;
+        let highScore = localStorage.getItem('rhythmicTileHighScore') || 0;
+        let gameRunning = false;
+        let animationId;
+        let lastSpawn = 0;
+        let spawnInterval = 800;
+        let baseSpeed = 3;
+        let speed = baseSpeed;
+        let laneWidth;
+        let judgmentY;
+        let tapEffects = [];
+
+        highScoreEl.textContent = highScore;
+
+        function resize() {
+            const container = canvas.parentElement;
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+            laneWidth = canvas.width / lanes;
+            judgmentY = canvas.height - 80;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Tile {
+            constructor(lane) {
+                this.lane = lane;
+                this.y = -60;
+                this.width = laneWidth - 4;
+                this.height = 60;
+                this.x = lane * laneWidth + 2;
+                this.clicked = false;
+                this.missed = false;
+            }
+
+            update() {
+                this.y += speed;
+            }
+
+            draw() {
+                const gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.height);
+                gradient.addColorStop(0, #2a2a2a);
+                gradient.addColorStop(0.5, #1a1a1a);
+                gradient.addColorStop(1, #0a0a0a);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+
+                ctx.strokeStyle = #333;
+                ctx.lineWidth = 2;
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+            }
+
+            isAtJudgment() {
+                return this.y + this.height >= judgmentY - 30 && this.y <= judgmentY + 30;
+            }
+
+            isPastJudgment() {
+                return this.y > judgmentY + 30;
+            }
+        }
+
+        class TapEffect {
+            constructor(lane) {
+                this.lane = lane;
+                this.x = lane * laneWidth + laneWidth / 2;
+                this.y = judgmentY;
+                this.radius = 10;
+                this.maxRadius = 40;
+                this.alpha = 1;
+            }
+
+            update() {
+                this.radius += 3;
+                this.alpha -= 0.05;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(233, 69, 96, ${this.alpha})`;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+
+            isDone() {
+                return this.alpha <= 0;
+            }
+        }
+
+        function spawnTile() {
+            const availableLanes = [];
+            for (let i = 0; i < lanes; i++) {
+                const hasTileInLane = tiles.some(t => t.lane === i && t.y < 100);
+                if (!hasTileInLane) {
+                    availableLanes.push(i);
+                }
+            }
+
+            if (availableLanes.length > 0) {
+                const lane = availableLanes[Math.floor(Math.random() * availableLanes.length)];
+                tiles.push(new Tile(lane));
+            }
+        }
+
+        function gameOver(reason) {
+            gameRunning = false;
+            cancelAnimationFrame(animationId);
+
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('rhythmicTileHighScore', highScore);
+                highScoreEl.textContent = highScore;
+            }
+
+            finalScoreEl.textContent = score;
+            gameOverReasonEl.textContent = reason;
+            gameOverOverlay.classList.remove('hidden');
+        }
+
+        function checkMissedTiles() {
+            for (const tile of tiles) {
+                if (tile.isPastJudgment() && !tile.clicked && !tile.missed) {
+                    tile.missed = true;
+                    gameOver('You missed a tile!');
+                    return;
+                }
+            }
+        }
+
+        function handleTap(lane) {
+            if (!gameRunning) return;
+
+            const validTile = tiles.find(t => t.lane === lane && t.isAtJudgment() && !t.clicked);
+
+            if (validTile) {
+                validTile.clicked = true;
+                score++;
+                scoreEl.textContent = score;
+
+                speed = baseSpeed + Math.floor(score / 10) * 0.3;
+                spawnInterval = Math.max(400, 800 - score * 10);
+
+                tapEffects.push(new TapEffect(lane));
+
+                tiles = tiles.filter(t => !t.clicked);
+            } else {
+                const hasTileInLane = tiles.some(t => t.lane === lane && t.y > 0);
+                if (!hasTileInLane || tiles.some(t => t.lane === lane && t.y < judgmentY - 100)) {
+                    gameOver('You tapped an empty lane!');
+                }
+            }
+        }
+
+        function drawLanes() {
+            for (let i = 0; i <= lanes; i++) {
+                ctx.beginPath();
+                ctx.moveTo(i * laneWidth, 0);
+                ctx.lineTo(i * laneWidth, canvas.height);
+                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+
+        function gameLoop(timestamp) {
+            if (!gameRunning) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawLanes();
+
+            if (timestamp - lastSpawn > spawnInterval) {
+                spawnTile();
+                lastSpawn = timestamp;
+            }
+
+            for (const tile of tiles) {
+                tile.update();
+                tile.draw();
+            }
+
+            for (let i = tapEffects.length - 1; i >= 0; i--) {
+                tapEffects[i].update();
+                tapEffects[i].draw();
+                if (tapEffects[i].isDone()) {
+                    tapEffects.splice(i, 1);
+                }
+            }
+
+            checkMissedTiles();
+
+            tiles = tiles.filter(t => !t.clicked && t.y < canvas.height + 100);
+
+            animationId = requestAnimationFrame(gameLoop);
+        }
+
+        function startGame() {
+            tiles = [];
+            score = 0;
+            speed = baseSpeed;
+            spawnInterval = 800;
+            tapEffects = [];
+            scoreEl.textContent = '0';
+            gameRunning = true;
+            startOverlay.classList.add('hidden');
+            gameOverOverlay.classList.add('hidden');
+            lastSpawn = performance.now();
+            animationId = requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const keyMap = { 'd': 0, 'f': 1, 'j': 2, 'k': 3 };
+            const key = e.key.toLowerCase();
+            if (keyMap.hasOwnProperty(key)) {
+                handleTap(keyMap[key]);
+                const btn = document.querySelector(`.lane-btn[data-lane="${keyMap[key]}"]`);
+                if (btn) {
+                    btn.classList.add('active');
+                    setTimeout(() => btn.classList.remove('active'), 100);
+                }
+            }
+        });
+
+        laneBtns.forEach(btn => {
+            const lane = parseInt(btn.dataset.lane);
+
+            btn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                handleTap(lane);
+            });
+
+            btn.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                handleTap(lane);
+            });
+        });
+
+        startBtn.addEventListener('click', startGame);
+        restartBtn.addEventListener('click', startGame);
+    </script>
+</body>
+</html>

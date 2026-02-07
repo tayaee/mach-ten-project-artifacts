@@ -8,6 +8,7 @@ This repository is maintained to observe the quality of apps automatically gener
 
 | App Name | Description | Folder |
 |----------|-------------|--------|
+| [Rhythmic Tile Tap Classic](category/games/2026/02-07-01-rhythmic-tile-tap-classic/) | Tap black tiles falling to the beat in 4 lanes. Speed increases as you score higher - miss a tile or tap empty space and it's game over. | `category/games/2026/02-07-01-rhythmic-tile-tap-classic/` |
 | [Quantum Mine Sweeper Lite](category/games/2026/02-07-00-quantum-mine-sweeper-lite/) | Classic minesweeper with logical deduction. Find 15 mines on a 10x10 grid using number clues. | `category/games/2026/02-07-00-quantum-mine-sweeper-lite/` |
 | [Minimalist Falling Sand Box](category/games/2026/02-07-00-minimalist-falling-sand-box/) | Pixel art physics simulation with gravity and particle interactions. Draw sand, water, and walls to create falling experiments. | `category/games/2026/02-07-00-minimalist-falling-sand-box/` |
 | [Zen Garden Match Three](category/games/2026/02-06-24-zen-garden-match-three/) | A relaxing match-three puzzle game with calm vibes. Swap flowers to match 3+ and score points in 60 seconds. | `category/games/2026/02-06-24-zen-garden-match-three/` |
@@ -22,6 +23,7 @@ app-of-the-day/
 ├── category/
 │   ├── games/
 │   │   ├── 2026
+|   │   │   ├── 02-07-01-rhythmic-tile-tap-classic/
 |   │   │   ├── 02-07-00-quantum-mine-sweeper-lite/
 |   │   │   ├── 02-07-00-minimalist-falling-sand-box/
 |   │   │   ├── 02-06-24-zen-garden-match-three/
