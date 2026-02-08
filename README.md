@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-08 | [Vector Plumber Pipe Connector](category/games/2026/02/1739023920-vector-plumber-pipe-connector/) | Rotate and connect pipe segments to create a seamless flow from source to drain.
 * 2026-02-08 | [Vector Simon Says Logic](category/games/2026/02/1739023900-vector-simon-says-logic/) | Master your memory with a high-speed, logic-driven sequence challenge.
 * 2026-02-08 | [Vector Flappy Bird Classic](category/games/2026/02/1738973200-vector-flappy-bird-classic/) | Navigate a minimalist bird through moving pipes in this physics-based vertical scroller.
 * 2026-02-07 | [Vector Memory Pattern Match](category/games/2026/02/1738972630-vector-memory-pattern-match/) | Remember and reproduce increasingly long light patterns in this Simon-style memory game.
@@ -37,6 +38,7 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
+|   |   │   │   │   ├── 1739023920-vector-plumber-pipe-connector/
 |   |   │   │   │   ├── 1739023900-vector-simon-says-logic/
 |   |   │   │   │   ├── 1738973200-vector-flappy-bird-classic/
 |   |   │   │   │   ├── 1738972630-vector-memory-pattern-match/

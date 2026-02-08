@@ -1,0 +1,18 @@
+[project]
+name = "vector-plumber-pipe-connector"
+version = "0.1.0"
+description = "Rotate and connect pipe segments to create a seamless flow from source to drain"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main", "game", "config"]
+
+[project.scripts]
+start = "main:main"

@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-plumber-pipe-connector",
+  "category": "games",
+  "folder_name": "category/games/2026/02/1739023920-vector-plumber-pipe-connector",
+  "description": "Rotate and connect pipe segments to create a seamless flow from source to drain.",
+  "rationale": "This game targets puzzle enthusiasts and logic lovers. It provides a clear objective for reinforcement learning agents to optimize pathfinding and topological connectivity in a grid-based environment.",
+  "details": "The game consists of a 7x7 grid. Each cell contains a pipe segment (straight, L-shaped, or T-shaped). One cell is designated as the 'Source' (Inlet) and another as the 'Drain' (Outlet). Players click cells to rotate pipe segments by 90 degrees clockwise. A level is completed when a continuous path exists from the Source to the Drain without leaks. The game features a move counter and a timer to measure performance efficiency.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill $(pgrep -f 'python main.py')",
+  "how_to_play": "Goal: Connect the Source pipe to the Drain pipe. Score: Increases based on the speed of completion and decreases with the number of rotations used. Controls: Left-click on a grid cell to rotate the pipe segment 90 degrees. AI Input: The agent should receive a 7x7 matrix representing pipe types and current orientations. The action space is 49 (one for each cell), where selecting a cell triggers one rotation.",
+  "how_to_cleanup": "rm -rf .venv",
+  "environment_variables": {
+    "GRID_SIZE": "7",
+    "DIFFICULTY": "medium"
+  },
+  "state_representation": "7x7 integer array where each integer encodes pipe type and rotation state (0-3).",
+  "reward_structure": "Positive reward for connecting source to drain (+100). Small negative reward per rotation (-1) and per second elapsed (-0.1) to encourage efficiency.",
+  "screenshot": "assets/screenshots/gameplay_preview.png"
+}
