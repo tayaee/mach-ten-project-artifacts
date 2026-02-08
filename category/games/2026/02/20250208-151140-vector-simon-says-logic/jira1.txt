@@ -1,0 +1,25 @@
+C:\src\mach-ten-project-artifacts\category\games\2026\02\20250208-151140-vector-simon-says-logic>uv run main.py
+Using CPython 3.14.3
+Removed virtual environment at: .venv
+Creating virtual environment at: .venv
+  x Failed to build `vector-simon-says-logic @ file:///C:/src/mach-ten-project-artifacts/category/games/2026/02/20250208-151140-vector-simon-says-logic`
+  |-> The build backend returned an error
+  `-> Call to `setuptools.build_meta.build_editable` failed (exit code: 1)
+
+      [stderr]
+      error: Multiple top-level modules discovered in a flat-layout: ['config', 'game', 'main', 'test_game'].
+
+      To avoid accidental inclusion of unwanted files or directories,
+      setuptools will not proceed with this build.
+
+      If you are trying to create a single distribution with multiple modules
+      on purpose, you should not rely on automatic discovery.
+      Instead, consider the following options:
+
+      1. set up custom discovery (`find` directive with `include` or `exclude`)
+      2. use a `src-layout`
+      3. explicitly set `py_modules` or `packages` with a list of names
+
+      To find more information, look for "package discovery" on setuptools docs.
+
+      hint: This usually indicates a problem with the package or the build environment.
