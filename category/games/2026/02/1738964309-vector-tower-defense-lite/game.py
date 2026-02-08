@@ -184,11 +184,11 @@ class Game:
                     break
 
         tower_info = TOWER_TYPES[self.selected_tower_type]
-        color = (*tower_info["color"], 128) if can_place else (200, 50, 50)
+        color = (*tower_info["color"], 100) if can_place else (200, 50, 50, 100)
 
         # Create transparent surface
         preview_surf = pygame.Surface((TOWER_SIZE + 10, TOWER_SIZE + 10), pygame.SRCALPHA)
-        pygame.draw.circle(preview_surf, (*color, 100), (TOWER_SIZE // 2 + 5, TOWER_SIZE // 2 + 5), TOWER_SIZE // 2)
+        pygame.draw.circle(preview_surf, color, (TOWER_SIZE // 2 + 5, TOWER_SIZE // 2 + 5), TOWER_SIZE // 2)
         self.screen.blit(preview_surf, (x - TOWER_SIZE // 2 - 5, y - TOWER_SIZE // 2 - 5))
 
         # Draw range preview
