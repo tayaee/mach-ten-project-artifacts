@@ -39,9 +39,6 @@ mach-ten-project-artifacts/
 │           └── 02/
 │               ├── YYYYMMDD-HHMMSS-app-name/
 │               │   ├── main.py              # Entry point
-│               │   ├── game.py              # Main game logic
-│               │   ├── entities.py          # Game entities
-│               │   ├── config.py            # Game constants
 │               │   ├── pyproject.toml       # Dependencies & build config
 │               │   ├── uv.lock              # UV dependency lock
 │               │   ├── appinfo.json        # Metadata
