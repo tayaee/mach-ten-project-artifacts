@@ -1,0 +1,31 @@
+{
+  "app_name": "vector-lemmings-path-bridge",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260208-124720-000-vector-lemmings-path-bridge",
+  "description": "Guide a group of autonomous explorers to the exit by assigning critical path-finding roles.",
+  "rationale": "This game focuses on indirect control and strategic resource management. It targets players who enjoy puzzle-solving and logic, and it provides an excellent environment for AI agents to learn time-sensitive decision making and spatial planning.",
+  "details": "A simplified version of the classic Lemmings. A stream of 10-20 tiny agents spawns from an entry point and walks in a straight line until hitting an obstacle, at which point they turn around. The player has a limited 'skill palette' to assign to any individual agent: 1. Blocker (stops others from passing), 2. Bridge Builder (creates a diagonal path upward), 3. Basher (digs horizontally through walls). The objective is to save a minimum percentage of agents by guiding them to the exit portal within a time limit. The map is represented as a 2D grid where different characters represent air, solid ground, and hazards.",
+  "game_mechanics": {
+    "gravity": "Agents fall if there is no solid block beneath them. Falling from too high results in death.",
+    "skills": {
+      "bridge_builder": "Increases vertical height by 5 units over 10 horizontal units.",
+      "basher": "Removes 1 unit of horizontal wall per animation frame.",
+      "blocker": "Static obstacle with a 5-unit radius collision box."
+    },
+    "win_condition": "At least 50% of agents reaching the exit portal.",
+    "lose_condition": "All agents dead or timer reaching zero."
+  },
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "library": "Pygame-ce",
+    "resolution": "800x600",
+    "state_representation": "2D Integer Array (Grid)",
+    "action_space": "Discrete(X, Y, Skill_ID)"
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py') or press ESC",
+  "how_to_play": "Left-click on an agent to apply the currently selected skill. Use number keys 1-3 to switch skills. Score increases based on the number of agents saved and the time remaining. Each skill use consumes one charge from the limited inventory.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/gameplay_preview.png"
+}

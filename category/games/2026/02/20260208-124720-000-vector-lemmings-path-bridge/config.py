@@ -1,0 +1,90 @@
+"""Game configuration constants."""
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+FPS = 60
+
+# Grid settings
+TILE_SIZE = 20
+GRID_WIDTH = SCREEN_WIDTH // TILE_SIZE
+GRID_HEIGHT = SCREEN_HEIGHT // TILE_SIZE
+
+# Colors (R, G, B)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GRAY = (100, 100, 100)
+DARK_GRAY = (50, 50, 50)
+SKY_BLUE = (135, 206, 235)
+GROUND_BROWN = (139, 90, 43)
+GRASS_GREEN = (34, 139, 34)
+EXIT_PURPLE = (148, 0, 211)
+HAZARD_RED = (200, 50, 50)
+GOLD = (255, 215, 0)
+
+# Agent settings
+AGENT_WIDTH = 12
+AGENT_HEIGHT = 16
+WALK_SPEED = 1.0
+FALL_SPEED = 2.0
+MAX_FALL_SPEED = 8.0
+GRAVITY = 0.3
+SPAWN_INTERVAL = 60  # frames between spawns
+TOTAL_AGENTS = 15
+
+# Skill settings
+BRIDGE_LENGTH = 10
+BRIDGE_HEIGHT = 5
+BLOCKER_RADIUS = 5
+BASH_SPEED = 0.5  # tiles per frame
+
+# Game settings
+GAME_TIME_LIMIT = 180  # seconds
+REQUIRED_SAVED_PERCENTAGE = 0.5  # 50% to win
+
+# Skill inventory (starting counts)
+BLOCKER_COUNT = 2
+BUILDER_COUNT = 5
+BASHER_COUNT = 5
+
+# Reward structure for AI training
+REWARD_AGENT_SAVED = 10.0
+REWARD_AGENT_DIED = -5.0
+REWARD_SKILL_USED = -0.5
+REWARD_WIN = 50.0
+REWARD_LOSE = -20.0
+REWARD_PER_FRAME = 0.01
+
+# Fonts
+UI_FONT_SIZE = 20
+SCORE_FONT_SIZE = 24
+MESSAGE_FONT_SIZE = 36
+
+# Map tile codes
+TILE_AIR = 0
+TILE_GROUND = 1
+TILE_EXIT = 2
+TILE_HAZARD = 3
+TILE_ENTRY = 4
+TILE_BRIDGE = 5
+
+# Skill IDs
+SKILL_NONE = 0
+SKILL_BLOCKER = 1
+SKILL_BUILDER = 2
+SKILL_BASHER = 3
+
+# Skill names for UI display
+SKILL_NAMES = {
+    SKILL_NONE: "None",
+    SKILL_BLOCKER: "Blocker",
+    SKILL_BUILDER: "Builder",
+    SKILL_BASHER: "Basher"
+}
+
+# Skill colors for UI display
+SKILL_COLORS = {
+    SKILL_NONE: GRAY,
+    SKILL_BLOCKER: HAZARD_RED,
+    SKILL_BUILDER: GRASS_GREEN,
+    SKILL_BASHER: GOLD
+}
