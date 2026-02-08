@@ -6,7 +6,6 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
-* 2026-02-08 | [Vector Bomberman Grid Arena](category/games/2026/02/20260208-132000-000-vector-bomberman-grid-arena/) | Place bombs strategically to destroy walls and defeat enemies in this grid-based tactical action game.
 * 2026-02-08 | [Vector Frogger Road Cross](category/games/2026/02/20260208-131132-vector-frogger-road-cross/) | Navigate a busy highway and rushing river to reach safety in this classic arcade reimagining.
 * 2026-02-08 | [Vector Tumble Tower Collapse](category/games/2026/02/20260208-130000-vector-tumble-tower-collapse/) | Strategic physics puzzle: carefully remove and stack blocks without toppling the 18-layer tower.
 * 2026-02-08 | [Vector Lemmings Path Bridge](category/games/2026/02/20260208-124720-vector-lemmings-path-bridge/) | Guide autonomous explorers to the exit by assigning critical path-finding roles in this Lemmings-inspired puzzle.
