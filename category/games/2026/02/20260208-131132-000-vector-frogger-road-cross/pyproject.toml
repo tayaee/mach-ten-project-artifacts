@@ -1,0 +1,18 @@
+[project]
+name = "vector-frogger-road-cross"
+version = "1.0.0"
+description = "Navigate a busy highway and rushing river to reach safety"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-frogger-road-cross = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

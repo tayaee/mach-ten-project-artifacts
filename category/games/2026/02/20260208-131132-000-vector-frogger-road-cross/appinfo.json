@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-frogger-road-cross",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260208-131132-000-vector-frogger-road-cross",
+  "description": "Navigate a busy highway and a rushing river to reach safety in this classic arcade reimagining.",
+  "rationale": "This project provides a perfect environment for Reinforcement Learning agents to master timing, obstacle avoidance, and pathfinding in a dynamic, multi-lane environment. It targets developers and AI researchers looking for a standardized benchmark for real-time spatial decision-making.",
+  "details": "The game is a simplified version of the classic Frogger. The player controls a character (the frog) starting at the bottom of the screen. The goal is to reach one of five lilypad slots at the top. The game area consists of two main zones: a Road Zone with moving vehicles that must be avoided, and a Water Zone with moving logs that must be jumped on to stay afloat. Touching water or being hit by a vehicle results in immediate failure. Levels progress by increasing the speed of obstacles. The game state is represented by a grid-based coordinate system for easy processing by AI agents.",
+  "technical_specs": {
+    "resolution": "640x480",
+    "frame_rate": 30,
+    "grid_size": 40,
+    "input_type": "Discrete",
+    "state_representation": "Pixel array or Entity-list"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'uv run main.py')",
+  "how_to_play": "Score is increased by moving forward (+10 points per lane) and reaching a lilypad goal (+100 points). Controls: Arrow Keys (Up, Down, Left, Right) to move the frog exactly one grid square. Reaching all five lilypads triggers a level clear bonus and increases game speed.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "reward_structure": {
+    "step_penalty": -0.1,
+    "collision_penalty": -100,
+    "goal_reward": 100,
+    "forward_progress_reward": 10
+  },
+  "screenshot": "assets/screenshots/frogger_gameplay_preview.png"
+}
