@@ -1,0 +1,8 @@
+[project]
+name = "1738964309-vector-tower-defense-lite"
+version = "0.1.0"
+description = "Simple geometric tower defense game"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.6.1",
+]
