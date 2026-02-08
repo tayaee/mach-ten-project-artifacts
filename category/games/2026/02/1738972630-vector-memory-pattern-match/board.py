@@ -62,7 +62,7 @@ class GameBoard:
 
     def handle_tile_click(self, pos):
         """Handle a click on a tile. Returns reward for AI training."""
-        if self.game_state != "playing":
+        if self.game_state != "playing" or not self.sequence:
             return 0.0
 
         for tile in self.tiles:

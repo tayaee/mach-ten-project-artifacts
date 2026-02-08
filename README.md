@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-08 | [Vector Puyo Chain Reaction](category/games/2026/02/1739028000-vector-puyo-chain-reaction/) | Chain matching blobs to create massive explosive combos in this physics-lite puzzle classic.
 * 2026-02-08 | [Vector Golf Solitaire Classic](category/games/2026/02/1739025611-vector-golf-solitaire-classic/) | Clear all cards from the tableau by matching numbers in a fast-paced strategic solitaire variant.
 * 2026-02-08 | [Vector Battleship Strategic Fleet](category/games/2026/02/1739025011-vector-battleship-strategic-fleet/) | Classic tactical naval warfare game against a smart AI opponent.
 * 2026-02-08 | [Vector Plumber Pipe Connector](category/games/2026/02/1739023920-vector-plumber-pipe-connector/) | Rotate and connect pipe segments to create a seamless flow from source to drain.
@@ -40,7 +41,8 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
-|   |   │   │   │   ├── 1739025611-vector-golf-solitaire-classic/
+|   │   │   │   │   ├── 1739028000-vector-puyo-chain-reaction/
+|   |   │   │   │   │   ├── 1739025611-vector-golf-solitaire-classic/
 |   |   │   │   │   ├── 1739025011-vector-battleship-strategic-fleet/
 |   |   │   │   │   ├── 1739023920-vector-plumber-pipe-connector/
 |   |   │   │   │   ├── 1739023900-vector-simon-says-logic/

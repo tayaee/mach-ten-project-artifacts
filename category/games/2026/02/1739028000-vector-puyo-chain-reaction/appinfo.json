@@ -1,0 +1,30 @@
+{
+  "app_name": "vector-puyo-chain-reaction",
+  "category": "games",
+  "folder_name": "category/games/2026/02/1739028000-vector-puyo-chain-reaction",
+  "description": "Chain matching blobs to create massive explosive combos in this physics-lite puzzle classic.",
+  "rationale": "This game targets fans of strategic tile-matching puzzles. It provides a distinct challenge from Tetris by focusing on gravity-based color grouping and chain reactions, making it an excellent environment for RL agents to learn long-term planning and spatial reasoning.",
+  "details": "The game is played on a 6x12 grid. Pairs of colored blobs (Puyos) fall from the top. Players can rotate and move these pairs. When four or more Puyos of the same color connect horizontally or vertically, they disappear. Gravity then pulls remaining Puyos down, potentially triggering chain reactions (combos). The game ends if the third column from the left fills up to the top. The difficulty increases as the drop speed accelerates over time.",
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' to quit or terminate the process using SIGINT (Ctrl+C).",
+  "how_to_play": "Score increases exponentially with the length of chain reactions. 1. Use 'Left/Right Arrow' keys to move the falling pair. 2. Use 'Up Arrow' to rotate the pair clockwise. 3. Use 'Down Arrow' to soft drop. 4. Match 4+ same-colored blobs to score. Aim for cascading drops to multiply points.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "technical_specs": {
+    "screen_resolution": "400x600",
+    "grid_size": [
+      6,
+      12
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow"
+    ],
+    "fps": 60
+  },
+  "rl_observation_space": "12x6 grid state with color IDs, current falling pair position and colors, next pair preview.",
+  "rl_action_space": "0: Move Left, 1: Move Right, 2: Rotate, 3: Soft Drop, 4: Hard Drop",
+  "screenshot": "assets/screenshots/puyo_gameplay.png"
+}

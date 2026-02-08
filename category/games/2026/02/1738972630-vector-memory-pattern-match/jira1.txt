@@ -1,0 +1,18 @@
+Fix error
+
+c:\src\mach-ten-project-artifacts\category\games\2026\02\1738972630-vector-memory-pattern-match>uv run main.py
+pygame 2.6.1 (SDL 2.28.4, Python 3.12.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+Traceback (most recent call last):
+  File "c:\src\mach-ten-project-artifacts\category\games\2026\02\1738972630-vector-memory-pattern-match\main.py", line 13, in <module>
+    main()
+  File "c:\src\mach-ten-project-artifacts\category\games\2026\02\1738972630-vector-memory-pattern-match\main.py", line 9, in main
+    game.run()
+  File "c:\src\mach-ten-project-artifacts\category\games\2026\02\1738972630-vector-memory-pattern-match\game.py", line 166, in run
+    self.handle_input()
+  File "c:\src\mach-ten-project-artifacts\category\games\2026\02\1738972630-vector-memory-pattern-match\game.py", line 77, in handle_input
+    self.board.handle_tile_click(pos)
+  File "c:\src\mach-ten-project-artifacts\category\games\2026\02\1738972630-vector-memory-pattern-match\board.py", line 70, in handle_tile_click
+    correct_tile = self.sequence[self.player_index]
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
