@@ -1,0 +1,38 @@
+{
+  "app_name": "vector-karate-champ-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-023048-vector-karate-champ-logic",
+  "description": "A simplified 1v1 martial arts duel focusing on timing and distance management.",
+  "rationale": "This game targets developers interested in state-machine based combat and AI agents learning adversarial decision-making. It provides a clean environment for testing hitboxes, frame data, and reactive logic without the complexity of modern fighting games.",
+  "details": "The game is a 2D side-scrolling fighting simulation. Two characters (Player and AI/Opponent) face each other on a flat plane. Each character has states: Idle, Moving, Attacking (High/Low), and Blocking. Combat is determined by priority and timing; a successful hit scores a point and resets the round. The game ends when a player reaches 2 points (Best of 3). Movement is restricted to horizontal back-and-forth within a defined arena boundary.",
+  "technical_specs": {
+    "resolution": "800x400",
+    "frame_rate": "60 FPS",
+    "hitbox_logic": "Rectangle-based collision",
+    "state_machine": "Finite State Machine (FSM) for animation and hit recovery"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f main.py) or press ESC",
+  "how_to_play": "Objective: Score 2 points by hitting the opponent. Controls: Left/Right Arrow keys to move, 'A' key for High Punch (fast, low damage/priority), 'S' key for Low Kick (slow, high reach), 'D' key to Block (negates damage if timed correctly). Score increases by 1 for every successful hit landed while the opponent is not blocking.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "reinforcement_learning": {
+    "action_space": [
+      "move_left",
+      "move_right",
+      "attack_high",
+      "attack_low",
+      "block",
+      "idle"
+    ],
+    "observation_space": [
+      "self_pos_x",
+      "opponent_pos_x",
+      "self_state",
+      "opponent_state",
+      "distance"
+    ],
+    "reward_function": "hit_landed: +1.0, hit_received: -1.0, win_match: +5.0, time_penalty: -0.01 per frame"
+  },
+  "screenshot": "assets/screenshots/karate_champ_preview.png"
+}
