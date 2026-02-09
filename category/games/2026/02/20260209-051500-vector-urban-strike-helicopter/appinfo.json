@@ -1,0 +1,32 @@
+{
+  "app_name": "vector-urban-strike-helicopter",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-051500-vector-urban-strike-helicopter",
+  "description": "Navigate a military helicopter through a dense urban landscape to rescue survivors and neutralize threats.",
+  "rationale": "This game focuses on continuous 2D side-scrolling physics and resource management. It targets developers interested in collision detection and AI agents learning to balance multiple objectives like navigation, target acquisition, and fuel management.",
+  "details": "The player controls a helicopter in a side-scrolling urban environment. The screen scrolls automatically from left to right. The player must maintain altitude using rhythmic inputs to counteract gravity. The helicopter has limited fuel that depletes over time and armor that decreases upon colliding with buildings or being hit by enemy fire. Objectives include picking up survivors from rooftops and dropping them off at designated landing pads. The game features enemy anti-air units on the ground that fire projectiles at the player. The graphics should use a clean vector style with high contrast between the player, enemies, and the background environment.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "state_space": [
+      "helicopter_y",
+      "helicopter_velocity_y",
+      "fuel_level",
+      "armor_level",
+      "nearest_enemy_distance",
+      "nearest_survivor_distance"
+    ],
+    "action_space": [
+      "hover",
+      "descend",
+      "shoot",
+      "move_forward"
+    ]
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Use the 'UP' arrow key or 'W' to increase altitude. Use 'SPACE' to fire at ground targets. Fly over survivors on rooftops to pick them up. Land on 'H' pads to drop off survivors and refuel. Score increases by 100 for every survivor rescued and 10 for every enemy destroyed. Game over occurs if fuel reaches zero or armor is depleted.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/gameplay_preview.png"
+}

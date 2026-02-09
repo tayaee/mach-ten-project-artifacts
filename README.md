@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Urban Strike Helicopter](category/games/2026/02/20260209-051500-vector-urban-strike-helicopter/) | Navigate a military helicopter through a dense urban landscape to rescue survivors and neutralize threats.
 * 2026-02-09 | [Vector Puyo Puyo Logic Chain](category/games/2026/02/20260209-050051-vector-puyo-puyo-logic-chain/) | Chain together falling colored blobs to clear the board in this classic gravity-based puzzle.
 * 2026-02-09 | [Vector Ice Hockey Classic](category/games/2026/02/20260209-045050-vector-ice-hockey-classic/) | A fast-paced 1v1 ice hockey duel featuring physics-based puck movement and strategic positioning.
 * 2026-02-09 | [Vector Frogger River Cross](category/games/2026/02/20260209-043051-vector-frogger-river-cross/) | Navigate a frog across a busy river by jumping on moving logs and avoiding obstacles.
