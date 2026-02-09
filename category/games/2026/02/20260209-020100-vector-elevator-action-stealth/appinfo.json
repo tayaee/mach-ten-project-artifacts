@@ -4,7 +4,7 @@
   "folder_name": "category/games/2026/02/20260209-020100-vector-elevator-action-stealth",
   "description": "Infiltrate a high-security building using elevators and tactical movement to retrieve secret data.",
   "rationale": "This game focuses on timing and spatial logic, providing a perfect environment for AI agents to learn strategic positioning and objective-based navigation in a 2D vertical plane.",
-  "details": "The game is a 2D side-scrolling stealth action title inspired by the classic Elevator Action. The player starts at the roof of a building and must descend to the basement to escape. The building features multiple floors connected by moving elevators. Enemies patrol specific floors with predictable patterns. Key features: 1. Elevators move automatically between set floor ranges. 2. Red doors contain secret documents required for completion. 3. Blue doors provide temporary cover. 4. Light fixtures can be shot to create dark zones, reducing enemy detection range. The game engine uses Pygame for rendering and basic physics.",
+  "details": "The game is a 2D side-scrolling stealth action title inspired by the classic Elevator Action. The player starts at the roof of a 30-story building and must descend to the basement to escape. The building features multiple floors connected by moving elevators and stairs. Enemies patrol specific floors with predictable patterns. Key features: 1. Elevators move automatically between set floor ranges. 2. Red doors contain secret documents required for completion. 3. Blue doors provide temporary cover. 4. Light fixtures can be shot to create dark zones, reducing enemy detection range. The game engine uses Pygame for rendering and basic physics.",
   "technical_specs": {
     "resolution": "800x600",
     "frame_rate": 60,
@@ -12,9 +12,9 @@
     "state_representation": "pixel_array_and_vector_coordinates"
   },
   "how_to_build": "uv sync",
-  "how_to_start": "uv run python main.py",
+  "how_to_start": "uv run main.py",
   "how_to_stop": "killall python",
-  "how_to_play": "Goal: Collect all secret documents from red doors and reach the basement exit. Scoring: +500 for each document, +100 for neutralizing an enemy, +1000 for successful escape. Controls: LEFT/RIGHT arrows to move, UP/DOWN arrows to enter elevators or aim, SPACE to jump, Z to fire.",
+  "how_to_play": "Goal: Collect all secret documents from red doors and reach the basement exit. Scoring: +500 for each document, +100 for neutralizing an enemy, +1000 for successful escape. Controls: LEFT/RIGHT arrows to move, UP/DOWN arrows to enter elevators or aim, SPACE to jump or crouch, Z to fire/interact.",
   "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
   "screenshot": "assets/screenshots/elevator-action-preview.png"
 }
