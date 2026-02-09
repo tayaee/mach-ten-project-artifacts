@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-puyo-puyo-logic-chain",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-050051-vector-puyo-puyo-logic-chain",
+  "description": "Chain together falling colored blobs to clear the board in this classic gravity-based puzzle.",
+  "rationale": "This game targets puzzle enthusiasts and AI researchers looking for a discrete state-space environment. It focuses on spatial logic and predictive planning, making it an excellent candidate for reinforcement learning agents to learn complex combo patterns.",
+  "details": "The game consists of a 6x12 grid. Pairs of colored blobs (Puyos) fall from the top. Players can rotate and move these pairs. When four or more Puyos of the same color connect horizontally or vertically, they pop and disappear. Gravity then pulls remaining Puyos down, potentially creating chain reactions (combos) for higher scores. The game ends if the third column from the left fills up to the top. The difficulty increases as the falling speed of Puyos gradually accelerates.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill $(pgrep -f 'python main.py')",
+  "how_to_play": "Goal: Clear Puyos by grouping 4 or more of the same color and trigger chain reactions. Controls: Left/Right Arrow keys to move the falling pair, Up Arrow or 'X' key to rotate clockwise, Down Arrow to soft drop. Scoring: Points are awarded based on the number of Puyos cleared and the length of the chain reaction. Higher chain counts exponentially increase the score.",
+  "how_to_cleanup": "rm -rf .venv",
+  "requirements": [
+    "pygame",
+    "numpy"
+  ],
+  "state_space": "6x12 grid with integer values representing colors (0: empty, 1-5: colors). Current and next falling pair types and rotations.",
+  "action_space": "Move Left, Move Right, Rotate Clockwise, Rotate Counter-Clockwise, Soft Drop, Hard Drop",
+  "reward_structure": "Small positive reward for placing a piece. Large positive reward for clearing Puyos, scaled by (cleared_count * chain_multiplier). Large negative reward for game over."
+}
