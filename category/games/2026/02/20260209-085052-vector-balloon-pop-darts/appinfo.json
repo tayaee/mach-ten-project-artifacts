@@ -1,0 +1,25 @@
+{
+  "app_name": "vector-balloon-pop-darts",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-085052-vector-balloon-pop-darts",
+  "description": "A precision physics puzzle game where you pop all balloons with limited darts.",
+  "rationale": "This game focuses on trajectory calculation and physics-based interactions. It is designed for casual players who enjoy strategic aiming and provides a structured environment for AI agents to learn optimal angle and power variables in a 2D space.",
+  "details": "The game consists of a static launcher at the bottom-left corner and various balloons distributed across the screen. Players must adjust the angle and power of a dart to hit and pop balloons. Some levels include obstacles (walls) and wind vectors that affect the dart's trajectory. Key entities include: 1. Darts: Projectiles affected by gravity. 2. Balloons: Target entities with circular hitboxes. 3. Obstacles: Rectangular blocks that deflect or destroy darts. 4. Wind: A global force vector updated per level. The game ends when all balloons are popped (win) or darts run out (loss).",
+  "tech_stack": {
+    "language": "Python 3.12+",
+    "package_manager": "uv",
+    "graphics_library": "pygame-ce",
+    "configuration": "pyproject.toml"
+  },
+  "game_mechanics": {
+    "gravity": 9.8,
+    "input_mode": "Discrete power and angle selection",
+    "scoring": "100 points per balloon, bonus for remaining darts"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "The goal is to maximize the score by popping all balloons using the fewest darts possible. Controls: 1. Use UP/DOWN arrow keys to adjust the launcher angle. 2. Use LEFT/RIGHT arrow keys to adjust the shot power. 3. Press SPACE to fire the dart. Points are awarded immediately upon balloon collision. AI agents should observe the 'balloons_remaining' state and 'dart_count' to optimize rewards.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "No image available. UI consists of a high-contrast dark background, white vector-style obstacles, and colored circular balloons."
+}
