@@ -1,0 +1,22 @@
+{
+  "app_name": "vector-frogger-river-cross",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-043051-vector-frogger-river-cross",
+  "description": "Navigate a frog across a busy river by jumping on moving logs and avoiding obstacles.",
+  "rationale": "This game focuses on timing and spatial reasoning. It provides a classic arcade challenge that is ideal for testing reinforcement learning agents' ability to predict moving patterns and execute precise movements.",
+  "details": "The game consists of a 10x10 grid. The player starts at the bottom row. The middle rows (3 to 7) represent a river with logs moving horizontally at different speeds and directions. The player must jump on logs to cross the river. If the player stays on a log that moves off-screen, or falls into the water (empty space in river rows), the game ends. The top row is the goal area. Once a player reaches the goal, they earn points and reset to the starting position with increased log speeds.",
+  "technical_specs": {
+    "language": "Python 3.11+",
+    "library": "pygame-ce",
+    "resolution": "600x600",
+    "fps": 60,
+    "state_space": "Grid coordinates (x, y), log positions, and log velocities",
+    "action_space": "Up, Down, Left, Right"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Use Arrow Keys to move the frog. Move from the bottom row to the top row. Jumping on a log grants 10 points. Reaching the goal row grants 100 points. Game ends if the frog touches water or moves out of bounds while on a log. Score is maximized by reaching the goal as many times as possible within the time limit.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/gameplay.png"
+}

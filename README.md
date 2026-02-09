@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Frogger River Cross](category/games/2026/02/20260209-043051-vector-frogger-river-cross/) | Navigate a frog across a busy river by jumping on moving logs and avoiding obstacles.
 * 2026-02-09 | [Vector Popeye Spinach Rescue](category/games/2026/02/20260209-024905-vector-popeye-spinach-rescue/) | Rescue Olive Oyl while avoiding Brutus and collecting spinach for a power boost.
 * 2026-02-09 | [Vector Commando: Base Assault](category/games/2026/02/20260209-024106-vector-commando-base-assault/) | Top-down tactical shooter where you eliminate enemies, navigate obstacles, and capture the enemy flag.
 * 2026-02-09 | [Vector Spy Hunter Road Combat](category/games/2026/02/20260209-023000-vector-spy-hunter-road-combat/) | Drive, shoot, and survive in this high-speed tactical road combat simulator.
