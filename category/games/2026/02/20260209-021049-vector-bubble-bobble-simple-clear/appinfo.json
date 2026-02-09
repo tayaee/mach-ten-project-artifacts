@@ -1,0 +1,42 @@
+{
+  "app_name": "vector-bubble-bobble-simple-clear",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-021049-vector-bubble-bobble-simple-clear",
+  "description": "Clear the screen by trapping monsters in bubbles and popping them in this classic arcade reimagining.",
+  "rationale": "This game focuses on spatial logic and timing. It targets players who enjoy retro arcade mechanics and AI agents learning to coordinate projectile movement with platform navigation.",
+  "details": "The game consists of a single-screen 2D platform layout with walls and platforms. The player controls a character that can move left, right, jump, and blow bubbles. Monsters move horizontally and jump occasionally. When a bubble hits a monster, the monster is trapped inside and floats toward the top of the screen. The player must then touch the trapped bubble to pop it and defeat the monster. If a monster is not popped within a certain time, it escapes and becomes faster. The level is cleared when all monsters are defeated.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "physics": "AABB collision detection with gravity",
+    "entities": [
+      "Player",
+      "Monster",
+      "Bubble",
+      "Platform"
+    ]
+  },
+  "state_space_for_ai": {
+    "observation": "Grid-based representation of platforms, positions of all monsters, positions of all bubbles, and player coordinates.",
+    "action_space": [
+      "Left",
+      "Right",
+      "Jump",
+      "Shoot",
+      "Idle"
+    ]
+  },
+  "reward_structure": {
+    "trapping_monster": 10,
+    "popping_trapped_monster": 50,
+    "clearing_level": 100,
+    "dying": -100,
+    "time_penalty": -0.1
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f main.py) or press ESC",
+  "how_to_play": "Move using Arrow Keys. Press Space to blow bubbles. Trapped monsters float up; touch them to pop. Score increases by 10 for trapping and 50 for popping. Avoid touching untrapped monsters.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/gameplay_v1.png"
+}

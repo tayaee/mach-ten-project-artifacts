@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Bubble Bobble Simple Clear](category/games/2026/02/20260209-021049-vector-bubble-bobble-simple-clear/) | Trap monsters in bubbles and pop them to clear the screen in this classic arcade reimagining.
 * 2026-02-09 | [Vector Elevator Action Stealth](category/games/2026/02/20260209-020100-vector-elevator-action-stealth/) | Infiltrate a high-security building using elevators and tactical movement to retrieve secret data.
 * 2026-02-09 | [Vector Paperboy Delivery Route](category/games/2026/02/20260209-020000-vector-paperboy-delivery-route/) | Navigate suburban streets and deliver newspapers to subscribers while dodging obstacles in this arcade challenge.
 * 2026-02-09 | [Vector Tapper Soda Shop Logic](category/games/2026/02/20260209-015105-vector-tapper-soda-shop-logic/) | Serve thirsty customers before they reach the end of the bar in this fast-paced retro management sim.
