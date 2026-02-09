@@ -6,6 +6,8 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Boulder Dash Logic](category/games/2026/02/20260209-010100-vector-boulder-dash-logic/) | Navigate a hazardous cave to collect diamonds while avoiding falling rocks.
+* 2026-02-09 | [Vector Mario Platformer Lite](category/games/2026/02/20260209-005800-vector-mario-platformer-lite/) | Side-scrolling platformer with physics-based movement, enemies, coins, and a goal flag.
 * 2026-02-08 | [Vector Pinball Gravity Physics](category/games/2026/02/20260208-181000-vector-pinball-gravity-physics/) | A high-stakes minimalist pinball simulation with realistic physics and score multipliers.
 * 2026-02-08 | [Vector Sudoku Logic Puzzle](category/games/2026/02/20260208-175545-vector-sudoku-logic-puzzle/) | Challenge your mind with the ultimate logic-based number placement classic.
 * 2026-02-08 | [Vector Tetris Grid Logic](category/games/2026/02/20260208-175000-vector-tetris-grid-logic/) | Clear horizontal lines using strategically falling geometric blocks in this timeless puzzle classic.

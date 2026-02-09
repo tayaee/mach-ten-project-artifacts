@@ -1,0 +1,15 @@
+[project]
+name = "vector-mario-platformer-lite"
+version = "0.1.0"
+description = "A minimalist side-scrolling platformer game"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame>=2.6.0",
+]
+
+[project.scripts]
+vector-mario-platformer-lite = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

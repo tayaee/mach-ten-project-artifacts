@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-boulder-dash-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-010100-vector-boulder-dash-logic",
+  "description": "Navigate a hazardous cave to collect diamonds while avoiding falling rocks.",
+  "rationale": "This game focuses on spatial reasoning and gravity-based physics puzzles. It targets players who enjoy retro arcade logic games and provides an excellent environment for RL agents to learn pathfinding under environmental constraints.",
+  "details": "The game consists of a 2D grid filled with dirt, rocks, and diamonds. The player (the digger) moves through the grid, removing dirt to create paths. Rules: 1. Gravity affects rocks and diamonds; they fall if there is empty space or a rounded object below them. 2. A falling rock will crush the player, ending the game. 3. Players can push rocks horizontally if there is empty space behind the rock. 4. Collecting a specific number of diamonds opens the exit door. 5. Enemies move in predictable patterns and must be avoided or crushed by falling rocks for extra points.",
+  "technical_specs": {
+    "grid_size": "20x20",
+    "engine": "Pygame",
+    "target_fps": 30,
+    "input_type": "Discrete (Up, Down, Left, Right)",
+    "state_representation": "Multi-channel 2D Array"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. For CLI termination, use Ctrl+C.",
+  "how_to_play": "Goal: Collect all diamonds and reach the exit. Controls: Use Arrow Keys to move the player. Scoring: +10 points per diamond, +50 points for reaching the exit. Game Over: Player is hit by a rock or enemy. RL Strategy: Maximize reward by finding the shortest path to diamonds while predicting rock fall trajectories.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/boulder_dash_preview.png"
+}

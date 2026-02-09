@@ -1,0 +1,11 @@
+[project]
+name = "vector-boulder-dash-logic"
+version = "0.1.0"
+description = "Navigate a hazardous cave to collect diamonds while avoiding falling rocks"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"
