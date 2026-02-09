@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-elevator-action-stealth",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-020048-vector-elevator-action-stealth",
+  "description": "Infiltrate a high-security building using elevators and tactical positioning to retrieve secret documents.",
+  "rationale": "This game focuses on timing and spatial reasoning within a 2D vertical environment. It provides a unique challenge for AI agents to master pathfinding with moving platforms (elevators) and enemy evasion, filling a niche not covered by horizontal platformers or static shooters.",
+  "details": "The player controls a spy navigating a 30-story building. The building consists of floors connected by elevators and stairs. Red doors contain secret documents, while blue doors are empty or contain hazards. Guards patrol specific floors and will shoot on sight. The player can crouch, jump, shoot, and use elevators. The goal is to reach the bottom floor after collecting all documents from red doors. The game uses a simplified vector-based 2D physics engine for movement and collision detection.",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "libraries": [
+      "pygame-ce"
+    ],
+    "resolution": "800x600",
+    "frame_rate": 60
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py') or press ESC key",
+  "how_to_play": "Objective: Collect all documents and reach the exit at the bottom. Scoring: +500 for document collection, +100 for neutralizing guards, -10 per second elapsed. Controls: Left/Right arrows to move, Up/Down arrows to operate elevators or use stairs, Spacebar to shoot, Ctrl to crouch.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "rl_agent_data": {
+    "observation_space": "Box(low=0, high=255, shape=(600, 800, 3), dtype=uint8)",
+    "action_space": "Discrete(6) [idle, left, right, up, down, shoot]",
+    "reward_function": "dense_reward based on distance to nearest document and exit progress"
+  },
+  "screenshot": "assets/screenshots/elevator_action_preview.png"
+}

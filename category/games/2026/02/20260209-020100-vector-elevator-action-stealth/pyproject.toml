@@ -1,0 +1,18 @@
+[project]
+name = "vector-elevator-action-stealth"
+version = "0.1.0"
+description = "Infiltrate a high-security building using elevators and tactical movement to retrieve secret data"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+vector-elevator-action-stealth = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
