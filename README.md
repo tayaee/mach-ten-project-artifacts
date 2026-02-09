@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Kung Fu Master Climb](category/games/2026/02/20260209-061052-vector-kung-fu-master-climb/) | Side-scrolling martial arts action where timing and positioning are everything.
 * 2026-02-09 | [Vector Motos: Gravity Clash](category/games/2026/02/20260209-060000-vector-motos-gravity-clash/) | Bump enemies off the edge in a high-stakes physics-based arena combat.
 * 2026-02-09 | [Vector Wonder Boy Skate Dash](category/games/2026/02/20260209-055050-vector-wonder-boy-skate-dash/) | Master momentum-based physics in this side-scrolling skateboard platformer with vitality management.
 * 2026-02-09 | [Vector Adventure Island Jump](category/games/2026/02/20260209-053051-vector-adventure-island-jump/) | Navigate a prehistoric landscape by jumping over obstacles and collecting fruit to maintain stamina.

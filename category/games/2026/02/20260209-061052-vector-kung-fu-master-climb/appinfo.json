@@ -1,0 +1,41 @@
+{
+  "app_name": "vector-kung-fu-master-climb",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-061052-vector-kung-fu-master-climb",
+  "description": "Side-scrolling martial arts action where timing and positioning are everything.",
+  "rationale": "This game focuses on rhythmic combat and spatial management. It provides an excellent environment for AI agents to learn sequential decision-making and reaction-based defense in a 2D plane.",
+  "details": "A simplified tribute to the classic arcade beat 'em up. The player controls a martial artist moving through a narrow corridor. Enemies approach from both the left and right sides. There are two main enemy types: Grippers who drain energy by contact and Knife Throwers who attack from a distance. The player must use high and low attacks to neutralize threats. The floor progresses through 5 stages, ending with a boss encounter that requires specific patterns to defeat. Physics are strictly grid-based for predictable agent interaction.",
+  "game_mechanics": {
+    "player_actions": [
+      "Move Left",
+      "Move Right",
+      "High Punch",
+      "Low Kick",
+      "Jump",
+      "Crouch"
+    ],
+    "enemy_types": [
+      "Standard Grunt",
+      "Knife Thrower",
+      "Boss"
+    ],
+    "scoring_system": {
+      "grunt_defeat": 100,
+      "knife_deflect": 200,
+      "boss_defeat": 5000,
+      "time_bonus": "Remaining seconds * 10"
+    },
+    "health_system": "Numerical HP (0-100), decreases on contact, game over at 0."
+  },
+  "technical_specs": {
+    "resolution": "800x400",
+    "framework": "Pygame",
+    "state_representation": "Entity coordinates (x, y), enemy type, projectile velocity, player state."
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "Press 'ESC' key or terminate the process (SIGINT).",
+  "how_to_play": "Use the Left and Right arrow keys to move. Press 'Z' for a high punch to hit standing enemies and 'X' for a low kick to hit crouching enemies or small obstacles. Avoid letting enemies touch you (Grippers). Jump using the Up arrow to avoid projectiles. Your goal is to reach the right end of the level and defeat the boss while maintaining HP. Score increases by defeating enemies and finishing quickly.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/kung_fu_master_preview.png"
+}

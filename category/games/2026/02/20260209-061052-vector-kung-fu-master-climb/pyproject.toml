@@ -1,0 +1,23 @@
+[project]
+name = "vector-kung-fu-master-climb"
+version = "0.1.0"
+description = "Side-scrolling martial arts action where timing and positioning are everything"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+vector-kung-fu-master-climb = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+exclude = [
+    "*.pyc",
+    "__pycache__",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
