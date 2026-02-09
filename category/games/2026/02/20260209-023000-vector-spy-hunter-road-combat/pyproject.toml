@@ -1,0 +1,16 @@
+[project]
+name = "vector-spy-hunter-road-combat"
+version = "0.1.0"
+description = "Drive, shoot, and survive in this high-speed tactical road combat simulator."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+start = "main:main"

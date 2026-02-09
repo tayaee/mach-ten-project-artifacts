@@ -1,0 +1,22 @@
+{
+  "app_name": "vector-spy-hunter-road-combat",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-023000-vector-spy-hunter-road-combat",
+  "description": "Drive, shoot, and survive in this high-speed tactical road combat simulator.",
+  "rationale": "This game focuses on top-down scrolling mechanics, collision detection, and weapon resource management. It provides an excellent environment for RL agents to learn pathfinding while simultaneously handling offensive and defensive tasks in a dynamic environment.",
+  "details": "A simplified vertical scrolling vehicular combat game. The player controls a high-speed vehicle on a three-lane highway. Obstacles include civilian cars (avoid), enemy agents (destroy), and road hazards (oil slicks). The player can use a forward-facing machine gun and a rear-facing smoke screen. The road curves slightly over time to increase difficulty. The game speed increases progressively as the player travels further. Enemies will attempt to ram the player or shoot from behind.",
+  "technical_specs": {
+    "language": "Python 3.11+",
+    "framework": "Pygame",
+    "resolution": "400x600",
+    "color_scheme": "Monochrome/Vector Style (Green on Black)",
+    "state_space": "Player position (x, y), enemy relative positions, weapon cooldowns, distance traveled",
+    "action_space": "Left, Right, Accelerate, Decelerate, Fire Gun, Smoke Screen"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Score increases by 10 points for every 100 meters traveled and 50 points for every enemy vehicle destroyed. Hitting a civilian car or obstacle results in -20 points and a speed penalty. Crashing into an enemy results in -100 points and game over. Controls: Arrow Keys for movement, 'Z' to fire machine gun (forward), 'X' to deploy smoke (backward).",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/spy-hunter-preview.png"
+}

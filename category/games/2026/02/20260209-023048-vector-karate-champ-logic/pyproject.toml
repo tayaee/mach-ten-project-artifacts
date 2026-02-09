@@ -1,0 +1,15 @@
+[project]
+name = "vector-karate-champ-logic"
+version = "0.1.0"
+description = "A simplified 1v1 martial arts duel focusing on timing and distance management"
+authors = [
+    {name = "Mach Ten Project"}
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

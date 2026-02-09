@@ -1,0 +1,32 @@
+{
+  "app_name": "vector-track-and-field-dash",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-023100-vector-track-and-field-dash",
+  "description": "A rhythm-based athletic dash inspired by classic track and field button-mashing games.",
+  "rationale": "This game focuses on rapid input timing and stamina management. It is ideal for testing AI agent responsiveness and high-frequency alternating input patterns, targeting fans of classic arcade sports games.",
+  "details": "The game simulates a 100-meter dash. The player controls an athlete on a linear track. To gain speed, the player must alternate between two specific keys. If the same key is pressed twice in a row, the athlete stumbles and loses velocity. The environment includes a stadium background and a finish line. The game includes a timer and a distance-to-finish indicator. Complexity is added through a stamina bar that depletes faster at maximum speed, requiring tactical pacing.",
+  "game_mechanics": {
+    "acceleration_logic": "Speed increases with correct alternating key presses (Left -> Right -> Left). Frequency of alternation determines the velocity.",
+    "stumble_penalty": "Pressing the same key twice or missing a rhythm window results in a 1.5-second speed reduction.",
+    "stamina_system": "Sprinting at over 90% max speed consumes stamina. When stamina reaches 0, max speed is capped at 50% until it recovers.",
+    "win_condition": "Crossing the 100m finish line in the shortest time possible."
+  },
+  "technical_specs": {
+    "framework": "Pygame",
+    "resolution": "800x400",
+    "input_type": "Keyboard",
+    "state_space": [
+      "distance_covered",
+      "current_velocity",
+      "stamina_level",
+      "last_key_pressed",
+      "time_elapsed"
+    ]
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press ESC or close the window. For agents, send SIGINT.",
+  "how_to_play": "Goal: Finish the 100m race in minimum time. Controls: Alternately press the LEFT_ARROW and RIGHT_ARROW keys to accelerate. Scoring: Score is calculated as (10000 / finish_time_in_seconds). Faster times result in higher scores.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/track_and_field_dash.png"
+}

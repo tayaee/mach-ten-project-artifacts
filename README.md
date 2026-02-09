@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Track and Field Dash](category/games/2026/02/20260209-023100-vector-track-and-field-dash/) | A rhythm-based 100m sprint where alternating key presses build speed and stamina management determines victory.
 * 2026-02-09 | [Vector Circus Charlie Jump](category/games/2026/02/20260209-022200-vector-circus-charlie-jump/) | Master the timing of jumping through flaming hoops in this classic circus-themed arcade challenge.
 * 2026-02-09 | [Vector Outrun Highway Drive](category/games/2026/02/20260209-022049-vector-outrun-highway-drive/) | Retro pseudo-3D highway racing with high-speed dodging and distance scoring.
 * 2026-02-09 | [Vector Mappy Police Chase](category/games/2026/02/20260209-021032-vector-mappy-police-chase/) | Navigate a multi-story mansion as a police mouse to retrieve stolen goods while avoiding agile cats.
