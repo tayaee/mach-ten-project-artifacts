@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-10 | [Vector Super Mario Bros Pipe Warp](category/games/2026/02/20260210-091530-vector-super-mario-bros-pipe-warp/) | Navigate Mario through a vertical maze of pipes and enemies to reach the secret warp zone.
 * 2026-02-10 | [Vector Missile Command Defense](category/games/2026/02/20260210-080000-vector-missile-command-defense/) | Defend your cities from incoming ballistic missiles in this classic vector-style defense simulator.
 * 2026-02-10 | [Vector Super Mario Bros Mushroom Chase](category/games/2026/02/20260210-073052-vector-super-mario-bros-mushroom-chase/) | Catch the bouncing magic mushroom across moving platforms before it falls into the abyss.
 * 2026-02-10 | [Vector Ice Hockey Slapshot](category/games/2026/02/20260210-070052-vector-ice-hockey-slapshot/) | Physics-based 1v1 ice hockey duel with slapshot mechanics and elastic puck collisions.

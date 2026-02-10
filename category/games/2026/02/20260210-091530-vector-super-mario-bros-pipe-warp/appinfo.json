@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-super-mario-bros-pipe-warp",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-091530-vector-super-mario-bros-pipe-warp",
+  "description": "Navigate Mario through a vertical maze of pipes and enemies to reach the secret warp zone.",
+  "rationale": "This game focuses on vertical movement and precision timing, providing a different challenge from standard horizontal platformers. It targets casual players who enjoy classic Mario aesthetics and AI agents learning spatial navigation and obstacle avoidance.",
+  "details": "The game features a vertical scrolling screen where Mario must jump between platforms and pipes. Some pipes act as solid ground, while others have Piranha Plants emerging at intervals. The objective is to climb as high as possible. Gravity is applied to Mario, and he can move left, right, and jump. If Mario touches a Piranha Plant or falls off the bottom of the screen, the game ends. Collecting coins increases the score, and reaching the top pipe triggers the 'Warp Zone' victory.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "400x600",
+    "fps": 60,
+    "input": "Keyboard",
+    "python_version": "3.11+"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Use LEFT/RIGHT ARROW keys to move and SPACEBAR to jump. Score 10 points for every platform reached and 50 points for each coin collected. Avoid Piranha Plants that pop out of pipes. The goal is to reach the Golden Pipe at the top.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "ai_agent_hints": {
+    "state_space": "Mario position (x,y), Velocity (vx, vy), Piranha Plant states (is_up/is_down), Coin positions.",
+    "action_space": "[Left, Right, Jump, Idle]",
+    "reward_function": "+1 per pixel height increase, +50 for coins, -1000 for collision/death."
+  },
+  "screenshot": "No image available"
+}

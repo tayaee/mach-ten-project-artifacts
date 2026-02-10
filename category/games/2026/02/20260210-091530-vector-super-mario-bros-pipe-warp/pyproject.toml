@@ -1,0 +1,20 @@
+[project]
+name = "vector-super-mario-bros-pipe-warp"
+version = "0.1.0"
+description = "Navigate Mario through a vertical maze of pipes and enemies to reach the secret warp zone."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.6.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+exclude = [
+    "*.pyc",
+    "__pycache__",
+]
