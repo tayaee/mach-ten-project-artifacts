@@ -1,0 +1,30 @@
+{
+  "app_name": "vector-super-mario-bros-water-swim-avoid",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-163500-vector-super-mario-bros-water-swim-avoid",
+  "description": "Master neutral buoyancy and navigate a dangerous underwater maze in this classic aquatic challenge.",
+  "rationale": "Underwater levels provide a unique physics challenge distinct from land-based platforming. This project focuses on variable gravity, momentum conservation, and hitbox precision, making it an excellent environment for training AI agents to handle non-standard movement mechanics and timing-based obstacle avoidance.",
+  "details": "The game simulates the underwater physics of classic platformers. The player character (Mario) is subject to low gravity and high drag. Pressing the jump key applies an upward impulse, while gravity slowly pulls the character down. The level consists of a horizontally scrolling sea floor filled with static obstacles (coral, pipes) and dynamic hazards (Bloobers and Cheep Cheeps). The goal is to reach the end of the stage without touching any enemies or hazardous tiles. The screen follows the player from left to right, preventing backtracking.",
+  "game_mechanics": {
+    "gravity": 0.05,
+    "buoyancy_impulse": -2.5,
+    "max_fall_speed": 1.5,
+    "horizontal_speed": 2.0,
+    "enemy_types": [
+      "Blooper (moves in jerky upward patterns)",
+      "Cheep Cheep (swims horizontally)"
+    ]
+  },
+  "technical_stack": {
+    "language": "Python 3.11+",
+    "framework": "Pygame-ce",
+    "dependency_manager": "uv",
+    "build_system": "pyproject.toml"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py')",
+  "how_to_play": "Goal: Navigate to the far right of the level. Score: Increased by 10 points for every 100 pixels traveled horizontally. Controls: [SPACE] or [UP] to swim upward (repeated tapping required to stay afloat), [LEFT]/[RIGHT] to move horizontally. Collision with any enemy or obstacle results in an immediate Game Over (reward: -100). Reaching the goal flag rewards +500.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/water-swim-avoid-preview.png"
+}

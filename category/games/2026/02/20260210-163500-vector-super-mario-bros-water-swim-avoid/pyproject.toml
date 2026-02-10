@@ -1,0 +1,13 @@
+[project]
+name = "vector-super-mario-bros-water-swim-avoid"
+version = "0.1.0"
+description = "Underwater platformer with neutral buoyancy and obstacle avoidance"
+requires-python = ">=3.11,<3.14"
+dependencies = ["pygame>=2.5.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
