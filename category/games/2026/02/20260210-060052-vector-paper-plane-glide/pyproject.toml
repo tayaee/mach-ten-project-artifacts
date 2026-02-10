@@ -1,0 +1,11 @@
+[project]
+name = "vector-paper-plane-glide"
+version = "0.1.0"
+description = "Master the art of gliding through evolving narrow corridors"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

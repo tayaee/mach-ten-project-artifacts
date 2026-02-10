@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-paper-plane-glide",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-060052-vector-paper-plane-glide",
+  "description": "Master the art of gliding through evolving narrow corridors in this physics-based flight skill game.",
+  "rationale": "This game focuses on delicate physics management and spatial awareness. It targets casual gamers looking for a 'easy to learn, hard to master' experience and provides an excellent environment for AI agents to learn continuous control and predictive pathfinding.",
+  "details": "The player controls a paper plane that constantly moves forward (left to right). The game uses a simple physics model where gravity pulls the plane down, and 'lifting' (pressing a key) pushes it up, but consumes momentum. The environment consists of procedurally generated caves or corridors with varying heights. Touching the ceiling or floor results in a game over. The goal is to survive as long as possible while collecting air currents (score multipliers). Unlike 'Flappy Bird', the movement is smoother, mimicking a glide rather than a frantic flap.",
+  "tech_stack": {
+    "language": "Python 3.12+",
+    "framework": "Pygame-ce",
+    "dependency_manager": "uv",
+    "configuration": "pyproject.toml"
+  },
+  "game_mechanics": {
+    "gravity_constant": 0.25,
+    "lift_force": -0.5,
+    "terminal_velocity": 8.0,
+    "scroll_speed_increment": 0.001
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Objective: Travel the maximum distance without colliding. Controls: Press and hold the SPACE BAR or UP ARROW to apply lift and ascend. Release to glide down under gravity. Scoring: 10 points per second survived, 100 points per 'Air Current' (blue circles) collected. Game ends immediately upon hitting any obstacle or boundary.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "N/A"
+}

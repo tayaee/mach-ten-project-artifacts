@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-10 | [Vector Paper Plane Glide](category/games/2026/02/20260210-060052-vector-paper-plane-glide/) | Master the art of gliding through evolving narrow corridors in this physics-based flight skill game.
 * 2026-02-10 | [Vector Super Mario Bros Enemy Stomp](category/games/2026/02/20260210-053052-vector-super-mario-bros-enemy-stomp/) | Master the art of the precision jump by stomping enemies in a continuous gauntlet.
 * 2026-02-10 | [Vector Frogger Lilypad Hop](category/games/2026/02/20260210-050052-vector-frogger-lilypad-hop/) | Navigate a rhythmic river crossing challenge by hopping on moving lilypads to reach the goal.
 * 2026-02-10 | [Vector Super Mario Bros Jump Platform](category/games/2026/02/20260210-043051-vector-super-mario-bros-jump-platform/) | Navigate moving platforms to reach the goal flag in this horizontal platformer with realistic physics.
