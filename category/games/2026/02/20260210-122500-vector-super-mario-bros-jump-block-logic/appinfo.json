@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-super-mario-bros-jump-block-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-122500-vector-super-mario-bros-jump-block-logic",
+  "description": "Master the precision of vertical jumping to activate mystery blocks and collect hidden rewards.",
+  "rationale": "This game focuses on the fundamental mechanic of vertical collision and timing. It targets players who enjoy retro-style skill challenges and serves as an ideal environment for AI agents to learn spatial coordination and gravity-based physics interactions.",
+  "details": "The game features a player-controlled character on a 2D horizontal plane with a focus on verticality. Multiple types of blocks (Mystery, Brick, Solid) are arranged at various heights. The core engine uses a gravity constant and velocity-based jumping. Mystery blocks change state when hit from below, releasing a coin or a power-up. Bricks may fragment upon impact if certain conditions are met. The environment is rendered in a clean, vector-style monochrome or limited-color palette to maintain high contrast for visual processing agents.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps_target": 60,
+    "physics_engine": "Simplified AABB Collision",
+    "gravity": 0.8,
+    "jump_force": -15.0
+  },
+  "reward_structure": {
+    "hit_mystery_block": 100,
+    "collect_coin": 200,
+    "break_brick": 50,
+    "miss_penalty": -1
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Use the LEFT and RIGHT arrow keys to move horizontally. Press the SPACE bar to jump. Position the character directly under a block and jump so that the character's head makes contact with the bottom of the block. Score increases by hitting blocks and collecting the resulting items. The goal is to clear all mystery blocks in the shortest time possible.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/jump_block_logic.png"
+}

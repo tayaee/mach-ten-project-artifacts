@@ -1,0 +1,8 @@
+[project]
+name = "vector-super-mario-bros-jump-block-logic"
+version = "0.1.0"
+description = "Master the precision of vertical jumping to activate mystery blocks and collect hidden rewards."
+requires-python = ">=3.11"
+dependencies = [
+    "pygame>=2.6.1",
+]

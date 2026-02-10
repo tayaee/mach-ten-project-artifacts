@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-10 | [Vector Super Mario Bros Jump Block Logic](category/games/2026/02/20260210-122500-vector-super-mario-bros-jump-block-logic/) | Master the precision of vertical jumping to activate mystery blocks and collect hidden rewards.
 * 2026-02-10 | [Vector Super Mario Bros Fireball Target](category/games/2026/02/20260210-100055-vector-super-mario-bros-fireball-target/) | Master the arc of the legendary fireball to defeat moving targets in this precision timing challenge.
 * 2026-02-10 | [Vector Super Mario Bros Brick Smash](category/games/2026/02/20260210-093000-vector-super-mario-bros-brick-smash/) | Smash bricks and collect hidden power-ups in this precision jumping challenge.
 * 2026-02-10 | [Vector Super Mario Bros Pipe Warp](category/games/2026/02/20260210-091530-vector-super-mario-bros-pipe-warp/) | Navigate Mario through a vertical maze of pipes and enemies to reach the secret warp zone.
