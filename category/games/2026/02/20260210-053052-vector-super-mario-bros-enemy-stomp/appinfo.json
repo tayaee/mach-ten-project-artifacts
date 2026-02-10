@@ -1,0 +1,28 @@
+{
+  "app_name": "vector-super-mario-bros-enemy-stomp",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-053052-vector-super-mario-bros-enemy-stomp",
+  "description": "Master the art of the precision jump by stomping enemies in a continuous gauntlet.",
+  "rationale": "This game focuses on the most fundamental skill of classic platformers: jump timing and spatial accuracy. It provides a perfect environment for Reinforcement Learning agents to learn parabolic movement and collision detection without the complexity of full level navigation.",
+  "details": "A 2D side-scrolling gauntlet where the player controls a character moving only horizontally and jumping. Enemies (Goomba-like squares) spawn from the right side and move left at varying speeds. The player must stomp on top of them to defeat them and gain points. Falling on the side or being touched by an enemy results in a game over. The speed and frequency of enemy spawns increase over time. The physics include gravity and acceleration to mimic the classic feel.",
+  "how_to_build": "uv run python -m build",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill $(pgrep -f 'python main.py')",
+  "how_to_play": "Goal: Survive as long as possible and achieve a high score by stomping enemies. Controls: Use the 'Left' and 'Right' arrow keys to move. Press 'Space' to jump. Scoring: +100 points for every enemy stomped. Combo Multiplier: Stomping multiple enemies without touching the ground doubles the points per stomp (100, 200, 400...). Game Over: Occurs if the player makes contact with an enemy's side or top-left/right corner without falling downward.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x400",
+    "gravity": 0.8,
+    "jump_strength": -15,
+    "player_speed": 5
+  },
+  "agent_observations": [
+    "player_x_position",
+    "player_y_velocity",
+    "nearest_enemy_distance",
+    "nearest_enemy_speed",
+    "is_grounded"
+  ],
+  "screenshot": "N/A"
+}

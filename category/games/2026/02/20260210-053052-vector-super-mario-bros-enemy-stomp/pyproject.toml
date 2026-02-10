@@ -1,0 +1,15 @@
+[project]
+name = "vector-super-mario-bros-enemy-stomp"
+version = "0.1.0"
+description = "Master the art of the precision jump by stomping enemies in a continuous gauntlet."
+requires-python = ">=3.9"
+dependencies = [
+    "pygame",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+vector-super-mario-bros-enemy-stomp = "vector_super_mario_bros_enemy_stomp:main"
