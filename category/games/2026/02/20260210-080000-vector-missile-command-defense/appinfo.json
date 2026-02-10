@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-missile-command-defense",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-080000-vector-missile-command-defense",
+  "description": "Defend your cities from a rain of incoming ballistic missiles in this classic vector-style defense simulator.",
+  "rationale": "This game focuses on spatial targeting and resource management. It is ideal for testing AI agents' ability to prioritize threats based on proximity and trajectory, making it a perfect candidate for reinforcement learning in defensive strategy scenarios.",
+  "details": "The game consists of a 2D screen with 6 cities and 3 missile batteries located at the bottom. Enemy missiles (slow-moving lines) descend from the top of the screen toward the cities or batteries. The player must fire interceptor missiles from their batteries. Interceptor missiles travel to the point of a mouse click (or coordinate) and explode, creating a blast radius. Any enemy missile entering the blast radius is destroyed. The player has limited ammunition per battery. The game ends when all cities are destroyed. Points are awarded for each enemy missile intercepted, with bonuses for remaining missiles and cities at the end of each wave.",
+  "technical_requirements": {
+    "language": "python",
+    "library": "pygame-ce",
+    "environment_management": "uv",
+    "render_mode": "vector-based graphics (monochrome or high contrast)"
+  },
+  "game_mechanics": {
+    "enemy_missile_speed": "Progressively increases per wave",
+    "blast_radius_duration": "1.5 seconds",
+    "ammo_count": "10 missiles per battery, refills per wave",
+    "win_condition": "Survival of at least one city through multiple waves",
+    "lose_condition": "Zero cities remaining"
+  },
+  "how_to_build": "uv init && uv add pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py') or press ESC",
+  "how_to_play": "Move the crosshair using the mouse or coordinate inputs. Press '1', '2', or '3' to fire an interceptor from the respective battery (Left, Middle, Right). Aim ahead of the enemy missile's path so it enters the blast radius. Scoring: Intercepted missile = 25 points, Saved city = 100 points per wave.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
+  "screenshot": "N/A"
+}

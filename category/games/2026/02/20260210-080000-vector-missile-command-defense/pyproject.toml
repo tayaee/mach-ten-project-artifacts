@@ -1,0 +1,8 @@
+[project]
+name = "20260210-080000-vector-missile-command-defense"
+version = "0.1.0"
+description = "Defend your cities from a rain of incoming ballistic missiles in this classic vector-style defense simulator."
+requires-python = ">=3.10"
+dependencies = [
+    "pygame-ce",
+]
