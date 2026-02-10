@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-clacker-physics-ball",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-020051-vector-clacker-physics-ball",
+  "description": "Master the momentum of swinging balls in this minimalist physics rhythm game.",
+  "rationale": "Inspired by the classic Clacker (Lato-lato) toy, this game provides a high-fidelity physics environment for testing momentum and collision logic. It is targeted at users who enjoy skill-based physics challenges and AI agents learning periodic motion and timing.",
+  "details": "The game features two balls attached to strings connected to a single pivot point controlled by the player. The physics engine simulates gravity, tension, and elastic collisions. The goal is to move the pivot vertically to build momentum, causing the balls to swing and eventually collide at both the bottom and top of their arc in a steady rhythm. The speed increases as the player maintains the 'clacking' state. A collision at the top (180 degrees) grants bonus points.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "physics": "Pendulum dynamics with elastic collision",
+    "resolution": "800x600",
+    "state_space": [
+      "pivot_y",
+      "ball1_angle",
+      "ball2_angle",
+      "angular_velocity",
+      "tension"
+    ]
+  },
+  "how_to_build": "uv init && uv add pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill the process or press ESC",
+  "how_to_play": "Use the UP and DOWN arrow keys to move the handle (pivot) vertically. Your goal is to make the two balls collide. Points are awarded for each collision. Consecutive collisions increase the multiplier. If you maintain the rhythm long enough to make the balls collide at the top of the circle, you receive a massive score boost. Game over occurs if the rhythm is lost and the balls stop for more than 3 seconds.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "No screenshot available"
+}

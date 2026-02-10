@@ -1,0 +1,7 @@
+[project]
+name = "vector-clacker-physics-ball"
+version = "0.1.0"
+dependencies = ["pygame-ce"]
+
+[tool.uv]
+dev-dependencies = []
