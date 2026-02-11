@@ -1,0 +1,22 @@
+{
+  "app_name": "vector-super-mario-bros-multi-level-platformer",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-213500-vector-super-mario-bros-multi-level-platformer",
+  "description": "A classic side-scrolling platformer featuring procedural level progression and physics-based movement.",
+  "rationale": "This app targets AI agents learning spatial navigation and sequence timing. Unlike single-mechanic variants, it integrates jumping, enemy evasion, and goal-seeking in a continuous environment, providing a robust testbed for reinforcement learning and pathfinding algorithms.",
+  "details": "The game is a simplified 2D side-scroller. Players control a character that can move left/right and jump. The level consists of a 2D grid with solid blocks (ground/platforms), hazards (pits), and mobile enemies (moving back and forth). The goal is to reach the flagpole at the far right of the map. Physics include gravity, inertia, and collision detection for platform edges. Enemies are defeated if jumped upon from above, otherwise they damage the player on contact.",
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Score increases by collecting coins (+100) and defeating enemies (+200). Reaching the flagpole grants a massive bonus (+5000) and advances to the next level. Controls: Left/Right Arrow keys for movement, Spacebar for jumping. Avoid falling into pits or touching enemies from the side. High score is saved in a local json file.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "game_mechanics": {
+    "gravity_constant": 0.8,
+    "jump_force": -15,
+    "movement_speed": 5,
+    "screen_resolution": "800x600",
+    "frame_rate": 60
+  },
+  "ai_observation_space": "Array of 2D coordinates for player, enemies, and platforms within a 400px radius; current velocity; jumping state.",
+  "screenshot": "assets/screenshots/mario_platformer_v1.png"
+}
