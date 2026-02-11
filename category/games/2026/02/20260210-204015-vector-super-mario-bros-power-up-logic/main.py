@@ -164,7 +164,7 @@ class Player:
 
         # Draw fire indicator
         if self.state == STATE_FIRE:
-            pygame.draw.circle(surface, COLOR_FIREBALL, (int(self.x) + 5, int(self.y) + 20, 3))
+            pygame.draw.circle(surface, COLOR_FIREBALL, (int(self.x) + 5, int(self.y) + 20), 3)
 
 
 class Fireball:
