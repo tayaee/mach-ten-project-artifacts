@@ -119,11 +119,8 @@ mach-ten-project-artifacts/
 Each app is self-contained with its own dependencies. Navigate to the app's folder and run:
 
 ```bash
-# Install dependencies
-uv sync
-
 # Run the game
-uv run python main.py
+uv run --no-active --python 3.12 python main.py
 ```
 
 ## Contributing
