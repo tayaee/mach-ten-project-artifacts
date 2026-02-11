@@ -1,0 +1,30 @@
+{
+  "app_name": "vector-kung-fu-kick-timing",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-042627-vector-kung-fu-kick-timing",
+  "description": "Master the art of the perfect strike in this rhythm-based martial arts defense game.",
+  "rationale": "Timing-based games provide a clear reward structure for reinforcement learning agents. This project focuses on high-precision action selection and collision detection, targeting players and AI researchers interested in reflex-based mechanics.",
+  "details": "The game is a simplified 2D side-view martial arts action game. The player character is positioned in the center of the screen. Enemies approach from both the left and right sides at varying speeds. The player can perform two actions: Left Kick and Right Kick. A kick is successful if an enemy is within the effective range during the active frame of the animation. If an enemy touches the player's central collision box before being kicked, the player loses a life. The game difficulty increases as the frequency and speed of enemies increase over time.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "frame_rate": "60 FPS",
+    "input_type": "Discrete Key Input",
+    "state_representation": "Enemy distance, direction, and velocity vectors"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'uv run main.py')",
+  "how_to_play": "Goal: Defeat as many enemies as possible without losing all lives. Score 100 points for each enemy defeated. Use the 'Left Arrow' key to kick left and the 'Right Arrow' key to kick right. Timing is crucial; kicking too early or too late will result in a miss and vulnerability.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "observation_space": {
+    "player_pos": "[x, y]",
+    "enemies": "List of [distance, direction, speed]",
+    "lives_remaining": "Integer (1-3)"
+  },
+  "action_space": {
+    "0": "Idle",
+    "1": "Kick Left",
+    "2": "Kick Right"
+  },
+  "screenshot": "No image available"
+}
