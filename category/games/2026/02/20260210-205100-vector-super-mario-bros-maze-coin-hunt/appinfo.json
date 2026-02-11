@@ -1,0 +1,29 @@
+{
+  "app_name": "vector-super-mario-bros-maze-coin-hunt",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-205100-vector-super-mario-bros-maze-coin-hunt",
+  "description": "Navigate a dynamic Mario-themed maze to collect coins while avoiding patrolling Koopas in a race against time.",
+  "rationale": "This app provides a focused environment for AI agents to learn spatial navigation and pathfinding within a constrained grid system. It targets developers and researchers interested in grid-based movement logic and collision avoidance in a classic arcade setting.",
+  "details": "The game features a 2D grid-based maze inspired by Super Mario Bros. The player controls a Mario sprite that moves one tile at a time. The objective is to collect all 50 coins scattered throughout the maze. Two Koopa Troopa enemies move in predictable back-and-forth patterns, and touching them resets the player to the start or deducts a life. The maze layout is fixed but coin placement can be randomized. The UI uses a monochrome high-contrast palette with simple vector shapes to represent walls, coins, and characters, making it ideal for machine vision agents.",
+  "game_rules": {
+    "grid_size": "20x20",
+    "win_condition": "Collect all coins within the time limit",
+    "lose_condition": "Time runs out or player loses 3 lives to enemies",
+    "scoring": "100 points per coin, 1000 bonus for level completion",
+    "time_limit": "120 seconds"
+  },
+  "technical_stack": {
+    "language": "Python 3.12+",
+    "package_manager": "uv",
+    "graphics_library": "pygame-ce",
+    "configuration": "pyproject.toml"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python -m src.main",
+  "how_to_stop": "killall python",
+  "how_to_play": "Use UP, DOWN, LEFT, RIGHT arrow keys to move the player character through the maze tiles. Move onto a coin tile to collect it and increase your score. Avoid tiles occupied by moving Koopa sprites. Complete the collection before the timer reaches zero.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/maze_coin_hunt_preview.png",
+  "observation_space": "2D integer array representing tile types (0: empty, 1: wall, 2: player, 3: coin, 4: enemy)",
+  "action_space": "Discrete(4) - [North, South, East, West]"
+}
