@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-super-mario-bros-jump-and-dash-pro",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-145327-vector-super-mario-bros-jump-and-dash-pro",
+  "description": "Master the art of momentum in this high-speed precision platformer challenge.",
+  "rationale": "This app targets AI agents and developers interested in momentum-based physics and precise timing. It bridges the gap between simple jumping and complex platforming by focusing on horizontal velocity management and obstacle avoidance, providing a rich environment for reinforcement learning.",
+  "details": "The game is a simplified 2D side-scrolling platformer. The player controls a character on a 1D horizontal plane with vertical jumping capabilities. Key features include: 1) Gravity physics with acceleration and terminal velocity. 2) Variable jump height based on key-press duration. 3) Running momentum where horizontal speed increases over time. 4) Environmental hazards: Bottomless pits and stationary spikes. 5) Success condition: Reaching the goal post at the far right of the level. The game state is represented by a grid-based coordinate system for easy parsing by AI agents.",
+  "technical_specs": {
+    "engine": "Python with Pygame",
+    "resolution": "800x400",
+    "fps": 60,
+    "observation_space": "Player (x, y, vx, vy), Nearest Obstacle (x, y), Distance to Goal"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f main.py) or press ESC in the window",
+  "how_to_play": "Goal: Reach the goal post at the right end of the map. Scoring: Points awarded for distance traveled and a large bonus for reaching the goal. Penalty: Falling into pits or hitting spikes resets the level and deducts score. Controls: Left/Right Arrow keys for movement, Spacebar to jump (hold for higher jump).",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
