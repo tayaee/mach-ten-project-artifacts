@@ -2,5 +2,5 @@
 REM Run script for Pygame application (Python 3.12 required)
 REM Pygame is not compatible with Python 3.14
 
-uv run --no-active --python 3.12 main.py
+uv run --no-active --python 3.12 --with pygame main.py
 pause
