@@ -1,0 +1,15 @@
+[project]
+name = "vector-super-mario-bros-infinite-bridge-sprint"
+version = "0.1.0"
+description = "An endless running challenge where Mario must sprint across a decaying bridge while dodging fireballs and Cheep Cheeps"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

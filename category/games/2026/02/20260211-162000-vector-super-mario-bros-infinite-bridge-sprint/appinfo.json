@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-super-mario-bros-infinite-bridge-sprint",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-162000-vector-super-mario-bros-infinite-bridge-sprint",
+  "description": "An endless running challenge where Mario must sprint across a decaying bridge while dodging fireballs and Cheep Cheeps.",
+  "rationale": "This game focuses on high-speed reflex testing and resource management (stamina/momentum) in a platforming environment. It serves as an excellent benchmark for reinforcement learning agents to master timing and spatial awareness in a constrained, high-threat area.",
+  "details": "The player controls a character on an infinite horizontal bridge. The bridge is composed of segments; some segments disappear shortly after being stepped on (decay). Obstacles include fireballs jumping vertically from the bottom and fish (Cheep Cheeps) jumping in parabolic arcs. The speed of the bridge's progression increases over time. The game ends if the player falls into a gap or touches an enemy/fireball.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x400",
+    "state_space": "Player position (x, y), Bridge segment states, Enemy positions/vectors",
+    "action_space": "Jump, Move Left, Move Right, Sprint (Hold)",
+    "reward_system": "+1 per frame survived, +10 per bridge segment crossed, -100 on game over"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py') or press ESC",
+  "how_to_play": "Use LEFT/RIGHT arrow keys to move. Press SPACE to jump. Hold SHIFT to sprint. Your score increases the further you travel along the bridge. Avoid falling through gaps or colliding with enemies coming from below or the sides.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/previews/bridge_sprint.png"
+}

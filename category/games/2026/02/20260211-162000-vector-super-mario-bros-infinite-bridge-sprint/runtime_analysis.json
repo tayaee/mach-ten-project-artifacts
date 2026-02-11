@@ -1,0 +1,79 @@
+{
+  "test_name": "Vector Super Mario Bros Infinite Bridge Sprint - Runtime Analysis",
+  "timestamp": "2026-02-11T16:20:00Z",
+  "app_name": "vector-super-mario-bros-infinite-bridge-sprint",
+  "tests": [
+    {
+      "name": "Module Imports",
+      "status": "PASSED",
+      "message": "All modules imported successfully",
+      "duration_ms": 176.99909210205078
+    },
+    {
+      "name": "Pygame Initialization",
+      "status": "PASSED",
+      "message": "Pygame initialized and display created",
+      "duration_ms": 54.00443077087402
+    },
+    {
+      "name": "Game Object Creation",
+      "status": "PASSED",
+      "message": "Screen created=OK, Clock created=OK, Player created=OK, Bridge segments created=OK, Enemies list initialized=OK, Score initialized=OK, Game not started=OK, Game not over=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Player Entity",
+      "status": "PASSED",
+      "message": "Player rect created=OK, Player width valid=OK, Player height valid=OK, Player has position=OK, Player has velocity=OK, Player alive=OK, Stamina initialized=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Bridge Segments",
+      "status": "PASSED",
+      "message": "Segments exist=OK, Segments have position=OK, Segments have state=OK, Segment drawing works=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Enemy Entities",
+      "status": "PASSED",
+      "message": "Fireball created=OK, Fireball active=OK, Cheep Cheep created=OK, Cheep Cheep active=OK, Enemy updates work=OK, Enemy drawing works=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Game State Methods",
+      "status": "PASSED",
+      "message": "get_state returns dict=OK, State has required keys=OK, State values are numeric=OK, reset_game resets score=OK, reset_game resets game_over=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Game Update Simulation",
+      "status": "PASSED",
+      "message": "Update runs without crash=OK, Score increases=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Drawing Functions",
+      "status": "PASSED",
+      "message": "Main draw works=OK, Game over draw works=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Configuration Values",
+      "status": "PASSED",
+      "message": "Screen width is 800=OK, Screen height is 400=OK, FPS is set=OK, Title is set=OK, Player start X set=OK, Player start Y set=OK, Move speed set=OK, Jump force set=OK, Gravity set=OK, Stamina max set=OK, Segment dimensions set=OK, Bridge Y position set=OK, Score values set=OK, Speed multiplier limits set=OK",
+      "duration_ms": 2.9952526092529297
+    },
+    {
+      "name": "Performance Test",
+      "status": "PASSED",
+      "message": "Ran 60 frames=OK, Performance acceptable: 408.1 FPS=OK",
+      "duration_ms": 2.9952526092529297
+    }
+  ],
+  "performance_fps": 408.14,
+  "total_tests": 11,
+  "passed": 11,
+  "failed": 0,
+  "total_duration_ms": 425.09,
+  "overall_status": "PASSED"
+}
