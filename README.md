@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-10 | [Vector Super Mario Bros Ghost House Logic](category/games/2026/02/20260210-215500-vector-super-mario-bros-ghost-house-logic/) | Navigate a shifting maze while avoiding invisible ghosts that only move when you look away.
 * 2026-02-10 | [Vector Super Mario Bros Multi-Level Platformer](category/games/2026/02/20260210-213500-vector-super-mario-bros-multi-level-platformer/) | A classic side-scrolling platformer with procedural level progression, physics-based movement, and enemy stomping.
 * 2026-02-10 | [Vector Super Mario Bros Cannon Ball Dodge](category/games/2026/02/20260210-210852-vector-super-mario-bros-cannon-ball-dodge/) | Dodge high-speed cannonballs while staying on moving platforms in this classic timing challenge.
 * 2026-02-10 | [Vector Super Mario Bros Maze Coin Hunt](category/games/2026/02/20260210-205100-vector-super-mario-bros-maze-coin-hunt/) | Navigate a Mario-themed maze to collect coins while avoiding patrolling Koopas.

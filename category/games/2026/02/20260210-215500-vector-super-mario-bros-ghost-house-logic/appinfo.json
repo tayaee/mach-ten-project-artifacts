@@ -1,0 +1,45 @@
+{
+  "app_name": "vector-super-mario-bros-ghost-house-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-215500-vector-super-mario-bros-ghost-house-logic",
+  "description": "Navigate a shifting maze while avoiding invisible ghosts in this strategic platformer.",
+  "rationale": "This game introduces complex spatial reasoning and memory challenges. It is designed for players who enjoy the puzzle-platformer genre, specifically targeting those who appreciate the 'Ghost House' mechanics of classic 16-bit era platformers. For AI agents, it provides a rigorous test for pathfinding under uncertainty.",
+  "details": "The game is a 2D grid-based platformer set in a spooky mansion. The player controls a character who must find a hidden key and reach the exit door. Key mechanics include: 1. Shifting Walls: Every 10 seconds, specific walls appear or disappear based on a fixed pattern. 2. Boo-logic Enemies: Ghosts only move toward the player when the player is facing away. When the player faces them, they turn transparent and stop moving. 3. Invisible Platforms: Certain platforms are only visible when the player is within a 3-tile radius. 4. Win Condition: Collect the key and enter the door. 5. Lose Condition: Contact with a ghost or falling into a pit.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py')",
+  "how_to_play": "Goal: Reach the exit door with the key. Controls: Arrow keys for movement and jumping. Score: +500 for collecting the key, +1000 for exiting the level, -10 per second to encourage speed. Facing direction is critical: press the opposite arrow key to look at ghosts and stop their pursuit.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "technical_requirements": {
+    "language": "Python 3.12+",
+    "dependencies": [
+      "pygame",
+      "numpy"
+    ],
+    "resolution": "800x600",
+    "frame_rate": 60
+  },
+  "state_space_for_ai": {
+    "player_pos": [
+      "x",
+      "y"
+    ],
+    "ghost_positions": [
+      [
+        "x1",
+        "y1"
+      ],
+      [
+        "x2",
+        "y2"
+      ]
+    ],
+    "wall_state": "binary_mask",
+    "has_key": "boolean",
+    "door_location": [
+      "x",
+      "y"
+    ]
+  },
+  "screenshot": "assets/ghost_house_preview.png"
+}

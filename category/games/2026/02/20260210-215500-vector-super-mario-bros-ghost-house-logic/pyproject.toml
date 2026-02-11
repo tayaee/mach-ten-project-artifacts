@@ -1,0 +1,9 @@
+[project]
+name = "vector-super-mario-bros-ghost-house-logic"
+version = "0.1.0"
+description = "Navigate a shifting maze while avoiding invisible ghosts in this strategic platformer."
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.6.1",
+    "numpy>=2.0.0",
+]
