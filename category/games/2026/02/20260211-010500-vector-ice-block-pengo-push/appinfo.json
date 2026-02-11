@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-ice-block-pengo-push",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-010500-vector-ice-block-pengo-push",
+  "description": "Strategic block-pushing puzzle where you crush enemies between ice slides.",
+  "rationale": "This game focuses on spatial reasoning and timing. It targets casual puzzle fans and developers interested in grid-based collision logic and simple enemy AI patterns.",
+  "details": "The game is a simplified version of the classic arcade game Pengo. The player controls a character in a 13x13 grid filled with ice blocks. The objective is to eliminate all patrolling enemies by pushing ice blocks into them. When a block is pushed, it slides until it hits another block or the screen boundary. Enemies move randomly or follow simple pathfinding. If an enemy is caught between a sliding block and a wall/stationary block, it is destroyed. Blocks can also be destroyed if pushed while already adjacent to a wall.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "600x600",
+    "grid_size": "13x13",
+    "obs_space": "Box(0, 4, (13, 13))",
+    "action_space": "Discrete(5) [None, Up, Down, Left, Right]"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $PPID or close the window",
+  "how_to_play": "Use arrow keys to move. Press Space while facing an ice block to push it. Scores: 100 points for crushing an enemy, 10 points for breaking a block. Gain bonus points for aligning three 'diamond' blocks. Game ends if an enemy touches you.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "No screenshot available"
+}
