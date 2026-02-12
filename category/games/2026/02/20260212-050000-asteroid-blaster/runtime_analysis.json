@@ -1,138 +1,113 @@
 {
   "overall_status": "PASSED",
-  "analysis_timestamp": "2026-02-12T05:10:30Z",
+  "analysis_timestamp": "2026-02-12T12:54:33.347024+00:00",
   "project_name": "asteroid-blaster",
   "project_version": "0.1.0",
   "runtime_duration_seconds": 120,
   "execution_summary": {
-    "command_used": "uv run main.py",
-    "exit_status": "terminated_by_timeout",
-    "expected_behavior": "Game runs until ESC key or window close",
-    "actual_behavior": "Game started successfully, initialized pygame display, ran for full 2-minute analysis period"
+    "command_used": "python test_runtime.py (headless mode with SDL_VIDEODRIVER=dummy)",
+    "exit_status": "completed_successfully",
+    "expected_behavior": "Game runs without errors, all core functionality works correctly",
+    "actual_behavior": "All runtime tests completed successfully - pygame import, class instantiation, game logic, and game loop all passed"
   },
   "startup_analysis": {
     "status": "PASSED",
-    "pygame_init": {
+    "pygame_import": {
       "status": "SUCCESS",
-      "details": "pygame.init() called successfully, display initialized"
+      "version": "pygame-ce 2.5.6 (SDL 2.32.10, Python 3.11.14)",
+      "details": "pygame-ce imported successfully without errors"
     },
     "window_creation": {
       "status": "SUCCESS",
-      "window_caption": "Asteroid Blaster",
-      "resolution": "800x600",
-      "details": "Window created with correct resolution and caption"
+      "details": "Window initialization successful (dummy driver used for headless testing)"
     },
-    "font_initialization": {
+    "game_initialization": {
       "status": "SUCCESS",
-      "details": "pygame.font.Font(None, 36) and pygame.font.Font(None, 72) initialized successfully"
-    },
-    "game_object_initialization": {
-      "status": "SUCCESS",
-      "details": "Player, bullets, asteroids, particles lists initialized, score and level set to 0 and 1 respectively"
-    },
-    "initial_state": {
-      "status": "SUCCESS",
-      "state": "menu",
-      "details": "Game started in menu state as expected"
+      "initial_state": "menu",
+      "details": "Game initializes to menu state as expected"
     }
   },
   "basic_functionality_tests": {
     "status": "PASSED",
     "tests": [
       {
-        "name": "display_rendering",
+        "name": "vector_math",
         "status": "PASSED",
-        "description": "Display surface created and rendering pipeline initialized",
-        "evidence": "Screen clear escape codes detected, indicating active display rendering"
+        "description": "Vector class and normalization works correctly",
+        "evidence": "Vector(3,4).normalize() correctly produces (0.6, 0.8)"
       },
       {
-        "name": "game_loop_execution",
+        "name": "bullet_system",
         "status": "PASSED",
-        "description": "Main game loop running at 60 FPS",
-        "evidence": "Clock tick(FPS) executed, game ran for full 2 minutes without crashes"
+        "description": "Bullet creation and movement works",
+        "evidence": "Bullet spawns at correct position, moves at BULLET_SPEED (10 px/frame), has correct lifetime (60 frames)"
       },
       {
-        "name": "event_handling",
+        "name": "asteroid_system",
         "status": "PASSED",
-        "description": "Event handling system initialized and processing events",
-        "evidence": "No event processing errors, graceful termination via timeout"
+        "description": "Asteroid creation within specification ranges",
+        "evidence": "Asteroid size, speed, and velocity all within appinfo.json specs"
       },
       {
-        "name": "state_management",
+        "name": "player_system",
         "status": "PASSED",
-        "description": "Game states (menu, playing, game_over) properly defined",
-        "evidence": "State transitions implemented in code, initial state is 'menu'"
+        "description": "Player initializes correctly",
+        "evidence": "Player starts at center screen, 3 lives, active state"
       },
       {
-        "name": "memory_management",
+        "name": "particle_system",
         "status": "PASSED",
-        "description": "No memory leaks detected during 2-minute runtime",
-        "evidence": "Game ran continuously without out-of-memory errors"
+        "description": "Particle effects system works",
+        "evidence": "Particles created with valid position, lifetime, and size"
+      },
+      {
+        "name": "game_loop",
+        "status": "PASSED",
+        "description": "Main game loop runs stably at 60 FPS",
+        "evidence": "Ran for 10 seconds producing 608 frames (60.8 FPS average)"
       }
     ]
   },
-  "component_functionality": {
-    "player": {
-      "status": "PASSED",
-      "features": {
-        "movement": "Screen wrap-around implemented",
-        "rotation": "Left/Right rotation via Arrow keys or A/D keys",
-        "thrust": "Momentum-based thrust via UP or W key",
-        "shooting": "Bullet spawning with cooldown system",
-        "collision": "Player-asteroid collision detection with radius-based check",
-        "lives_system": "3 lives with respawn timer and invulnerability frames"
-      }
-    },
-    "bullets": {
-      "status": "PASSED",
-      "features": {
-        "movement": "Linear movement at BULLET_SPEED (10 pixels/frame)",
-        "lifetime": "60 frames lifetime before deactivation",
-        "bounds_checking": "Deactivation when off-screen or expired"
-      }
-    },
-    "asteroids": {
-      "status": "PASSED",
-      "features": {
-        "spawning": "Edge-based spawning with random position and velocity",
-        "movement": "Constant velocity movement with rotation",
-        "splitting": "Large asteroids split into 2 smaller pieces on destruction",
-        "off_screen_detection": "Cleanup when far off-screen"
-      }
-    },
-    "particles": {
-      "status": "PASSED",
-      "features": {
-        "explosion_effects": "15-30 particles spawned on asteroid/player destruction",
-        "fading": "Alpha-based size reduction over lifetime",
-        "cleanup": "Particles removed when lifetime expires"
-      }
-    }
-  },
-  "input_handling": {
+  "game_mechanics_verification": {
     "status": "PASSED",
-    "keyboard_bindings": {
-      "movement": {
-        "rotation_left": "LEFT Arrow or A key",
-        "rotation_right": "RIGHT Arrow or D key",
-        "thrust": "UP Arrow or W key"
+    "mechanics": [
+      {
+        "name": "asteroid_spawning",
+        "status": "VERIFIED",
+        "description": "Asteroids spawn at correct intervals based on level",
+        "evidence": "Spawn timer system works, spawn rate decreases with level progression"
       },
-      "actions": {
-        "shoot": "SPACE key",
-        "quit": "ESC key",
-        "restart": "R key (in game over state)"
+      {
+        "name": "bullet_asteroid_collision",
+        "status": "VERIFIED",
+        "description": "Bullets destroy asteroids on collision",
+        "evidence": "Collision detection using distance formula works, bullets and asteroids removed on hit"
       },
-      "state_transitions": {
-        "menu_to_playing": "SPACE key",
-        "game_over_restart": "R key"
+      {
+        "name": "asteroid_splitting",
+        "status": "VERIFIED",
+        "description": "Large asteroids split into 2 smaller pieces",
+        "evidence": "Asteroid.split() returns 2 new asteroids with half size and different velocities"
+      },
+      {
+        "name": "player_hit_detection",
+        "status": "VERIFIED",
+        "description": "Player loses life on asteroid collision",
+        "evidence": "Player.hit() decreases lives, deactivates player, sets respawn timer"
+      },
+      {
+        "name": "scoring_system",
+        "status": "VERIFIED",
+        "description": "Points awarded based on asteroid size",
+        "evidence": "Score calculated as (ASTEROID_MAX_SIZE - size + ASTEROID_MIN_SIZE) * 10"
+      },
+      {
+        "name": "level_progression",
+        "status": "VERIFIED",
+        "description": "Level increases every 1000 points",
+        "evidence": "Level check: score > level * 1000 triggers level increment"
       }
-    }
-  },
-  "performance_metrics": {
-    "target_fps": 60,
-    "frame_time_ms": 16.67,
-    "expected_runtime_behavior": "Stable 60 FPS with proper event processing",
-    "actual_observation": "Game ran smoothly for 120 seconds without frame drops or stuttering"
+    ]
   },
   "technical_specs_compliance": {
     "status": "PASSED",
@@ -147,6 +122,12 @@
         "spec": "player_size",
         "expected": "20 pixels",
         "actual": "PLAYER_SIZE = 20",
+        "compliant": true
+      },
+      {
+        "spec": "player_speed",
+        "expected": "5 pixels/frame with momentum",
+        "actual": "PLAYER_SPEED = 5, momentum via velocity vector with 0.99 friction",
         "compliant": true
       },
       {
@@ -176,92 +157,103 @@
       {
         "spec": "spawn_interval",
         "expected": "120 frames base",
-        "actual": "SPAWN_INTERVAL = 120",
+        "actual": "SPAWN_INTERVAL = 120, decreases with level",
         "compliant": true
       }
     ]
   },
-  "game_mechanics_verification": {
-    "status": "PASSED",
-    "mechanics": [
-      {
-        "name": "screen_wrap",
-        "status": "IMPLEMENTED",
-        "description": "Player wraps around screen edges using modulo operator"
+  "input_handling": {
+    "status": "NOT_TESTED_HEADLESS",
+    "note": "Input handling verified through code inspection, headless mode prevents actual keyboard testing",
+    "expected_bindings": {
+      "movement": {
+        "rotation_left": "LEFT Arrow or A key",
+        "rotation_right": "RIGHT Arrow or D key",
+        "thrust": "UP Arrow or W key"
       },
-      {
-        "name": "collision_detection",
-        "status": "IMPLEMENTED",
-        "description": "Circle-based collision using distance formula"
-      },
-      {
-        "name": "asteroid_splitting",
-        "status": "IMPLEMENTED",
-        "description": "Large asteroids split into 2 smaller asteroids with different velocities"
-      },
-      {
-        "name": "scoring_system",
-        "status": "IMPLEMENTED",
-        "description": "Points based on asteroid size: (50 - size + 15) * 10"
-      },
-      {
-        "name": "level_progression",
-        "status": "IMPLEMENTED",
-        "description": "Level increases every 1000 points, spawn rate increases"
-      },
-      {
-        "name": "particle_effects",
-        "status": "IMPLEMENTED",
-        "description": "Explosion particles with fading alpha effect"
+      "actions": {
+        "shoot": "SPACE key",
+        "quit": "ESC key",
+        "restart": "R key (in game over state)"
       }
-    ]
+    }
+  },
+  "performance_metrics": {
+    "target_fps": 60,
+    "actual_fps": 60.8,
+    "frame_time_ms": 16.67,
+    "observation": "Game runs at or slightly above target FPS"
   },
   "errors_and_warnings": {
     "critical_errors": [],
-    "warnings": [
-      {
-        "type": "environment_warning",
-        "message": "VIRTUAL_ENV environment variable does not match project .venv path",
-        "impact": "None - uv correctly ignored the mismatch and used project environment"
-      }
-    ],
-    "notes": []
-  },
-  "observations": {
-    "positive": [
-      "Clean startup with no pygame initialization errors",
-      "All game classes properly instantiated",
-      "Event handling system responsive",
-      "Memory usage stable throughout runtime",
-      "Code follows object-oriented design principles",
-      "Game mechanics fully implemented as specified"
-    ],
-    "potential_improvements": [
-      "Could add sound effects for enhanced gameplay",
-      "Could implement high score persistence",
-      "Could add difficulty settings"
+    "warnings": [],
+    "notes": [
+      "Headless testing used SDL_VIDEODRIVER=dummy for automated testing",
+      "pygame-ce (community edition) is installed instead of official pygame",
+      "Both packages are API-compatible for this game's usage"
     ]
   },
-  "comparison_with_static_analysis": {
-    "static_analysis_status": "PASSED",
-    "runtime_analysis_status": "PASSED",
-    "consistency": "CONSISTENT",
-    "notes": "All features verified in static analysis function correctly at runtime"
+  "component_functionality": {
+    "player": {
+      "status": "PASSED",
+      "features": {
+        "movement": "Momentum-based with 0.99 friction coefficient",
+        "rotation": "0.08 radians per frame when rotating",
+        "thrust": "0.15 acceleration per frame in facing direction",
+        "shooting": "15 frame cooldown between shots",
+        "collision": "Radius-based collision with 0.7 * PLAYER_SIZE hitbox",
+        "lives_system": "3 lives with 120 frame respawn timer",
+        "invulnerability": "180 frames of invulnerability after respawn"
+      }
+    },
+    "bullets": {
+      "status": "PASSED",
+      "features": {
+        "spawn_position": "From ship's tip (PLAYER_SIZE distance from center)",
+        "movement": "Linear movement in shooting angle",
+        "lifetime": "60 frames before automatic removal",
+        "cleanup": "Removed when off-screen or lifetime expires"
+      }
+    },
+    "asteroids": {
+      "status": "PASSED",
+      "features": {
+        "spawning": "From random screen edge with velocity toward center",
+        "movement": "Constant velocity with rotation",
+        "shape": "5-9 vertex polygon with random radius variation",
+        "splitting": "Splits into 2 smaller asteroids with 1.5x speed and angle offset",
+        "cleanup": "Removed when 2x asteroid size off-screen"
+      }
+    },
+    "particles": {
+      "status": "PASSED",
+      "features": {
+        "explosion_effects": "15-30 particles spawned on destruction",
+        "fading": "Size scales with remaining lifetime ratio",
+        "physics": "Initial velocity with 0.98 friction"
+      }
+    }
   },
-  "recommendations": {
-    "before_deployment": [
-      "Test on different screen resolutions",
-      "Verify game balance and difficulty progression",
-      "Consider adding sound if desired for gameplay enhancement"
-    ],
-    "for_rl_agents": {
-      "reward_structure": "+10-35 points per asteroid destroyed based on size, -100 per life lost",
-      "action_space": "Continuous rotation, discrete thrust and shoot actions",
-      "observation_space": "Player position/velocity, asteroid positions/velocities, bullets"
+  "game_states": {
+    "status": "PASSED",
+    "states": {
+      "menu": {
+        "description": "Initial state showing title and instructions",
+        "transition": "Press SPACE to start playing"
+      },
+      "playing": {
+        "description": "Active gameplay state",
+        "transitions": "ESC to quit, 0 lives to game_over"
+      },
+      "game_over": {
+        "description": "End state showing final score",
+        "transitions": "R to restart, ESC to quit"
+      }
     }
   },
   "conclusion": {
-    "summary": "Asteroid Blaster successfully starts and runs all basic functionality as designed. The game properly initializes pygame, creates the game window, handles input events, and executes the game loop at 60 FPS. All core game mechanics (movement, shooting, collision detection, asteroid splitting, particle effects, scoring, and level progression) are implemented and functional.",
-    "verdict": "The application is READY FOR USE"
+    "summary": "Asteroid Blaster successfully passes all runtime analysis tests. The game initializes correctly, all game classes instantiate without errors, core game mechanics work as designed (asteroid spawning, collision detection, splitting, scoring, level progression), and the game loop runs stably at 60 FPS. All technical specifications from appinfo.json are met or exceeded.",
+    "verdict": "The application is READY FOR USE",
+    "test_coverage": "pygame_import, class_instantiation, game_logic, game_loop, technical_specs_compliance"
   }
 }
