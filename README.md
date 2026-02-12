@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-12 | [Asteroid Blaster](category/games/2026/02/20260212-050000-asteroid-blaster/) | Navigate deep space and destroy incoming asteroids in this classic arcade shooter.
 * 2026-02-12 | [Vector Battle City Base Defense](category/games/2026/02/20260212-041914-vector-battle-city-base-defense/) | Defend your base from incoming enemy tanks in this top-down strategic shooter.
 * 2026-02-12 | [Vector Road Fighter Racing](category/games/2026/02/20260212-030221-vector-road-fighter-racing/) | Navigate high-speed highways, dodge traffic, and reach the finish line before running out of fuel.
 * 2026-02-11 | [Vector Dig Dug Rock Trap Logic](category/games/2026/02/20260211-181325-vector-dig-dug-rock-trap-logic/) | Outsmart monsters by strategically dropping rocks in this classic underground tactical puzzle.

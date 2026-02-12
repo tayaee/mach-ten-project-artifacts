@@ -1,0 +1,11 @@
+[project]
+name = "asteroid-blaster"
+version = "0.1.0"
+description = "Navigate deep space and destroy incoming asteroids in this classic arcade shooter"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"
