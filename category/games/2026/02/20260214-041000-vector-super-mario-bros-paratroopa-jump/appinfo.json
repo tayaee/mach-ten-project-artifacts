@@ -1,0 +1,34 @@
+{
+  "app_name": "vector-super-mario-bros-paratroopa-jump",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-041000-vector-super-mario-bros-paratroopa-jump",
+  "description": "Master the art of sequential paratroopa bouncing to reach the highest heights.",
+  "rationale": "This game focuses on precise aerial movement and timing mechanics. It targets users who enjoy classic platformer challenges and serves as an ideal environment for RL agents to learn momentum conservation and bounce physics.",
+  "details": "The player controls a character on a single-screen or short horizontal course. Multiple winged turtles (Paratroopas) hover at varying heights and move in predictable patterns (vertical or horizontal oscillations). The player must jump from one Paratroopa to another without touching the ground. Each consecutive bounce without landing increases the score multiplier. Falling to the bottom or hitting a Paratroopa from the side/bottom results in a game over. The physics engine must handle gravity, jump velocity, and the 'bounce' impulse upon successful collision from above.",
+  "technical_specs": {
+    "framework": "Pygame",
+    "resolution": "800x600",
+    "gravity": 0.5,
+    "bounce_impulse": -12,
+    "state_space": [
+      "player_x",
+      "player_y",
+      "player_vx",
+      "player_vy",
+      "enemy_positions",
+      "distance_to_nearest_enemy"
+    ],
+    "action_space": [
+      "move_left",
+      "move_right",
+      "jump",
+      "idle"
+    ]
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f main.py) or press ESC in the game window",
+  "how_to_play": "Use Left/Right Arrow keys to move and Spacebar to jump. Land on top of a Paratroopa to bounce. Each consecutive bounce awards points (100, 200, 400, 800, etc.). The goal is to accumulate the highest score before falling to the ground or colliding with an enemy side.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "No screenshot available yet."
+}
