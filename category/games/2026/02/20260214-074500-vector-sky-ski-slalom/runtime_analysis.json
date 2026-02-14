@@ -1,6 +1,6 @@
 {
   "app_name": "vector-sky-ski-slalom",
-  "test_timestamp": "2026-02-14T13:45:10.361732Z",
+  "test_timestamp": "2026-02-14T14:49:04.803764Z",
   "test_duration_seconds": 120,
   "framework": "Pygame",
   "expected_resolution": "400x600",
@@ -17,17 +17,17 @@
       "expected_y": 500
     },
     "player_alive_at_start": true,
-    "final_score": 236,
-    "final_distance": 2363.48,
-    "final_scroll_speed": 178.75,
+    "final_score": 121,
+    "final_distance": 1214.42,
+    "final_scroll_speed": 165.4,
     "game_over": true,
     "player_alive": false
   },
   "performance_test": {
-    "average_fps": 61.31,
-    "min_fps": 59.75,
-    "max_fps": 62.09,
-    "total_frames": 7358,
+    "average_fps": 60.67,
+    "min_fps": 58.56,
+    "max_fps": 61.9,
+    "total_frames": 7282,
     "target_fps": 60
   },
   "functionality_test": {
@@ -52,886 +52,886 @@
       "message": "Player initialized at (200, 500)"
     },
     {
-      "time": 0.99,
+      "time": 1.0,
       "type": "fps_sample",
-      "value": 59.75
+      "value": 60.24
     },
     {
-      "time": 2.0,
-      "type": "fps_sample",
-      "value": 61.36
-    },
-    {
-      "time": 3.01,
-      "type": "fps_sample",
-      "value": 62.09
-    },
-    {
-      "time": 4.02,
-      "type": "fps_sample",
-      "value": 61.88
-    },
-    {
-      "time": 5.03,
-      "type": "fps_sample",
-      "value": 61.16
-    },
-    {
-      "time": 5.87,
-      "type": "checkpoint",
-      "game_over": false,
-      "score": 91,
-      "distance": 917.48,
-      "scroll_speed": 161.77,
-      "obstacle_count": 3,
-      "gate_count": 1,
-      "player_position": {
-        "x": 199.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 6.03,
-      "type": "fps_sample",
-      "value": 60.69
-    },
-    {
-      "time": 7.04,
-      "type": "fps_sample",
-      "value": 60.79
-    },
-    {
-      "time": 8.05,
-      "type": "fps_sample",
-      "value": 61.03
-    },
-    {
-      "time": 9.06,
-      "type": "fps_sample",
-      "value": 60.73
-    },
-    {
-      "time": 10.07,
-      "type": "fps_sample",
-      "value": 61.33
-    },
-    {
-      "time": 11.07,
-      "type": "fps_sample",
-      "value": 60.7
-    },
-    {
-      "time": 11.77,
-      "type": "checkpoint",
-      "game_over": false,
-      "score": 190,
-      "distance": 1906.31,
-      "scroll_speed": 173.56,
-      "obstacle_count": 4,
-      "gate_count": 1,
-      "player_position": {
-        "x": 199.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 12.08,
-      "type": "fps_sample",
-      "value": 61.86
-    },
-    {
-      "time": 13.08,
-      "type": "fps_sample",
-      "value": 61.76
-    },
-    {
-      "time": 14.08,
-      "type": "fps_sample",
-      "value": 61.66
-    },
-    {
-      "time": 15.09,
-      "type": "fps_sample",
-      "value": 60.99
-    },
-    {
-      "time": 16.09,
-      "type": "fps_sample",
-      "value": 60.94
-    },
-    {
-      "time": 17.09,
-      "type": "fps_sample",
-      "value": 60.81
-    },
-    {
-      "time": 17.65,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 18.1,
-      "type": "fps_sample",
-      "value": 61.2
-    },
-    {
-      "time": 19.11,
-      "type": "fps_sample",
-      "value": 61.43
-    },
-    {
-      "time": 20.11,
-      "type": "fps_sample",
-      "value": 61.85
-    },
-    {
-      "time": 21.13,
-      "type": "fps_sample",
-      "value": 61.25
-    },
-    {
-      "time": 22.14,
-      "type": "fps_sample",
-      "value": 61.31
-    },
-    {
-      "time": 23.14,
-      "type": "fps_sample",
-      "value": 61.7
-    },
-    {
-      "time": 23.5,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 24.15,
-      "type": "fps_sample",
-      "value": 61.39
-    },
-    {
-      "time": 25.16,
-      "type": "fps_sample",
-      "value": 61.49
-    },
-    {
-      "time": 26.17,
-      "type": "fps_sample",
-      "value": 60.56
-    },
-    {
-      "time": 27.18,
-      "type": "fps_sample",
-      "value": 61.08
-    },
-    {
-      "time": 28.2,
-      "type": "fps_sample",
-      "value": 61.26
-    },
-    {
-      "time": 29.21,
-      "type": "fps_sample",
-      "value": 61.06
-    },
-    {
-      "time": 29.39,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 30.22,
-      "type": "fps_sample",
-      "value": 61.16
-    },
-    {
-      "time": 31.24,
-      "type": "fps_sample",
-      "value": 61.23
-    },
-    {
-      "time": 32.25,
-      "type": "fps_sample",
-      "value": 61.18
-    },
-    {
-      "time": 33.26,
-      "type": "fps_sample",
-      "value": 61.64
-    },
-    {
-      "time": 34.27,
-      "type": "fps_sample",
-      "value": 61.38
-    },
-    {
-      "time": 35.26,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 35.28,
-      "type": "fps_sample",
-      "value": 61.38
-    },
-    {
-      "time": 36.29,
-      "type": "fps_sample",
-      "value": 61.06
-    },
-    {
-      "time": 37.29,
-      "type": "fps_sample",
-      "value": 60.87
-    },
-    {
-      "time": 38.31,
-      "type": "fps_sample",
-      "value": 61.26
-    },
-    {
-      "time": 39.32,
-      "type": "fps_sample",
-      "value": 61.3
-    },
-    {
-      "time": 40.33,
-      "type": "fps_sample",
-      "value": 61.38
-    },
-    {
-      "time": 41.14,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 41.34,
-      "type": "fps_sample",
-      "value": 61.56
-    },
-    {
-      "time": 42.35,
-      "type": "fps_sample",
-      "value": 61.27
-    },
-    {
-      "time": 43.36,
-      "type": "fps_sample",
-      "value": 61.41
-    },
-    {
-      "time": 44.37,
-      "type": "fps_sample",
-      "value": 61.11
-    },
-    {
-      "time": 45.38,
-      "type": "fps_sample",
-      "value": 61.34
-    },
-    {
-      "time": 46.38,
-      "type": "fps_sample",
-      "value": 60.97
-    },
-    {
-      "time": 47.02,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 47.39,
+      "time": 2.01,
       "type": "fps_sample",
       "value": 61.32
     },
     {
-      "time": 48.4,
+      "time": 3.02,
       "type": "fps_sample",
-      "value": 61.58
+      "value": 59.18
     },
     {
-      "time": 49.41,
-      "type": "fps_sample",
-      "value": 61.41
-    },
-    {
-      "time": 50.42,
+      "time": 4.03,
       "type": "fps_sample",
       "value": 61.17
     },
     {
-      "time": 51.43,
+      "time": 5.04,
       "type": "fps_sample",
-      "value": 61.54
+      "value": 60.51
     },
     {
-      "time": 52.44,
-      "type": "fps_sample",
-      "value": 61.37
-    },
-    {
-      "time": 52.88,
+      "time": 5.93,
       "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
+      "game_over": false,
+      "score": 92,
+      "distance": 927.19,
+      "scroll_speed": 161.89,
+      "obstacle_count": 2,
+      "gate_count": 1,
       "player_position": {
-        "x": 200.5,
+        "x": 203.75,
         "y": 500
       }
     },
     {
-      "time": 53.45,
+      "time": 6.04,
+      "type": "fps_sample",
+      "value": 60.92
+    },
+    {
+      "time": 7.05,
+      "type": "fps_sample",
+      "value": 59.84
+    },
+    {
+      "time": 8.06,
+      "type": "fps_sample",
+      "value": 61.24
+    },
+    {
+      "time": 9.07,
       "type": "fps_sample",
       "value": 61.34
     },
     {
-      "time": 54.46,
+      "time": 10.08,
       "type": "fps_sample",
-      "value": 61.58
+      "value": 61.24
     },
     {
-      "time": 55.47,
+      "time": 11.09,
       "type": "fps_sample",
-      "value": 61.36
+      "value": 59.72
     },
     {
-      "time": 56.48,
-      "type": "fps_sample",
-      "value": 61.31
+      "time": 11.86,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
     },
     {
-      "time": 57.48,
-      "type": "fps_sample",
-      "value": 61.71
-    },
-    {
-      "time": 58.49,
+      "time": 12.09,
       "type": "fps_sample",
       "value": 60.8
     },
     {
-      "time": 58.75,
+      "time": 13.1,
+      "type": "fps_sample",
+      "value": 60.62
+    },
+    {
+      "time": 14.11,
+      "type": "fps_sample",
+      "value": 60.15
+    },
+    {
+      "time": 15.12,
+      "type": "fps_sample",
+      "value": 60.67
+    },
+    {
+      "time": 16.12,
+      "type": "fps_sample",
+      "value": 60.89
+    },
+    {
+      "time": 17.13,
+      "type": "fps_sample",
+      "value": 61.38
+    },
+    {
+      "time": 17.79,
       "type": "checkpoint",
       "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
       "player_position": {
-        "x": 200.5,
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 18.13,
+      "type": "fps_sample",
+      "value": 59.61
+    },
+    {
+      "time": 19.14,
+      "type": "fps_sample",
+      "value": 60.87
+    },
+    {
+      "time": 20.14,
+      "type": "fps_sample",
+      "value": 60.46
+    },
+    {
+      "time": 21.16,
+      "type": "fps_sample",
+      "value": 61.17
+    },
+    {
+      "time": 22.17,
+      "type": "fps_sample",
+      "value": 58.56
+    },
+    {
+      "time": 23.18,
+      "type": "fps_sample",
+      "value": 60.46
+    },
+    {
+      "time": 23.76,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 24.19,
+      "type": "fps_sample",
+      "value": 60.95
+    },
+    {
+      "time": 25.21,
+      "type": "fps_sample",
+      "value": 61.16
+    },
+    {
+      "time": 26.21,
+      "type": "fps_sample",
+      "value": 59.84
+    },
+    {
+      "time": 27.22,
+      "type": "fps_sample",
+      "value": 61.2
+    },
+    {
+      "time": 28.23,
+      "type": "fps_sample",
+      "value": 60.78
+    },
+    {
+      "time": 29.24,
+      "type": "fps_sample",
+      "value": 61.07
+    },
+    {
+      "time": 29.71,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 30.25,
+      "type": "fps_sample",
+      "value": 59.21
+    },
+    {
+      "time": 31.26,
+      "type": "fps_sample",
+      "value": 60.61
+    },
+    {
+      "time": 32.27,
+      "type": "fps_sample",
+      "value": 61.31
+    },
+    {
+      "time": 33.28,
+      "type": "fps_sample",
+      "value": 60.31
+    },
+    {
+      "time": 34.28,
+      "type": "fps_sample",
+      "value": 61.0
+    },
+    {
+      "time": 35.3,
+      "type": "fps_sample",
+      "value": 61.22
+    },
+    {
+      "time": 35.62,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 36.3,
+      "type": "fps_sample",
+      "value": 60.89
+    },
+    {
+      "time": 37.31,
+      "type": "fps_sample",
+      "value": 60.05
+    },
+    {
+      "time": 38.32,
+      "type": "fps_sample",
+      "value": 60.49
+    },
+    {
+      "time": 39.33,
+      "type": "fps_sample",
+      "value": 60.9
+    },
+    {
+      "time": 40.34,
+      "type": "fps_sample",
+      "value": 61.18
+    },
+    {
+      "time": 41.34,
+      "type": "fps_sample",
+      "value": 59.55
+    },
+    {
+      "time": 41.57,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 42.36,
+      "type": "fps_sample",
+      "value": 61.35
+    },
+    {
+      "time": 43.37,
+      "type": "fps_sample",
+      "value": 61.1
+    },
+    {
+      "time": 44.37,
+      "type": "fps_sample",
+      "value": 60.88
+    },
+    {
+      "time": 45.38,
+      "type": "fps_sample",
+      "value": 59.69
+    },
+    {
+      "time": 46.38,
+      "type": "fps_sample",
+      "value": 60.98
+    },
+    {
+      "time": 47.39,
+      "type": "fps_sample",
+      "value": 61.15
+    },
+    {
+      "time": 47.49,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 48.39,
+      "type": "fps_sample",
+      "value": 60.97
+    },
+    {
+      "time": 49.4,
+      "type": "fps_sample",
+      "value": 59.62
+    },
+    {
+      "time": 50.41,
+      "type": "fps_sample",
+      "value": 61.05
+    },
+    {
+      "time": 51.42,
+      "type": "fps_sample",
+      "value": 60.47
+    },
+    {
+      "time": 52.43,
+      "type": "fps_sample",
+      "value": 61.25
+    },
+    {
+      "time": 53.43,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 53.44,
+      "type": "fps_sample",
+      "value": 60.36
+    },
+    {
+      "time": 54.46,
+      "type": "fps_sample",
+      "value": 61.26
+    },
+    {
+      "time": 55.46,
+      "type": "fps_sample",
+      "value": 61.0
+    },
+    {
+      "time": 56.43,
+      "type": "fps_sample",
+      "value": 59.54
+    },
+    {
+      "time": 57.47,
+      "type": "fps_sample",
+      "value": 61.84
+    },
+    {
+      "time": 58.48,
+      "type": "fps_sample",
+      "value": 61.21
+    },
+    {
+      "time": 59.33,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
         "y": 500
       }
     },
     {
       "time": 59.5,
       "type": "fps_sample",
-      "value": 61.56
+      "value": 61.05
     },
     {
-      "time": 60.5,
+      "time": 60.51,
       "type": "fps_sample",
-      "value": 61.6
+      "value": 60.16
     },
     {
-      "time": 61.51,
-      "type": "fps_sample",
-      "value": 61.7
-    },
-    {
-      "time": 62.51,
-      "type": "fps_sample",
-      "value": 61.58
-    },
-    {
-      "time": 63.52,
-      "type": "fps_sample",
-      "value": 61.69
-    },
-    {
-      "time": 64.53,
-      "type": "fps_sample",
-      "value": 61.32
-    },
-    {
-      "time": 64.59,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 65.54,
-      "type": "fps_sample",
-      "value": 61.36
-    },
-    {
-      "time": 66.55,
-      "type": "fps_sample",
-      "value": 61.2
-    },
-    {
-      "time": 67.56,
-      "type": "fps_sample",
-      "value": 61.35
-    },
-    {
-      "time": 68.58,
-      "type": "fps_sample",
-      "value": 61.2
-    },
-    {
-      "time": 69.59,
-      "type": "fps_sample",
-      "value": 61.29
-    },
-    {
-      "time": 70.47,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 70.6,
-      "type": "fps_sample",
-      "value": 61.55
-    },
-    {
-      "time": 71.6,
-      "type": "fps_sample",
-      "value": 61.48
-    },
-    {
-      "time": 72.61,
-      "type": "fps_sample",
-      "value": 61.67
-    },
-    {
-      "time": 73.61,
-      "type": "fps_sample",
-      "value": 61.8
-    },
-    {
-      "time": 74.63,
-      "type": "fps_sample",
-      "value": 61.07
-    },
-    {
-      "time": 75.64,
-      "type": "fps_sample",
-      "value": 61.45
-    },
-    {
-      "time": 76.32,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 76.65,
-      "type": "fps_sample",
-      "value": 61.15
-    },
-    {
-      "time": 77.66,
-      "type": "fps_sample",
-      "value": 61.5
-    },
-    {
-      "time": 78.66,
-      "type": "fps_sample",
-      "value": 61.77
-    },
-    {
-      "time": 79.67,
-      "type": "fps_sample",
-      "value": 61.25
-    },
-    {
-      "time": 80.69,
-      "type": "fps_sample",
-      "value": 61.01
-    },
-    {
-      "time": 81.7,
-      "type": "fps_sample",
-      "value": 61.72
-    },
-    {
-      "time": 82.18,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 82.7,
-      "type": "fps_sample",
-      "value": 61.51
-    },
-    {
-      "time": 83.72,
-      "type": "fps_sample",
-      "value": 61.17
-    },
-    {
-      "time": 84.73,
-      "type": "fps_sample",
-      "value": 61.2
-    },
-    {
-      "time": 85.74,
-      "type": "fps_sample",
-      "value": 61.13
-    },
-    {
-      "time": 86.75,
-      "type": "fps_sample",
-      "value": 61.4
-    },
-    {
-      "time": 87.77,
-      "type": "fps_sample",
-      "value": 61.25
-    },
-    {
-      "time": 88.06,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 88.78,
-      "type": "fps_sample",
-      "value": 61.24
-    },
-    {
-      "time": 89.79,
-      "type": "fps_sample",
-      "value": 61.37
-    },
-    {
-      "time": 90.79,
-      "type": "fps_sample",
-      "value": 60.89
-    },
-    {
-      "time": 91.8,
-      "type": "fps_sample",
-      "value": 61.6
-    },
-    {
-      "time": 92.81,
-      "type": "fps_sample",
-      "value": 61.07
-    },
-    {
-      "time": 93.83,
-      "type": "fps_sample",
-      "value": 61.2
-    },
-    {
-      "time": 93.94,
-      "type": "checkpoint",
-      "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
-      "player_position": {
-        "x": 200.5,
-        "y": 500
-      }
-    },
-    {
-      "time": 94.84,
-      "type": "fps_sample",
-      "value": 61.33
-    },
-    {
-      "time": 95.85,
-      "type": "fps_sample",
-      "value": 61.32
-    },
-    {
-      "time": 96.86,
-      "type": "fps_sample",
-      "value": 61.03
-    },
-    {
-      "time": 97.87,
-      "type": "fps_sample",
-      "value": 61.38
-    },
-    {
-      "time": 98.89,
+      "time": 61.52,
       "type": "fps_sample",
       "value": 61.22
     },
     {
-      "time": 99.82,
+      "time": 62.53,
+      "type": "fps_sample",
+      "value": 61.43
+    },
+    {
+      "time": 63.53,
+      "type": "fps_sample",
+      "value": 60.86
+    },
+    {
+      "time": 64.55,
+      "type": "fps_sample",
+      "value": 59.06
+    },
+    {
+      "time": 65.27,
       "type": "checkpoint",
       "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
       "player_position": {
-        "x": 200.5,
+        "x": 106.5,
         "y": 500
       }
     },
     {
-      "time": 99.9,
+      "time": 65.56,
       "type": "fps_sample",
-      "value": 61.2
+      "value": 61.1
     },
     {
-      "time": 100.91,
+      "time": 66.57,
       "type": "fps_sample",
-      "value": 61.21
+      "value": 60.76
     },
     {
-      "time": 101.93,
+      "time": 67.58,
       "type": "fps_sample",
-      "value": 61.2
+      "value": 60.91
     },
     {
-      "time": 102.93,
+      "time": 68.59,
       "type": "fps_sample",
-      "value": 61.5
+      "value": 59.79
     },
     {
-      "time": 103.94,
+      "time": 69.6,
       "type": "fps_sample",
-      "value": 61.54
+      "value": 61.11
     },
     {
-      "time": 104.95,
+      "time": 70.61,
       "type": "fps_sample",
-      "value": 61.4
+      "value": 60.9
     },
     {
-      "time": 105.68,
+      "time": 71.2,
       "type": "checkpoint",
       "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
       "player_position": {
-        "x": 200.5,
+        "x": 106.5,
         "y": 500
       }
     },
     {
-      "time": 105.97,
+      "time": 71.61,
+      "type": "fps_sample",
+      "value": 60.57
+    },
+    {
+      "time": 72.62,
+      "type": "fps_sample",
+      "value": 59.55
+    },
+    {
+      "time": 73.64,
+      "type": "fps_sample",
+      "value": 61.09
+    },
+    {
+      "time": 74.65,
+      "type": "fps_sample",
+      "value": 61.22
+    },
+    {
+      "time": 75.66,
+      "type": "fps_sample",
+      "value": 61.19
+    },
+    {
+      "time": 76.66,
+      "type": "fps_sample",
+      "value": 58.91
+    },
+    {
+      "time": 77.16,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 77.68,
+      "type": "fps_sample",
+      "value": 61.25
+    },
+    {
+      "time": 78.69,
+      "type": "fps_sample",
+      "value": 61.04
+    },
+    {
+      "time": 79.69,
+      "type": "fps_sample",
+      "value": 60.94
+    },
+    {
+      "time": 80.71,
+      "type": "fps_sample",
+      "value": 60.07
+    },
+    {
+      "time": 81.71,
+      "type": "fps_sample",
+      "value": 60.98
+    },
+    {
+      "time": 82.72,
+      "type": "fps_sample",
+      "value": 61.18
+    },
+    {
+      "time": 83.07,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 83.74,
+      "type": "fps_sample",
+      "value": 59.02
+    },
+    {
+      "time": 84.74,
+      "type": "fps_sample",
+      "value": 60.83
+    },
+    {
+      "time": 85.74,
+      "type": "fps_sample",
+      "value": 60.89
+    },
+    {
+      "time": 86.75,
+      "type": "fps_sample",
+      "value": 61.38
+    },
+    {
+      "time": 87.77,
+      "type": "fps_sample",
+      "value": 60.14
+    },
+    {
+      "time": 88.78,
+      "type": "fps_sample",
+      "value": 61.13
+    },
+    {
+      "time": 89.01,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 89.8,
       "type": "fps_sample",
       "value": 61.07
     },
     {
-      "time": 106.97,
+      "time": 90.81,
       "type": "fps_sample",
-      "value": 60.68
+      "value": 61.27
     },
     {
-      "time": 107.98,
+      "time": 91.82,
       "type": "fps_sample",
-      "value": 61.37
+      "value": 59.64
     },
     {
-      "time": 108.99,
+      "time": 92.83,
       "type": "fps_sample",
-      "value": 61.69
+      "value": 61.1
     },
     {
-      "time": 109.99,
+      "time": 93.83,
       "type": "fps_sample",
-      "value": 61.69
+      "value": 60.82
     },
     {
-      "time": 111.0,
+      "time": 94.85,
       "type": "fps_sample",
-      "value": 61.31
+      "value": 60.99
     },
     {
-      "time": 111.55,
+      "time": 94.93,
       "type": "checkpoint",
       "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
       "player_position": {
-        "x": 200.5,
+        "x": 106.5,
         "y": 500
       }
     },
     {
-      "time": 112.01,
+      "time": 95.86,
       "type": "fps_sample",
-      "value": 61.5
+      "value": 59.35
     },
     {
-      "time": 113.02,
+      "time": 96.87,
       "type": "fps_sample",
-      "value": 61.45
+      "value": 61.3
     },
     {
-      "time": 114.03,
+      "time": 97.89,
       "type": "fps_sample",
-      "value": 61.5
+      "value": 61.16
     },
     {
-      "time": 115.04,
+      "time": 98.89,
       "type": "fps_sample",
-      "value": 61.15
+      "value": 60.64
     },
     {
-      "time": 116.05,
+      "time": 99.9,
+      "type": "fps_sample",
+      "value": 59.53
+    },
+    {
+      "time": 100.88,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 100.9,
+      "type": "fps_sample",
+      "value": 60.91
+    },
+    {
+      "time": 101.92,
+      "type": "fps_sample",
+      "value": 60.97
+    },
+    {
+      "time": 102.93,
+      "type": "fps_sample",
+      "value": 61.11
+    },
+    {
+      "time": 103.94,
+      "type": "fps_sample",
+      "value": 59.46
+    },
+    {
+      "time": 104.96,
+      "type": "fps_sample",
+      "value": 61.13
+    },
+    {
+      "time": 105.96,
+      "type": "fps_sample",
+      "value": 61.29
+    },
+    {
+      "time": 106.8,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 106.98,
+      "type": "fps_sample",
+      "value": 59.47
+    },
+    {
+      "time": 108.02,
+      "type": "fps_sample",
+      "value": 61.17
+    },
+    {
+      "time": 109.02,
       "type": "fps_sample",
       "value": 61.0
     },
     {
-      "time": 117.06,
+      "time": 110.03,
       "type": "fps_sample",
-      "value": 61.57
+      "value": 61.52
     },
     {
-      "time": 117.42,
+      "time": 111.04,
+      "type": "fps_sample",
+      "value": 59.76
+    },
+    {
+      "time": 112.05,
+      "type": "fps_sample",
+      "value": 61.2
+    },
+    {
+      "time": 112.73,
       "type": "checkpoint",
       "game_over": true,
-      "score": 236,
-      "distance": 2363.48,
-      "scroll_speed": 178.75,
-      "obstacle_count": 4,
-      "gate_count": 0,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
       "player_position": {
-        "x": 200.5,
+        "x": 106.5,
         "y": 500
       }
     },
     {
-      "time": 118.07,
+      "time": 113.06,
       "type": "fps_sample",
-      "value": 61.36
+      "value": 61.21
     },
     {
-      "time": 119.08,
+      "time": 114.07,
       "type": "fps_sample",
-      "value": 61.55
+      "value": 61.3
+    },
+    {
+      "time": 115.09,
+      "type": "fps_sample",
+      "value": 60.0
+    },
+    {
+      "time": 116.1,
+      "type": "fps_sample",
+      "value": 61.21
+    },
+    {
+      "time": 117.1,
+      "type": "fps_sample",
+      "value": 61.9
+    },
+    {
+      "time": 118.12,
+      "type": "fps_sample",
+      "value": 61.07
+    },
+    {
+      "time": 118.66,
+      "type": "checkpoint",
+      "game_over": true,
+      "score": 121,
+      "distance": 1214.42,
+      "scroll_speed": 165.4,
+      "obstacle_count": 2,
+      "gate_count": 1,
+      "player_position": {
+        "x": 106.5,
+        "y": 500
+      }
+    },
+    {
+      "time": 119.13,
+      "type": "fps_sample",
+      "value": 59.49
     },
     {
       "time": 120.01,
       "type": "performance",
       "status": "PASSED",
-      "message": "Average FPS: 61.31"
+      "message": "Average FPS: 60.67"
     },
     {
       "time": 120.01,
       "type": "gameplay_mechanics",
       "status": "PASSED",
-      "message": "Score: 236, Distance: 2363.48"
+      "message": "Score: 121, Distance: 1214.42"
     },
     {
       "time": 120.01,
