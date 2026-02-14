@@ -1,115 +1,197 @@
 {
-  "test_name": "Runtime Analysis",
-  "app_name": "vector-super-mario-bros-infinite-koopa-shell-bounce",
-  "start_time": 1771105429.6469755,
-  "test_duration_seconds": 120,
-  "checks": [
+  "overall_status": "PASSED",
+  "timestamp": "2026-02-14T22:50:18.712890Z",
+  "duration_seconds": 0.02,
+  "total_tests": 36,
+  "passed_tests": 36,
+  "failed_tests": 0,
+  "success_rate": 100.0,
+  "tests": [
     {
-      "check": "Pygame Initialization",
+      "test": "pygame_import",
+      "status": "PASSED",
+      "message": "Pygame imported successfully"
+    },
+    {
+      "test": "config_import",
+      "status": "PASSED",
+      "message": "Config module imported successfully"
+    },
+    {
+      "test": "game_import",
+      "status": "PASSED",
+      "message": "Game classes imported successfully"
+    },
+    {
+      "test": "player_position",
+      "status": "PASSED",
+      "message": "Player initialized at correct position"
+    },
+    {
+      "test": "player_dimensions",
+      "status": "PASSED",
+      "message": "Player dimensions match config"
+    },
+    {
+      "test": "player_velocity",
+      "status": "PASSED",
+      "message": "Player initial velocity is zero"
+    },
+    {
+      "test": "player_move_left",
+      "status": "PASSED",
+      "message": "Player move_left sets correct velocity"
+    },
+    {
+      "test": "player_move_right",
+      "status": "PASSED",
+      "message": "Player move_right sets correct velocity"
+    },
+    {
+      "test": "player_stop",
+      "status": "PASSED",
+      "message": "Player stop_horizontal sets velocity to zero"
+    },
+    {
+      "test": "shell_position",
+      "status": "PASSED",
+      "message": "Shell initialized at correct position"
+    },
+    {
+      "test": "shell_initial_state",
+      "status": "PASSED",
+      "message": "Shell initial state is inactive with zero velocity"
+    },
+    {
+      "test": "shell_kick",
+      "status": "PASSED",
+      "message": "Shell kick activates and sets velocity"
+    },
+    {
+      "test": "pygame_init",
       "status": "PASSED",
       "message": "Pygame initialized successfully"
     },
     {
-      "check": "Game Instance Creation",
+      "test": "screen_creation",
       "status": "PASSED",
-      "message": "Game instance created successfully"
+      "message": "Screen created successfully"
     },
     {
-      "check": "Initial State Verification",
+      "test": "clock_creation",
       "status": "PASSED",
-      "details": {
-        "player_position": {
-          "x": 100,
-          "y": 460
-        },
-        "shell_position": {
-          "x": 400,
-          "y": 426
-        },
-        "score": 0,
-        "combo": 0,
-        "game_over": false,
-        "waiting_to_kick": true
-      }
+      "message": "Clock created successfully"
     },
     {
-      "check": "Observation Space",
+      "test": "game_reset",
       "status": "PASSED",
-      "details": {
-        "player_x": 100,
-        "player_y": 460,
-        "shell_x": 400,
-        "shell_y": 426,
-        "is_grounded": false
-      }
+      "message": "Game reset created player and shell"
     },
     {
-      "check": "Action Space",
+      "test": "game_initial_state",
       "status": "PASSED",
-      "details": {
-        "expected": [
-          "LEFT",
-          "RIGHT",
-          "JUMP",
-          "NONE"
-        ],
-        "actual": [
-          "LEFT",
-          "RIGHT",
-          "JUMP",
-          "NONE"
-        ]
-      }
+      "message": "Game starts in waiting_to_kick state"
     },
     {
-      "check": "Game Loop Execution",
+      "test": "player_gravity",
       "status": "PASSED",
-      "details": {
-        "frames_processed": 7200,
-        "runtime_seconds": 118.34657120704651
-      }
+      "message": "Player gravity applied correctly"
     },
     {
-      "check": "RL Step Function",
+      "test": "shell_inactive_update",
       "status": "PASSED",
-      "details": {
-        "observation_keys": [
-          "player_x",
-          "player_y",
-          "is_grounded",
-          "shell_x",
-          "shell_y",
-          "shell_velocity_x",
-          "shell_velocity_y"
-        ],
-        "reward": 0.01,
-        "done": false,
-        "info": {
-          "score": 0,
-          "combo": 0
-        }
-      }
+      "message": "Inactive shell doesn't move"
     },
     {
-      "check": "Final State",
+      "test": "shell_active_update",
       "status": "PASSED",
-      "details": {
-        "player_alive": true,
-        "shell_active": false,
-        "final_score": 0
-      }
+      "message": "Active shell moves when updated"
     },
     {
-      "check": "Game Reset",
+      "test": "platform_collision",
       "status": "PASSED",
-      "details": {
-        "score_after_reset": 0,
-        "combo_after_reset": 0,
-        "game_over_after_reset": false
-      }
+      "message": "Player lands on platform correctly"
+    },
+    {
+      "test": "player_observation",
+      "status": "PASSED",
+      "message": "Player observation has all required keys"
+    },
+    {
+      "test": "shell_observation",
+      "status": "PASSED",
+      "message": "Shell observation has all required keys"
+    },
+    {
+      "test": "game_observation",
+      "status": "PASSED",
+      "message": "Game observation combines all observations"
+    },
+    {
+      "test": "action_space",
+      "status": "PASSED",
+      "message": "Action space matches expected values"
+    },
+    {
+      "test": "step_return_types",
+      "status": "PASSED",
+      "message": "Step returns correct types"
+    },
+    {
+      "test": "step_reward",
+      "status": "PASSED",
+      "message": "Step returns non-negative reward during gameplay"
+    },
+    {
+      "test": "step_left_action",
+      "status": "PASSED",
+      "message": "LEFT action updates game state"
+    },
+    {
+      "test": "step_right_action",
+      "status": "PASSED",
+      "message": "RIGHT action updates game state"
+    },
+    {
+      "test": "draw_platform",
+      "status": "PASSED",
+      "message": "Platform drawing executed without errors"
+    },
+    {
+      "test": "draw_player",
+      "status": "PASSED",
+      "message": "Player drawing executed without errors"
+    },
+    {
+      "test": "draw_shell",
+      "status": "PASSED",
+      "message": "Shell drawing executed without errors"
+    },
+    {
+      "test": "draw_hud",
+      "status": "PASSED",
+      "message": "HUD drawing executed without errors"
+    },
+    {
+      "test": "shell_bounce_collision",
+      "status": "PASSED",
+      "message": "Player bounces off shell correctly"
+    },
+    {
+      "test": "combo_increase",
+      "status": "PASSED",
+      "message": "Combo increases on shell bounce"
+    },
+    {
+      "test": "score_increase",
+      "status": "PASSED",
+      "message": "Score increases on shell bounce"
     }
   ],
-  "overall_status": "PASSED",
-  "end_time": 1771105547.9935467,
-  "total_duration_seconds": 118.34657120704651
+  "summary": {
+    "application_start": "PASSED",
+    "basic_functionality": "PASSED",
+    "physics_simulation": "PASSED",
+    "rl_integration": "PASSED"
+  }
 }
