@@ -1,0 +1,39 @@
+{
+  "app_name": "vector-super-mario-bros-hammer-bro-dodge",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-185500-vector-super-mario-bros-hammer-bro-dodge",
+  "description": "Master the art of dodging and counter-attacking the iconic Hammer Brother's erratic projectile arcs.",
+  "rationale": "This app focuses on a specific high-difficulty enemy interaction from the classic platformer. It targets users and AI agents looking to improve precision timing and projectile trajectory prediction in a contained, high-stakes environment.",
+  "details": "The game features a fixed-screen platform layout with two levels of floors. A single Hammer Brother enemy moves back and forth on the upper or lower platforms, tossing hammers in high-arcing trajectories. The player controls a character who must survive for as long as possible while collecting points. The physics engine must accurately simulate gravity-affected parabolic arcs for the hammers. The enemy logic includes periodic jumps between platform levels and varied hammer toss intervals to prevent predictable patterns.",
+  "game_mechanics": {
+    "gravity": 9.8,
+    "hammer_arc_types": [
+      "short-high",
+      "long-low"
+    ],
+    "player_speed": 5.0,
+    "enemy_jump_chance": 0.05
+  },
+  "technical_specs": {
+    "framework": "pygame-ce",
+    "resolution": "800x600",
+    "state_space": [
+      "player_x",
+      "player_y",
+      "hammer_positions",
+      "enemy_position"
+    ],
+    "action_space": [
+      "move_left",
+      "move_right",
+      "jump",
+      "idle"
+    ]
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'uv run main.py')",
+  "how_to_play": "Use the Left and Right Arrow keys to move the character. Press the Spacebar to jump over hammers or reach the upper platform. Your score increases by 10 points for every hammer successfully dodged (once it leaves the screen) and 50 points for every 5 seconds of survival. Getting hit by a hammer results in immediate game over.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/hammer-bro-dodge-preview.png"
+}
