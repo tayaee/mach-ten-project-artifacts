@@ -1,0 +1,32 @@
+{
+  "app_name": "vector-ice-block-pengo-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260215-081030-vector-ice-block-pengo-logic",
+  "description": "Strategic ice-block sliding puzzle where you crush enemies and align goals.",
+  "rationale": "Inspired by the classic Pengo, this game focuses on spatial reasoning and timing. It targets players who enjoy retro arcade puzzles and provides a clear state-space for RL agents to learn collision physics and objective-based movement.",
+  "details": "The game consists of a 13x13 grid filled with breakable ice blocks. The player controls a penguin character. Enemies move randomly or track the player within the grid. The player can push ice blocks in four cardinal directions; the block slides until it hits another block, a wall, or an enemy. If an ice block hits an enemy while sliding, the enemy is destroyed. If the player pushes a block that is adjacent to a wall or another block and cannot move, the block breaks. Special 'Diamond Blocks' exist; aligning three of them in a row rewards massive bonus points. The level is cleared when all enemies are eliminated.",
+  "technical_specs": {
+    "resolution": "640x480",
+    "framework": "Pygame",
+    "grid_size": "40x40 pixels per cell",
+    "fps": 30
+  },
+  "game_rules": {
+    "enemy_behavior": "Move every 1 second, chance to change direction on collision.",
+    "scoring": {
+      "break_block": 10,
+      "crush_enemy": 400,
+      "align_diamonds": 5000,
+      "level_clear": 1000
+    },
+    "lives": 3
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f main.py) or press ESC",
+  "how_to_play": "Use Arrow Keys to move the penguin. Press SPACE while facing an ice block to push or break it. To score high, trap enemies between sliding blocks and the wall. Align the three diamond-patterned blocks for a secret bonus. Avoid direct contact with enemies.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "state_space_for_rl": "13x13 integer matrix: 0=Empty, 1=Wall, 2=Ice Block, 3=Diamond Block, 4=Player, 5=Enemy",
+  "action_space_for_rl": "0: Up, 1: Down, 2: Left, 3: Right, 4: Push/Action",
+  "screenshot": "category/games/2026/02/assets/pengo_logic_preview.png"
+}

@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-15 | [Vector Ice Block Pengo Logic](category/games/2026/02/20260215-081030-vector-ice-block-pengo-logic/) | Strategic ice-block sliding puzzle where you crush enemies and align goals.
 * 2026-02-15 | [Vector Mario Bros Platform Climb](category/games/2026/02/20260215-122249-vector-mario-bros-platform-climb/) | A precision platforming challenge where you climb shifting tiers to reach the top while avoiding fireball obstacles.
 * 2026-02-14 | [Vector Reversi Othello Logic](category/games/2026/02/20260214-221055-vector-reversi-othello-logic/) | Strategic board game of territory and conversion where one move can flip the entire board.
 * 2026-02-14 | [Vector Super Mario Bros Hammer Bro Dodge](category/games/2026/02/20260214-185500-vector-super-mario-bros-hammer-bro-dodge/) | Master the art of dodging and counter-attacking the iconic Hammer Brother's erratic projectile arcs.
