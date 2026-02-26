@@ -1,0 +1,12 @@
+[project]
+name = "vector-connect-four-logic"
+version = "0.1.0"
+description = "A minimalist strategic gravity-based vertical alignment puzzle"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-connect-four-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260226-115904-vector-connect-four-logic",
+  "description": "A minimalist strategic gravity-based vertical alignment puzzle.",
+  "rationale": "This game targets players who enjoy turn-based strategy and pattern recognition. It provides a clean, professional environment for AI agents to learn minimax algorithms and spatial heuristics in a 2D grid environment.",
+  "details": "The game is a simplified version of the classic Connect Four. It features a 7x6 vertical grid. Two players (User vs AI or AI vs AI) drop colored discs from the top into one of the seven columns. The disc occupies the lowest available space within the column due to gravity. The first player to form a horizontal, vertical, or diagonal line of four of their own discs wins the game. The interface uses a high-contrast monochromatic vector style for clarity.",
+  "technical_specs": {
+    "grid_size": "7 columns x 6 rows",
+    "win_condition": "4 connected tokens (Horizontal, Vertical, Diagonal)",
+    "input_method": "Column selection (0-6)",
+    "state_representation": "2D integer array where 0=empty, 1=player1, 2=player2"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $PPID or close the window",
+  "how_to_play": "Players take turns selecting a column index (0-6) using the mouse or number keys. The goal is to connect 4 tokens before the opponent. Score increases by 100 for each victory. A draw grants 10 points. AI agents should maximize the utility function based on board control and potential lines.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/previews/connect-four-logic.png"
+}

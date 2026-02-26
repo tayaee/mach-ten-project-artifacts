@@ -1,0 +1,33 @@
+"""Configuration settings for Vector Connect Four Logic."""
+
+# Screen settings
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 700
+
+# Grid settings
+GRID_COLS = 7
+GRID_ROWS = 6
+CELL_SIZE = 80
+MARGIN_X = 120
+MARGIN_Y = 100
+
+# Colors
+BACKGROUND_COLOR = (40, 40, 40)
+GRID_COLOR = (60, 60, 60)
+TEXT_COLOR = (255, 255, 255)
+PLAYER1_COLOR = (255, 200, 50)
+PLAYER2_COLOR = (100, 180, 255)
+EMPTY_COLOR = (30, 30, 30)
+COLUMN_HIGHLIGHT = (70, 70, 70)
+WIN_COLOR = (0, 255, 0)
+
+# Game settings
+FPS = 60
+WIN_SCORE = 100
+DRAW_SCORE = 10
+ANIMATION_SPEED = 10
+
+# Player constants
+EMPTY = 0
+PLAYER1 = 1
+PLAYER2 = 2
