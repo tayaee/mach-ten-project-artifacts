@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-28 | [Vector Frog River Log Logic](category/games/2026/02/20260228-030135-vector-frog-river-log-logic/) | Master river crossing by timing leaps across shifting logs in this precision-based puzzle platformer.
 * 2026-02-27 | [Vector Tumble Weed Dodge](category/games/2026/02/20260227-202713-vector-tumble-weed-dodge/) | Survive the desert storm by dodging endless waves of fast-moving tumbleweeds.
 * 2026-02-27 | [Vector Frog Log Crossing Logic](category/games/2026/02/20260227-201200-vector-frog-log-crossing-logic/) | Cross the treacherous river by jumping on moving logs in this precision timing challenge.
 * 2026-02-26 | [Vector Connect Four Logic](category/games/2026/02/20260226-115904-vector-connect-four-logic/) | A minimalist strategic gravity-based vertical alignment puzzle where players connect four tokens to win.

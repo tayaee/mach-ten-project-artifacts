@@ -1,0 +1,6 @@
+[project]
+name = "20260228-030135-vector-frog-river-log-logic"
+version = "0.1.0"
+description = "Master river crossing by timing leaps across shifting logs"
+requires-python = ">=3.12"
+dependencies = ["pygame"]

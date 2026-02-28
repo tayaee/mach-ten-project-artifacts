@@ -1,0 +1,29 @@
+{
+  "app_name": "vector-frog-river-log-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260228-030135-vector-frog-river-log-logic",
+  "description": "Master the art of river crossing by timing your leaps across shifting logs in this precision-based puzzle platformer.",
+  "rationale": "This game targets developers and AI agents interested in pathfinding and timing-based decision making. It simplifies the complex 'Frogger' mechanics into a grid-based logical challenge, providing a perfect environment for Reinforcement Learning agents to learn risk assessment and predictive movement.",
+  "details": "The game consists of a 10x10 grid. The bottom row is the starting 'Safe Zone' and the top row is the 'Goal Zone'. Between them are 8 rows of river. Each river row contains 'Logs' of varying lengths (1-3 units) moving either left or right at different constant speeds. The player (Frog) must move from the bottom to the top. If the Frog steps on a 'Water' cell, the game ends. If the Frog is on a Log, it moves horizontally with the log. The Frog can move Up, Down, Left, or Right. The game features a monochrome professional UI (Dark Grey and White) to minimize visual noise for agents.",
+  "game_mechanics": {
+    "grid_size": "10x10",
+    "movement": "Discrete grid-based (1 cell per action)",
+    "win_condition": "Reach any cell in the top row (Goal Zone)",
+    "lose_condition": "Step on Water, or move off-screen boundaries while riding a log",
+    "physics": "Horizontal velocity inheritance while standing on logs"
+  },
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "dependencies": [
+      "pygame"
+    ],
+    "build_system": "uv",
+    "rendering": "Vector-based 2D"
+  },
+  "how_to_build": "uv self update && uv init && uv add pygame",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "pkill -f python",
+  "how_to_play": "Goal: Reach the top row. Actions: Arrow keys (Up, Down, Left, Right). Scoring: +10 points for moving to a higher row for the first time, +100 points for reaching the Goal Zone. Game Over if you touch the blue 'Water' area or drift off the screen edges. Time limit: 60 seconds per attempt.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
+  "screenshot": "assets/screenshots/gameplay_preview.png"
+}
