@@ -1,0 +1,29 @@
+{
+  "app_name": "vector-tumble-weed-dodge",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260227-202713-vector-tumble-weed-dodge",
+  "description": "Survive the desert storm by dodging endless waves of fast-moving tumbleweeds.",
+  "rationale": "This game focuses on high-speed reaction and pattern recognition. It provides a clean environment for AI agents to learn collision avoidance and spatial timing in a continuous side-scrolling context.",
+  "details": "The game features a player character (cowboy silhouette) positioned on the left side of the screen. Tumbleweeds of varying sizes and speeds spawn from the right and move leftward. The player can move vertically (Up/Down) to avoid them. As time progresses, the frequency and speed of tumbleweeds increase. The game uses a minimalist vector art style with a high contrast between the character/obstacles and the desert background.",
+  "game_mechanics": {
+    "gravity": 0,
+    "scroll_speed_base": 5,
+    "difficulty_scaling": "linear_increase_every_10_seconds",
+    "collision_type": "bounding_box"
+  },
+  "technical_specs": {
+    "framework": "Pygame",
+    "resolution": "800x400",
+    "color_palette": [
+      "#000000",
+      "#FFFFFF",
+      "#333333"
+    ]
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window.",
+  "how_to_play": "Score increases by 1 point for every second survived and 10 points for every tumbleweed successfully dodged (passing the left edge). Use UP and DOWN arrow keys to move the character vertically. Touching a tumbleweed results in immediate Game Over.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "N/A"
+}
