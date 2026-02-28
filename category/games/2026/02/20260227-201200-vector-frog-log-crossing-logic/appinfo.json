@@ -1,0 +1,37 @@
+{
+  "app_name": "vector-frog-log-crossing-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260227-201200-vector-frog-log-crossing-logic",
+  "description": "Cross the treacherous river by jumping on moving logs in this precision timing challenge.",
+  "rationale": "This game focuses on rhythmic timing and spatial reasoning. It is designed for users who enjoy classic arcade mechanics and provides a clear state-space for reinforcement learning agents to master sequential decision-making.",
+  "details": "The game consists of a 10x10 grid. The player starts at the bottom row (Safety Zone). Between the start and the goal (Top Row) is a river with 4 lanes of logs moving at different speeds and directions. Lane 1 and 3 move left, Lane 2 and 4 move right. If the player is on a log, they move with it. If the player falls into the water or moves off-screen, the game ends. The goal is to reach any tile in the top safety row.",
+  "technical_specs": {
+    "screen_resolution": "600x600",
+    "frame_rate": "30fps",
+    "grid_size": "60x60 pixels per cell",
+    "entity_types": [
+      "Player",
+      "Log",
+      "Water",
+      "Goal"
+    ]
+  },
+  "rules": {
+    "movement": "One cell per key press (Up, Down, Left, Right).",
+    "log_physics": "Logs move periodically. Player position updates relative to log velocity while standing on one.",
+    "win_condition": "Reaching the top row (y=0).",
+    "lose_condition": "Stepping on a Water tile or drifting outside the horizontal screen bounds (x < 0 or x > 9)."
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press ESC or close the window.",
+  "how_to_play": "Use Arrow Keys to move the frog. Score increases by 10 for every lane crossed for the first time, and 100 points for reaching the goal. Avoid the blue water tiles; only land on brown log tiles.",
+  "how_to_cleanup": "rm -rf .venv",
+  "reward_function_info": {
+    "step_penalty": -0.1,
+    "death_penalty": -100,
+    "goal_reward": 500,
+    "forward_progress_reward": 20
+  },
+  "screenshot": "assets/screenshots/frog_log_crossing.png"
+}
