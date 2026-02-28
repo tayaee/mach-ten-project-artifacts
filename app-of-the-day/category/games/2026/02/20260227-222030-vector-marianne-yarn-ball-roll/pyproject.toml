@@ -1,0 +1,8 @@
+[project]
+name = "20260227-222030-vector-marianne-yarn-ball-roll"
+version = "0.1.0"
+description = "Guide a rolling yarn ball through a physics-based obstacle course to reach the kitten"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.6",
+]
