@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-03-01 | [Vector Road Fighter Nitro Drift](category/games/2026/03/20260301-030122-vector-road-fighter-nitro-drift/) | High-speed vertical scrolling racing game focused on precision overtaking and fuel management.
 * 2026-02-28 | [Vector Frog River Log Logic](category/games/2026/02/20260228-030135-vector-frog-river-log-logic/) | Master river crossing by timing leaps across shifting logs in this precision-based puzzle platformer.
 * 2026-02-27 | [Vector Tumble Weed Dodge](category/games/2026/02/20260227-202713-vector-tumble-weed-dodge/) | Survive the desert storm by dodging endless waves of fast-moving tumbleweeds.
 * 2026-02-27 | [Vector Frog Log Crossing Logic](category/games/2026/02/20260227-201200-vector-frog-log-crossing-logic/) | Cross the treacherous river by jumping on moving logs in this precision timing challenge.

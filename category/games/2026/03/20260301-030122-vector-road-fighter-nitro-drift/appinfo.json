@@ -1,0 +1,24 @@
+{
+  "app_name": "vector-road-fighter-nitro-drift",
+  "category": "games",
+  "folder_name": "category/games/2026/03/20260301-030122-vector-road-fighter-nitro-drift",
+  "description": "High-speed vertical scrolling racing game focused on precision overtaking and fuel management.",
+  "rationale": "This app targets retro gaming enthusiasts and AI researchers. It provides a structured environment for testing obstacle avoidance, resource management (fuel), and high-speed decision-making in a 2D vector-based coordinate system.",
+  "details": "The player controls a car moving vertically up a multi-lane highway. The goal is to reach the finish line before running out of fuel. Obstacles include slower civilian cars (moving at constant speed), erratic cars (changing lanes suddenly), and oil slicks that cause loss of control. Collecting 'Fuel' items restores the fuel bar. The game speed increases over time. Scoring is based on distance traveled and the number of cars overtaken. Colliding with cars or side rails results in a crash, causing a significant fuel penalty and speed reset.",
+  "state_space": "Player X-Y coordinates, Current Speed, Fuel Level, Array of nearby NPC cars (X, Y, Speed, Type), Distance to Finish, Oil Slick locations.",
+  "action_space": "Move Left, Move Right, Accelerate (Boost), Decelerate.",
+  "rewards": "Positive reward for distance covered (+1 per tick), Overtaking NPC cars (+10), Collecting Fuel (+50). Negative reward for Crashing (-100), Fuel depletion (Game Over).",
+  "technical_specs": {
+    "language": "Python 3.11+",
+    "rendering": "Pygame",
+    "dependency_manager": "uv",
+    "resolution": "400x600",
+    "framerate": "60 FPS"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window. For CLI agents, send SIGINT (Ctrl+C).",
+  "how_to_play": "Use the Left and Right Arrow keys to change lanes. Hold the Up Arrow key to accelerate/boost. Avoid hitting other cars or the green grassy borders. Pass over the 'F' icons to refill your fuel. The faster you go, the quicker the fuel depletes, so balance speed with safety. Reach the 10,000m mark to win.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "N/A"
+}

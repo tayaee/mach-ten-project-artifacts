@@ -1,0 +1,6 @@
+[project]
+name = "20260301-030122-vector-road-fighter-nitro-drift"
+version = "0.1.0"
+description = "High-speed vertical scrolling racing game focused on precision overtaking and fuel management"
+requires-python = ">=3.12"
+dependencies = ["pygame"]
