@@ -1,0 +1,50 @@
+{
+  "app_name": "vector-dig-dug-friz-dash",
+  "category": "games",
+  "folder_name": "category/games/2026/03/20260308-133800-vector-dig-dug-friz-dash",
+  "description": "Navigate a minimalist grid to inflate and pop rhythmic enemies before they corner you.",
+  "rationale": "This game focuses on spatial logic and timing. It targets casual gamers and provides a structured environment for AI agents to learn pathfinding and threat prioritization in a grid-based survival scenario.",
+  "details": "A simplified clone of Dig Dug. The player operates on a 15x15 grid. The goal is to eliminate all enemies by either inflating them with a pump or dropping rocks on them. Enemies move randomly but start chasing the player when within a 4-tile radius. Digging through walls creates paths. The game ends if an enemy touches the player or if all enemies are defeated.",
+  "game_rules": {
+    "grid_size": "15x15",
+    "player_speed": "1 tile per 0.2 seconds",
+    "enemy_types": [
+      "Pooka (Red): Normal movement",
+      "Fygar (Green): Can breathe fire horizontally"
+    ],
+    "inflation_hits": 4,
+    "rock_behavior": "Falls after a 1-second delay if the space below is dug out"
+  },
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "dependencies": [
+      "pygame",
+      "numpy"
+    ],
+    "build_tool": "uv",
+    "config_file": "pyproject.toml"
+  },
+  "how_to_build": "uv venv && uv pip install pygame numpy",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f main.py)",
+  "how_to_play": "Use ARROW KEYS to move and dig. Press SPACE to fire the pump towards an enemy; keep tapping SPACE to inflate them until they pop. Score +100 for popping an enemy, +500 for dropping a rock on an enemy. Avoid contact with enemies and fire breath.",
+  "how_to_cleanup": "rm -rf .venv && find . -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/gameplay_placeholder.png",
+  "reinforcement_learning_params": {
+    "observation_space": "15x15x3 matrix (Player, Enemies, Rocks)",
+    "action_space": [
+      "UP",
+      "DOWN",
+      "LEFT",
+      "RIGHT",
+      "ATTACK",
+      "IDLE"
+    ],
+    "reward_structure": {
+      "enemy_popped": 1.0,
+      "rock_kill": 2.0,
+      "player_death": -1.0,
+      "step_penalty": -0.01
+    }
+  }
+}

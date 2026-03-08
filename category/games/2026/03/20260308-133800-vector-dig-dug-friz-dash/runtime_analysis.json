@@ -1,0 +1,97 @@
+{
+  "app_name": "vector-dig-dug-friz-dash",
+  "test_timestamp": "2026-03-08T13:38:00Z",
+  "runtime_duration": 30.25,
+  "startup_test": {
+    "status": "PASSED",
+    "error": null
+  },
+  "game_initialization_test": {
+    "status": "PASSED",
+    "error": null,
+    "details": {
+      "grid_size": "15x15",
+      "initial_enemies": 6,
+      "player_pos": "(7, 7)",
+      "initial_score": 0
+    }
+  },
+  "player_movement_test": {
+    "status": "PASSED",
+    "error": null,
+    "details": {
+      "initial_position": [
+        7,
+        7
+      ],
+      "final_position": [
+        8,
+        8
+      ],
+      "dug_soil": true,
+      "score_increase": 10,
+      "move_delay_frames": 12
+    }
+  },
+  "enemy_ai_test": {
+    "status": "PARTIAL",
+    "error": null,
+    "details": {
+      "initial_enemies_alive": 6,
+      "enemies_alive_after_update": 6,
+      "enemies_moved": false,
+      "enemy_move_delay_frames": 15
+    }
+  },
+  "pump_attack_test": {
+    "status": "PASSED",
+    "error": null,
+    "details": {
+      "target_inflated": 4,
+      "enemies_before": 6,
+      "enemies_after": 5,
+      "enemy_popped": true
+    }
+  },
+  "rock_physics_test": {
+    "status": "PASSED",
+    "error": null,
+    "details": {
+      "rock_initial_y": 2,
+      "rock_final_y": 3,
+      "rock_state": "stable",
+      "rock_fell": true
+    }
+  },
+  "observation_test": {
+    "status": "PASSED",
+    "error": null,
+    "details": {
+      "has_grid": true,
+      "has_player_pos": true,
+      "has_enemies": true,
+      "has_rocks": true,
+      "has_score": true,
+      "has_game_state": true,
+      "grid_size": 15,
+      "enemy_count": 6,
+      "rock_count": 6,
+      "step_ai_works": true,
+      "reward_received": 0.1,
+      "done_flag": false
+    }
+  },
+  "game_loop_test": {
+    "status": "PASSED",
+    "error": null,
+    "details": {
+      "duration_seconds": 30.02,
+      "frames_processed": 1401,
+      "average_fps": 46.67
+    }
+  },
+  "issues": [
+    "Enemy AI may not be moving properly"
+  ],
+  "overall_status": "PASSED"
+}

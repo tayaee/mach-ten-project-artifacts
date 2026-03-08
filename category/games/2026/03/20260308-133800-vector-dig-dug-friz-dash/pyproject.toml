@@ -1,0 +1,8 @@
+[project]
+name = "vector-dig-dug-friz-dash"
+version = "0.1.0"
+description = "Navigate a minimalist grid to inflate and pop rhythmic enemies before they corner you."
+requires-python = ">=3.11"
+dependencies = [
+    "pygame>=2.6.1",
+]
