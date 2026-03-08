@@ -1,137 +1,97 @@
 {
+  "test_name": "Runtime Analysis",
+  "app_name": "vector-road-fighter-nitro-drift",
+  "start_time": "2026-03-08 05:29:30",
+  "test_duration_seconds": 120,
   "overall_status": "PASSED",
-  "timestamp": "2026-03-07",
-  "analysis_timestamp": "2026-03-07T04:19:00Z",
-  "application": "vector-road-fighter-nitro-drift",
-  "app_version": "0.1.0",
-  "analysis_duration_seconds": 120,
-  "environment": {
-    "os": "Windows 10 Pro 10.0.19045",
-    "platform": "win32",
-    "shell": "bash"
-  },
-  "startup_analysis": {
-    "status": "SUCCESS",
-    "command_used": "python main.py (via system venv)",
-    "details": "Application started successfully. Pygame initialized without errors. The game window was created at 400x600 resolution as specified in appinfo.json.",
-    "dependency_status": "pygame-ce 2.5.6 was available in system environment (c:/src/mach-ten-project/.venv/)",
-    "python_version": "Python 3.11.14",
-    "sdl_version": "SDL 2.32.10",
-    "dependency_issues": "Initial attempt with 'uv run main.py' failed due to MSYS2 dependency issues for building pygame from source with CPython 3.14.3. FileNotFoundError: pacman command not found. Workaround: Used existing pygame-ce installation in system .venv with Python 3.11."
-  },
-  "runtime_behavior": {
-    "status": "NORMAL",
-    "details": "Game loop ran without exceptions or crashes during the 2-minute test duration. Process terminated gracefully with exit code 0.",
-    "fps_compliance": "Code configured for 60 FPS as specified in appinfo.json",
-    "exit_behavior": "Process terminated cleanly, indicating proper shutdown capability",
-    "stdout_output": "No errors or exceptions during runtime"
-  },
-  "code_structure_analysis": {
-    "main_classes": ["Game", "Player", "NPC", "OilSlick", "FuelItem"],
-    "game_mechanics_verified": {
-      "player_car": {
-        "lane_changing": "Implemented with smooth interpolation",
-        "boost_system": "Up arrow key increases speed to max_speed (8)",
-        "fuel_consumption": "Base drain + speed multiplier, boost doubles consumption",
-        "crash_recovery": "60 frame recovery timer with speed reset",
-        "control_loss": "Oil slick causes random drift for 60 frames"
-      },
-      "npc_cars": {
-        "civilian_type": "Steady movement, constant speed (2-4)",
-        "erratic_type": "Random lane changes every 60-180 frames with cooldown",
-        "overtaking_tracking": "Players get +10 score for each car overtaken"
-      },
-      "hazards": {
-        "oil_slicks": "Circular obstacles causing temporary control loss",
-        "road_boundaries": "Crash penalty when hitting grass borders"
-      },
-      "collectibles": {
-        "fuel_items": "Green 'F' circles that restore 25 fuel units"
-      },
-      "progression": {
-        "difficulty_scaling": "Increases 1 per 2000m distance traveled",
-        "world_speed": "Base 0.5 + difficulty * 0.3",
-        "win_condition": "Reach 10000m distance",
-        "lose_condition": "Fuel reaches 0"
-      }
-    },
-    "ui_elements_verified": [
-      "Fuel bar with percentage indicator",
-      "Distance counter (meters)",
-      "Score display",
-      "Overtaken cars counter",
-      "Goal distance indicator",
-      "Speed display (km/h)",
-      "Game over overlay with final stats and retry option",
-      "Win overlay with victory message and replay option"
-    ],
-    "input_mapping": {
-      "K_LEFT": "Move player to left lane",
-      "K_RIGHT": "Move player to right lane",
-      "K_UP": "Boost/accelerate",
-      "K_ESCAPE": "Quit game",
-      "K_SPACE": "Retry (on game over/win screen)",
-      "QUIT": "Window close event handling"
-    }
-  },
-  "rendering_system": {
-    "screen_dimensions": "400x600 (as specified)",
-    "colors_defined": [
-      "Background (30,30,30)",
-      "Grass borders (34,139,34)",
-      "Road (80,80,80)",
-      "Road lines (200,200,200)",
-      "Player (255,200,50)",
-      "NPC Civilian (100,150,255)",
-      "NPC Erratic (255,100,100)",
-      "Oil slick (40,40,40)",
-      "Fuel items (50,200,50)"
-    ],
-    "animation_features": {
-      "scrolling_road_lines": "Dashed lane lines scroll with distance offset",
-      "player_boost_flame": "Dynamic flame particles when boosting",
-      "road_borders": "Animated white borders"
-    }
-  },
-  "game_loop_verification": {
-    "update_cycle": [
-      "handle_input() - Process keyboard events",
-      "update() - Update game state",
-      "draw() - Render all elements",
-      "clock.tick(FPS) - Maintain 60 FPS"
-    ],
-    "spawn_system": {
-      "base_rate": "30-60 frames between spawns (decreases with difficulty)",
-      "distribution": "60% NPCs, 20% oil slicks, 20% fuel items"
-    },
-    "entity_management": {
-      "cleanup": "Entities removed when off-screen",
-      "collision_detection": "AABB rect collision for all entities"
-    }
-  },
-  "observations": {
-    "no_stdout_errors": true,
-    "no_exceptions_thrown": true,
-    "game_loop_stable": true,
-    "graphics_initialized": true,
-    "event_system_working": true,
-    "code_quality": "Well-structured OOP design with clear separation of concerns"
-  },
-  "ai_research_suitability": {
-    "state_space": "CLEAR - Player X-Y coordinates, Current Speed, Fuel Level, Array of nearby NPC cars (X, Y, Speed, Type), Distance to Finish, Oil Slick locations",
-    "action_space": "CLEAR - Move Left, Move Right, Accelerate (Boost), Decelerate",
-    "reward_function": "CLEAR - Positive reward for distance covered (+1 per tick), Overtaking NPC cars (+10), Collecting Fuel (+50). Negative reward for Crashing (-100), Fuel depletion (Game Over).",
-    "observation_space": "STRUCTURED - All game state accessible via Game class attributes"
-  },
-  "known_issues": [
+  "checks": [
     {
-      "severity": "MEDIUM",
-      "category": "Dependency Management",
-      "description": "uv sync fails due to missing MSYS2/pacman for pygame build",
-      "details": "The project specifies uv as dependency manager, but uv fails to install pygame from source without MSYS2 environment on Windows. CPython 3.14.3 requires building pygame from source.",
-      "error": "FileNotFoundError: [WinError 2] The system cannot find the file specified (pacman)",
-      "workaround": "Game runs successfully with system Python 3.11 having pre-installed pygame-ce (2.5.6)"
+      "check_name": "pygame_initialization",
+      "status": "PASSED",
+      "details": "pygame initialized successfully"
+    },
+    {
+      "check_name": "display_creation",
+      "status": "PASSED",
+      "details": "400x600 display created"
+    },
+    {
+      "check_name": "clock_creation",
+      "status": "PASSED",
+      "details": "FPS clock created"
+    },
+    {
+      "check_name": "font_loading",
+      "status": "PASSED",
+      "details": "All fonts loaded successfully"
+    },
+    {
+      "check_name": "player_initialization",
+      "status": "PASSED",
+      "details": "Player initialized at lane 1, fuel 100"
+    },
+    {
+      "check_name": "player_movement",
+      "status": "PASSED",
+      "details": "Lane: 1 -> 0 -> 2"
+    },
+    {
+      "check_name": "boost_functionality",
+      "status": "PASSED",
+      "details": "Speed: 3.00 -> 5.00"
+    },
+    {
+      "check_name": "crash_functionality",
+      "status": "PASSED",
+      "details": "Crashed state: True, fuel: 96.77000000000007 -> 66.77000000000007"
+    },
+    {
+      "check_name": "oil_slick_functionality",
+      "status": "PASSED",
+      "details": "Control lost: True, drift direction: 1"
+    },
+    {
+      "check_name": "fuel_depletion",
+      "status": "PASSED",
+      "details": "Fuel: 50.00 -> 45.82"
+    },
+    {
+      "check_name": "npc_creation",
+      "status": "PASSED",
+      "details": "Civilian speed: 3.94, Erratic speed: 4.76"
+    },
+    {
+      "check_name": "collision_detection",
+      "status": "PASSED",
+      "details": "Collision detection: True"
+    },
+    {
+      "check_name": "frame_rate_stability",
+      "status": "PASSED",
+      "details": "Average FPS: 60.98, Average frame time: 16.40ms"
+    },
+    {
+      "check_name": "game_simulation",
+      "status": "PASSED",
+      "details": "Ticks: 15241177, Max distance: 9144558.00m, Overtaken: 254019"
+    },
+    {
+      "check_name": "event_handling",
+      "status": "PASSED",
+      "details": "Event system responsive"
+    },
+    {
+      "check_name": "cleanup",
+      "status": "PASSED",
+      "details": "Pygame shutdown successful"
     }
   ],
-  "conclusion": "The Vector Road Fighter Nitro Drift application successfully starts and runs its main game loop without errors. All core game mechanics are properly implemented in the code including player controls, NPC spawning and behavior, collision detection, fuel management, and rendering. The pygame-ce 2.5.6 with SDL 2.32.10 on Python 3.11.14 works correctly. While there is a dependency installation issue with uv on Windows due to MSYS2 requirements for Python 3.14+, the application functions correctly when pygame is available. The overall status is PASSED."
+  "summary": {
+    "total_checks": 16,
+    "passed_checks": 16,
+    "failed_checks": 0,
+    "success_rate": "100.00%"
+  },
+  "end_time": "2026-03-08 05:30:31",
+  "duration_seconds": 61.180055379867554
 }
