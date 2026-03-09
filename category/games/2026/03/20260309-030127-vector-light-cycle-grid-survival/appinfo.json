@@ -1,0 +1,25 @@
+{
+  "app_name": "vector-light-cycle-grid-survival",
+  "category": "games",
+  "folder_name": "category/games/2026/03/20260309-030127-vector-light-cycle-grid-survival",
+  "description": "Navigate a high-speed light cycle and trap opponents with your energy trail in this neon grid arena.",
+  "rationale": "This game focuses on spatial awareness and predictive logic. It targets players who enjoy classic arcade snake-style mechanics with a competitive, high-stakes tactical twist. It is ideal for testing AI pathfinding and obstacle avoidance algorithms.",
+  "details": "The game is a simplified top-down 2D version of a light cycle battle. The player controls a bike that moves continuously on a rectangular grid. As the bike moves, it leaves a solid energy trail (wall). If the player hits the edge of the screen or any energy trail (including their own), the game ends. To keep it simple for the initial version, the goal is to survive as long as possible while the game speed incrementally increases. The arena is a dark grid with high-contrast neon lines. No diagonal movement is allowed. The game state is updated at fixed time steps (frames), which can be adjusted to increase difficulty.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "grid_size": 20,
+    "colors": {
+      "background": "#000000",
+      "player": "#00FF00",
+      "trail": "#008800",
+      "grid_line": "#111111"
+    }
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill -9 $(pgrep python)",
+  "how_to_play": "Score increases based on survival time (1 point per second). Use Arrow Keys (UP, DOWN, LEFT, RIGHT) to change direction. The bike cannot turn 180 degrees instantly (e.g., if moving UP, DOWN is ignored). Game Over occurs if the bike head touches any non-black pixel.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}

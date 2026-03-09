@@ -1,0 +1,15 @@
+[project]
+name = "vector-light-cycle-grid-survival"
+version = "1.0.0"
+description = "Navigate a high-speed light cycle and trap opponents with your energy trail in this neon grid arena"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-light-cycle-grid-survival = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
