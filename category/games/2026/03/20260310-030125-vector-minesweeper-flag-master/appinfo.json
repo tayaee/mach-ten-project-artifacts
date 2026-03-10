@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-minesweeper-flag-master",
+  "category": "games",
+  "folder_name": "category/games/2026/03/20260310-030125-vector-minesweeper-flag-master",
+  "description": "A refined strategic puzzle of logic and deduction to uncover hidden threats.",
+  "rationale": "Minesweeper is a foundational logic puzzle that challenges spatial reasoning and deductive skills. This version is designed for both human players seeking a minimalist challenge and AI agents learning pattern recognition and risk assessment in a grid-based environment.",
+  "details": "The game consists of a 10x10 grid containing 15 hidden mines. Each cell can be in one of three states: covered, uncovered, or flagged. When a cell is uncovered, it reveals either a mine (game over) or a number indicating how many mines are in the 8 adjacent cells. If a cell with 0 adjacent mines is uncovered, the game recursively uncovers all connected empty cells. The game ends in victory when all non-mine cells are uncovered. The UI is rendered using a clean, monochromatic vector style for clarity.",
+  "game_rules": {
+    "grid_size": "10x10",
+    "mine_count": 15,
+    "win_condition": "Uncover all cells that do not contain a mine.",
+    "lose_condition": "Uncover a cell that contains a mine."
+  },
+  "technical_stack": {
+    "language": "Python 3.10+",
+    "dependency_manager": "uv",
+    "ui_library": "pygame",
+    "configuration": "pyproject.toml"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Close the game window or press 'ESC' key.",
+  "how_to_play": "Left-click to uncover a cell. Right-click to place or remove a flag on a suspected mine. Your score is based on the time taken to complete the grid (lower is better) and the number of successfully uncovered safe cells. For AI agents: input is the grid coordinate (x, y) and action type (0 for uncover, 1 for flag). Observation is the 10x10 matrix of revealed numbers and flag states.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "N/A"
+}

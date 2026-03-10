@@ -1,0 +1,15 @@
+[project]
+name = "vector-minesweeper-flag-master"
+version = "1.0.0"
+description = "A refined strategic puzzle of logic and deduction to uncover hidden threats"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-minesweeper-flag-master = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

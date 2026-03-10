@@ -1,0 +1,56 @@
+{
+  "test_results": [
+    {
+      "test_name": "test_cell_creation",
+      "status": "PASSED",
+      "message": "Cell creation works correctly"
+    },
+    {
+      "test_name": "test_game_initialization",
+      "status": "PASSED",
+      "message": "Game initializes correctly with default state"
+    },
+    {
+      "test_name": "test_mine_placement",
+      "status": "PASSED",
+      "message": "Successfully placed 15 mines avoiding first click area"
+    },
+    {
+      "test_name": "test_adjacent_mines_calculation",
+      "status": "PASSED",
+      "message": "Adjacent mine calculation works correctly"
+    },
+    {
+      "test_name": "test_flag_toggle",
+      "status": "PASSED",
+      "message": "Flag toggle functionality works correctly"
+    },
+    {
+      "test_name": "test_uncover_cell",
+      "status": "PASSED",
+      "message": "Cell uncovering and recursion work correctly"
+    },
+    {
+      "test_name": "test_win_condition",
+      "status": "PASSED",
+      "message": "Win condition detection works correctly"
+    },
+    {
+      "test_name": "test_get_neighbors",
+      "status": "PASSED",
+      "message": "Neighbor calculation works correctly for all cell positions"
+    },
+    {
+      "test_name": "test_get_cell_from_pos",
+      "status": "PASSED",
+      "message": "Mouse position to cell coordinate conversion works correctly"
+    }
+  ],
+  "summary": {
+    "total_tests": 9,
+    "passed": 9,
+    "failed": 0,
+    "pass_rate": "100.0%"
+  },
+  "overall_status": "PASSED"
+}
