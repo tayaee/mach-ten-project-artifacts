@@ -1,0 +1,11 @@
+[project]
+name = "vector-brick-stacker-gravity-balance"
+version = "0.1.0"
+description = "Stack falling blocks precisely to build the highest tower without toppling over."
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-03-14 | [Vector Brick Stacker Gravity Balance](category/games/2026/03/20260314-030126-vector-brick-stacker-gravity-balance/) | Stack falling blocks precisely to build the highest tower without toppling over.
 * 2026-03-09 | [Vector Light Cycle Grid Survival](category/games/2026/03/20260309-030127-vector-light-cycle-grid-survival/) | Navigate a high-speed light cycle leaving energy trails, surviving as long as the speed increases.
 * 2026-03-08 | [Vector Dig Dug Friz Dash](category/games/2026/03/20260308-133800-vector-dig-dug-friz-dash/) | Navigate a minimalist grid to inflate and pop rhythmic enemies before they corner you.
 * 2026-03-01 | [Vector Road Fighter Nitro Drift](category/games/2026/03/20260301-030122-vector-road-fighter-nitro-drift/) | High-speed vertical scrolling racing game focused on precision overtaking and fuel management.

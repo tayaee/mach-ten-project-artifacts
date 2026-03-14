@@ -1,0 +1,18 @@
+{
+  "app_name": "vector-brick-stacker-gravity-balance",
+  "category": "games",
+  "folder_name": "category/games/2026/03/20260314-030126-vector-brick-stacker-gravity-balance",
+  "description": "Stack falling blocks precisely to build the highest tower without toppling over.",
+  "rationale": "This game targets fans of physics-based puzzles and classic stacking games. It provides a unique challenge for AI agents to learn spatial reasoning and real-time balance adjustment under gravity constraints.",
+  "details": "The game consists of a base platform and various rectangular blocks that fall from the top of the screen one by one. The player must move and rotate the falling block to land it on the existing stack. The game uses a 2D physics engine where each block has a center of mass. If the cumulative center of mass of the stack shifts outside the base width, the tower collapses. As the tower gets higher, the camera scrolls up, and the falling speed of blocks increases. The game ends when any block falls off the screen or the stack collapses.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill the process or press the ESC key",
+  "how_to_play": "Move the falling block left or right using the arrow keys and rotate it using the spacebar. Align the block to maintain the tower balance. Scoring: +10 points for each successfully placed block, +50 bonus points for every 5 levels of height achieved. The goal is to maximize the total score before the tower falls.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "physics_engine": "Pygame-based simple gravity and collision logic",
+  "input_space": "LEFT_ARROW, RIGHT_ARROW, SPACEBAR, ESC",
+  "state_space": "Block position (x, y), Block rotation (0-270 degrees), Stack center of mass, Current tower height",
+  "reward_function": "Positive reward for successful placement; Negative reward for stack oscillation; Large negative penalty for collapse",
+  "screenshot": "assets/images/screenshot_preview.png"
+}
