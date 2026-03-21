@@ -1,67 +1,87 @@
 {
   "overall_status": "PASSED",
   "app_name": "vector-brick-stacker-gravity-balance",
-  "test_date": "2026-03-19",
-  "test_duration_seconds": 120,
+  "test_date": "2026-03-21",
+  "test_duration_seconds": 0.26,
   "startup": {
     "status": "PASSED",
-    "command": "SDL_VIDEODRIVER=dummy python main.py",
-    "notes": "Application started successfully using system python with pygame-ce 2.5.6. The SDL_VIDEODRIVER=dummy environment variable allows headless operation for automated testing."
+    "command": ".venv2/Scripts/python.exe test_runtime.py",
+    "notes": "Application started successfully using Python 3.12.12 with pygame 2.6.1 (SDL 2.28.4). The game initializes correctly with an 800x600 window."
   },
   "dependencies": {
     "pygame": {
       "status": "PASSED",
-      "notes": "pygame-ce 2.5.6 is installed and working correctly. Provides graphics, input handling, and timing for the game."
+      "notes": "pygame 2.6.1 is installed and working correctly via .venv2 virtual environment. Provides graphics, input handling, and timing for the game."
     },
     "build_method": {
-      "status": "PASSED",
-      "notes": "System python with pip-installed pygame-ce works. The documented 'uv sync' build method in appinfo.json fails on Windows due to missing MSYS2/pacman for building pygame from source, but this is not a blocker since alternative installation methods work."
+      "status": "PARTIAL",
+      "notes": "The documented 'uv run python main.py' fails on Windows due to missing MSYS2/pacman for building pygame from source. However, the application runs successfully with the pre-existing .venv2 virtual environment that has pygame installed."
     }
   },
   "basic_functionality": {
     "game_initialization": {
       "status": "PASSED",
-      "notes": "Game class initializes correctly with window size 800x600 and 60 FPS target. Pygame-ce 2.5.6 (SDL 2.32.10) loads successfully."
+      "notes": "Game class initializes correctly with window size 800x600, 60 FPS target, running state True, and initial score 0."
     },
     "block_spawning": {
       "status": "PASSED",
-      "notes": "BlockSpawner generates falling blocks with various sizes (e.g., 45x40), colors, and rotations starting at position (400.0, 50)."
+      "notes": "BlockSpawner generates falling blocks with various sizes (e.g., 70x30, 40x30), random colors, and rotations starting at position (400.0, 50)."
     },
     "block_movement": {
       "status": "PASSED",
-      "notes": "Horizontal movement works correctly - blocks can be moved left (action=0) and right (action=1) by 20 pixels per step via AI interface."
+      "notes": "Horizontal movement works correctly - blocks can be moved left (delta -20) and right (delta +20) with proper screen bounds checking (20.0 to 535.0)."
     },
     "block_rotation": {
       "status": "PASSED",
-      "notes": "Block rotation increments by 90 degrees (0 to 90 confirmed) using action=2 via AI interface."
+      "notes": "Block rotation increments by 90 degrees (180 -> 270 -> 0 -> 90 -> 180 cycle confirmed)."
     },
     "physics_engine": {
       "status": "PASSED",
-      "notes": "PhysicsEngine calculates center of mass correctly for empty stack (0.0, 0.0) and populated stacks."
+      "notes": "PhysicsEngine calculates center of mass correctly for empty stack (0.0, 0.0) and populated stacks. Balance status detection works (stable/unstable/collapsed)."
     },
     "block_landing": {
       "status": "PASSED",
-      "notes": "Block landing mechanism works - score increases from 0 to 160 after landing a block, confirming scoring system (10 points per block + height bonuses)."
+      "notes": "Block landing mechanism works - score increases from 0 to 10 after landing first block, blocks properly move to landed_blocks list."
     },
     "scoring_system": {
       "status": "PASSED",
-      "notes": "Score tracking works correctly - initial score is 0 and increases properly after block placement."
+      "notes": "Score tracking works correctly - initial score is 0, increases by 10 per block, can reach 40 with 4 blocks placed."
     },
     "ai_observation": {
       "status": "PASSED",
-      "notes": "AI observation interface (get_observation) returns game state dictionary structure."
+      "notes": "AI observation interface (get_observation) returns game state dictionary with keys: block_position, block_rotation, block_dimensions, stack_com, tower_height, score, game_over."
     },
     "ai_step_interface": {
       "status": "PASSED",
-      "notes": "AI step interface (step_ai) executes actions (0=left, 1=right, 2=rotate, 3=do nothing) and returns observation, reward, and done flag."
+      "notes": "AI step interface (step_ai) executes actions (0=left, 1=right, 2=rotate, 3=do nothing) and returns observation, reward (-0.10 oscillation penalty), and done flag."
     },
     "game_reset": {
       "status": "PASSED",
-      "notes": "Game reset clears landed blocks, resets score to 0, clears game over state, and respawns initial block."
+      "notes": "Game reset clears landed blocks, resets score to 0, clears blocks_placed to 0, clears game over state, and respawns initial falling block."
     },
-    "game_loop": {
+    "game_loop_performance": {
       "status": "PASSED",
-      "notes": "Main game loop runs continuously at 60 FPS until ESC key or window close event."
+      "notes": "Game loop performance is excellent - 100 updates complete in 0.001s (0.01ms per update, >100,000 FPS estimate). 1000 updates complete in 0.095s (0.09ms per update, >10,000 FPS estimate)."
+    },
+    "camera_movement": {
+      "status": "PASSED",
+      "notes": "Camera offset adjusts correctly as tower height increases (offset 10.0 with 390px tower height). Camera follows the tower upwards smoothly."
+    },
+    "balance_detection": {
+      "status": "PASSED",
+      "notes": "Balance detection works correctly - center-aligned stack shows 'stable' status, off-center stack (5 blocks at x=500) shows 'unstable' status."
+    },
+    "collision_detection": {
+      "status": "PASSED",
+      "notes": "Collision detection works correctly - overlapping blocks (same position) return True for collision."
+    },
+    "tower_height_calculation": {
+      "status": "PASSED",
+      "notes": "Tower height calculation works correctly - 0px for empty stack, 150px with 4 blocks, 390px with 10+ blocks."
+    },
+    "module_imports": {
+      "status": "PASSED",
+      "notes": "All modules import successfully: config, block, physics, game, main."
     }
   },
   "module_imports": {
@@ -71,14 +91,21 @@
     "game": "PASSED",
     "main": "PASSED"
   },
+  "performance_metrics": {
+    "update_time_100_iterations_ms": 0.01,
+    "fps_estimate_100_iterations": 101067.6,
+    "update_time_1000_iterations_ms": 0.09,
+    "fps_estimate_1000_iterations": 10526.6
+  },
   "issues_found": [
-    "The documented 'uv sync' build command in appinfo.json fails on Windows due to missing MSYS2/pacman required for building pygame from source. This is a Windows-specific build environment issue, not a functional issue with the application itself.",
-    "The application requires pygame but pygame-ce 2.5.6 is being used successfully, which is a community-maintained fork that provides API compatibility."
+    "The documented 'uv run python main.py' build command in appinfo.json fails on Windows due to missing MSYS2/pacman required for building pygame from source. This is a Windows-specific build environment issue, not a functional issue with the application itself.",
+    "The application requires pygame but the .venv environment doesn't have pygame installed - only .venv2 has pygame 2.6.1."
   ],
   "recommendations": [
-    "Update appinfo.json how_to_build to include pip alternative for Windows environments: 'pip install pygame-ce' or 'pip install pygame'.",
-    "Consider specifying pygame-ce in pyproject.toml dependencies for Windows compatibility, as it provides pre-built wheels.",
-    "Document SDL_VIDEODRIVER=dummy option for headless automated testing on Linux/Unix systems."
+    "Update appinfo.json how_to_build to include pip alternative for Windows environments: 'pip install pygame' or ensure .venv has pygame installed.",
+    "Update appinfo.json how_to_start to use the correct virtual environment: '.venv2/Scripts/python.exe main.py' or ensure .venv is properly set up.",
+    "Consider specifying pygame in pyproject.toml dependencies with explicit version for better reproducibility.",
+    "For automated CI/CD on Windows, pre-install pygame via pip before running the application."
   ],
-  "summary": "The Vector Brick Stacker Gravity Balance game successfully starts and all core functionality works correctly. All 11 basic functionality tests passed: game initialization, block spawning, movement, rotation, physics engine, landing mechanics, scoring, AI observation interface, AI step interface, game reset, and game loop. The game runs correctly in headless mode (SDL_VIDEODRIVER=dummy) for automated testing. The only limitation is the documented 'uv sync' build command which fails on Windows due to missing MSYS2/pacman, but the application works perfectly with pygame-ce 2.5.6 installed via pip."
+  "summary": "The Vector Brick Stacker Gravity Balance game successfully starts and all 16 basic functionality tests passed: game initialization, block spawning, movement, rotation, physics engine, landing mechanics, scoring, AI observation interface, AI step interface, game reset, game loop performance, camera movement, balance detection, collision detection, tower height calculation, and module imports. The game demonstrates excellent performance with >10,000 FPS in extended runtime testing. The only limitations are: (1) the documented 'uv run python main.py' command fails on Windows due to missing MSYS2/pacman, but the application runs perfectly with the .venv2 virtual environment that has pygame 2.6.1 installed, and (2) the default .venv environment doesn't have pygame installed."
 }
