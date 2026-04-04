@@ -1,5 +1,6 @@
 {
-  "analysis_timestamp": "2026-04-03T06:39:00Z",
+  "analysis_timestamp": "2026-04-04T00:00:00Z",
+  "previous_analysis_timestamp": "2026-04-03T06:39:00Z",
   "app_name": "vector-brick-stacker-gravity-balance",
   "category": "games",
   "analysis_duration_seconds": 120,
@@ -13,7 +14,7 @@
     "pygame_version": "2.6.1",
     "pygame_sdl_version": "2.28.4",
     "python_version": "3.12.12",
-    "details": "All required dependencies (pygame, random, typing) are properly installed and functional."
+    "details": "All required dependencies (pygame, random, typing) are properly installed and functional in .venv2 environment. Note: 'uv sync' fails on Windows due to pygame build requirements, but .venv2 has pygame pre-installed."
   },
   "module_imports": {
     "status": "PASSED",
@@ -30,11 +31,11 @@
   },
   "game_initialization": {
     "status": "PASSED",
-    "details": "Game class initialized successfully with proper setup of pygame display, clock, fonts, game state, platform, blocks, physics engine, camera, and scoring system."
+    "details": "Game class initialized successfully with proper setup of pygame display, clock, fonts, game state, platform, falling blocks, landed blocks, physics engine, camera, and scoring system."
   },
   "main_game_loop": {
     "status": "PASSED",
-    "details": "The main game loop executed for extended testing without crashes or errors. The game loop properly handles input, update, and draw cycles. In headless mode, processed 5400 frames in 14.52 seconds without issues."
+    "details": "The main game loop executed for 120 seconds without crashes or errors. The game loop properly handles input, update, and draw cycles. In headless mode, processed 17951 frames in 120 seconds at ~150 FPS."
   },
   "core_functionality": {
     "block_spawning": {
@@ -55,7 +56,7 @@
     },
     "scoring": {
       "status": "PASSED",
-      "details": "Score increases by 10 (Scoring.POINTS_PER_BLOCK) for each successfully placed block. Height bonus (+50 points every 5 levels) is properly calculated. Extended test reached score of 1190 with 119 blocks placed."
+      "details": "Score increases by 10 (Scoring.POINTS_PER_BLOCK) for each successfully placed block. Height bonus (+50 points every 5 levels) is properly calculated. Full test reached score of 3770 with ~377 blocks placed."
     },
     "camera": {
       "status": "PASSED",
@@ -92,11 +93,11 @@
   },
   "ai_interface": {
     "status": "PASSED",
-    "details": "AI interface methods (get_observation(), step_ai()) are implemented and functional. Provides observation dictionary with block position, rotation, dimensions, stack center of mass, tower height, score, and game over state. Extended AI test placed 119 blocks successfully."
+    "details": "AI interface methods (get_observation(), step_ai()) are implemented and functional. Provides observation dictionary with block position, rotation, dimensions, stack center of mass, tower height, score, and game over state. step_ai() returns (observation, reward, done) tuple. Observation is populated after update() call."
   },
   "state_space": {
     "status": "PASSED",
-    "details": "State space correctly includes: block position (x, y), block rotation (0-270 degrees), block dimensions, stack center of mass, tower height, score, and game over flag."
+    "details": "State space correctly includes: block position (x, y), block rotation (0-270 degrees), block dimensions (width, height), stack center of mass, tower height, score, and game over flag."
   },
   "action_space": {
     "status": "PASSED",
@@ -104,38 +105,52 @@
   },
   "reward_function": {
     "status": "PASSED",
-    "details": "Reward function includes base oscillation penalty, positive reward for successful block placement, and large negative penalty (COLLAPSE_PENALTY) for collapse."
+    "details": "Reward function includes base oscillation penalty (-0.1), positive reward for successful block placement, and large negative penalty (COLLAPSE_PENALTY) for collapse."
   },
   "error_handling": {
     "status": "PASSED",
-    "details": "No errors or exceptions were thrown during the 2-minute runtime analysis. The application ran stably without crashes during extended testing (5400 frames)."
+    "details": "No errors or exceptions were thrown during the 2-minute runtime analysis. The application ran stably without crashes during extended testing (17951 frames)."
   },
   "performance": {
     "status": "PASSED",
     "target_fps": 60,
-    "actual_fps_headless": "~372 FPS (5400 frames in 14.52s)",
-    "details": "Game runs at or above target 60 FPS using pygame.time.Clock.tick(). Performance is smooth and consistent. Headless mode runs significantly faster without display rendering."
+    "actual_fps_headless": "~150 FPS (17951 frames in 120s)",
+    "details": "Game runs at or above target 60 FPS using pygame.time.Clock.tick(). Performance is smooth and consistent. Headless mode runs faster without display rendering."
   },
-  "extended_test_results": {
-    "test_duration": "14.52 seconds",
-    "frames_processed": 5400,
-    "final_score": 1190,
-    "blocks_placed": 119,
-    "tower_height": 70,
-    "game_over": false,
+  "runtime_test_results": {
+    "test_duration": "120 seconds",
+    "frames_processed": 17951,
+    "average_fps": 149.6,
+    "final_score": 3770,
+    "game_over_count": 0,
+    "status": "PASSED"
+  },
+  "ai_interface_verification": {
+    "observation_keys": [
+      "block_position",
+      "block_rotation",
+      "block_dimensions",
+      "stack_com",
+      "tower_height",
+      "score",
+      "game_over"
+    ],
+    "step_ai_return_values": "Correctly returns (observation, reward, done) tuple",
     "status": "PASSED"
   },
   "notes": [
-    "The game successfully runs for extended periods without stability issues.",
+    "The game successfully runs for extended periods (2 minutes) without stability issues.",
     "Pygame display initializes correctly (800x600 resolution as per config).",
     "The .venv2 virtual environment contains all required dependencies.",
     "The game is designed for interactive play but also supports AI-controlled gameplay through the step_ai() method.",
     "Headless mode (SDL_VIDEODRIVER='dummy') works correctly for unattended testing.",
-    "Simple AI strategy successfully placed 119 blocks without tower collapse."
+    "Simple AI strategy (alternating left moves and rotations) successfully reached score of 3770 without tower collapse.",
+    "Observation dictionary is populated after update() call - empty before first update.",
+    "'uv sync' fails on Windows due to pygame build requirements, but .venv2 has pygame 2.6.1 pre-installed."
   ],
   "issues_found": [],
   "recommendations": [
-    "The .venv2 environment should be included in the project or documentation should mention using it.",
+    "The .venv2 environment should be included in the project or documentation should mention using it on Windows.",
     "For unattended testing, headless mode with SDL_VIDEODRIVER='dummy' works well."
   ]
 }
