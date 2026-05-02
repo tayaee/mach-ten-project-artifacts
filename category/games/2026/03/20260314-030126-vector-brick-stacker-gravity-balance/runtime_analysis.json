@@ -3,78 +3,67 @@
   "timestamp": "2026-05-02T00:00:00Z",
   "app_name": "vector-brick-stacker-gravity-balance",
   "category": "games",
-  "analysis_duration_seconds": 25,
+  "analysis_duration_seconds": 60,
   "startup_status": {
     "status": "PASSED",
-    "details": "Application built with 'uv sync' and started with 'uv run python main.py' under SDL_VIDEODRIVER=dummy. Process ran for 20 seconds without crashing and was terminated by timeout (exit code 124)."
+    "details": "Application built with 'uv sync' and started with 'uv run python main.py'. Process ran for ~35 seconds of active monitoring (within a 60-second timeout window) without crashing and was terminated cleanly by the analysis harness."
   },
   "execution_trace": [
     {
       "step": "1",
-      "action": "Ran 'uv sync' to install dependencies (pygame 2.6.1)",
+      "action": "Ran 'uv sync' to install dependencies (pygame, Python 3.12)",
       "status": "PASSED"
     },
     {
       "step": "2",
-      "action": "Launched 'uv run python main.py' headless via SDL_VIDEODRIVER=dummy",
+      "action": "Launched 'uv run python main.py' as a background process with 60-second timeout",
       "status": "PASSED"
     },
     {
       "step": "3",
-      "action": "Pygame initialized; display set_mode(800x600 default) succeeded",
+      "action": "Pygame initialized; Game() instantiated and run() entered the main loop",
       "status": "PASSED"
     },
     {
       "step": "4",
-      "action": "Main game loop ran continuously for 20 seconds with no exceptions",
+      "action": "Main game loop ran continuously for ~35 seconds with no stdout output and no stderr exceptions",
       "status": "PASSED"
     },
     {
       "step": "5",
-      "action": "Process terminated by timeout signal (exit code 124) - no hang on shutdown",
-      "status": "PASSED"
-    },
-    {
-      "step": "6",
-      "action": "Programmatic smoke test: instantiated Game(), ran 200 update() iterations, called get_observation() and step_ai(1)",
+      "action": "Process auto-terminated by the timeout wrapper; verified no leftover python main.py processes remained",
       "status": "PASSED"
     }
   ],
   "functionality_tested": {
-    "build": "PASSED - 'uv sync' resolved 2 packages and installed pygame==2.6.1",
+    "build": "PASSED - 'uv sync' resolved packages with no errors",
     "basic_startup": "PASSED - Application initialized without errors",
-    "display_creation": "PASSED - pygame.display.set_mode() worked in headless mode",
-    "game_loop": "PASSED - Main game loop ran stably for 20 seconds",
-    "block_spawning": "PASSED - BlockSpawner initialized and first falling_block was spawned",
-    "input_handling": "PASSED - pygame event polling executed each frame without errors",
-    "physics_simulation": "PASSED - PhysicsEngine initialized; update_falling_block executed",
-    "scoring_system": "PASSED - Initial score=0, blocks_placed=0 as expected",
-    "observation_api": "PASSED - get_observation() returned keys: block_dimensions, block_position, block_rotation, game_over, score, stack_com, tower_height",
-    "ai_step_api": "PASSED - step_ai(action=1) returned (observation, reward=-0.1, done=False)",
-    "shutdown": "PASSED - Process accepted termination signal cleanly"
+    "module_imports": "PASSED - main.py imports Game from game.py; transitive imports of block, physics, config succeeded",
+    "display_creation": "PASSED - Pygame display created (no display-related exceptions observed)",
+    "game_loop": "PASSED - Main game loop ran stably for the observation window with no crashes",
+    "shutdown": "PASSED - Process terminated cleanly within the 2-minute budget; no orphan processes"
   },
   "dependencies_status": {
-    "pygame": "INSTALLED - Version 2.6.1 loaded successfully",
-    "python": "INSTALLED - CPython 3.12.12"
+    "pygame": "INSTALLED - Loaded successfully",
+    "python": "INSTALLED - CPython 3.12 via uv"
   },
   "test_environment": {
     "platform": "win32",
     "os_version": "Windows 10 Pro 10.0.19045",
-    "python_version": "3.12.12",
-    "pygame_version": "2.6.1",
-    "headless_mode": true,
-    "sdl_video_driver": "dummy"
+    "unattended": true
   },
   "warnings": [
     "uv emitted a benign VIRTUAL_ENV mismatch warning between the parent project's .venv and this project's local .venv. Does not affect runtime."
   ],
   "errors": [],
-  "notes": [
-    "Application requires SDL_VIDEODRIVER=dummy environment variable for headless CI/automated runs",
-    "Game loop is stable and responsive",
-    "All core modules (block, physics, game, config) load without errors",
-    "AI interface methods (get_observation, step_ai) are available for automation",
-    "Target app was terminated automatically; no user input required"
+  "limitations": [
+    "Unattended mode: keyboard input (LEFT/RIGHT arrows, SPACEBAR, ESC) was not interactively exercised.",
+    "Gameplay-specific behaviors (block placement, scoring, collapse, camera scroll) were not driven by input and therefore not directly observed."
   ],
-  "summary": "The Vector Brick Stacker Gravity Balance game builds and runs reliably. Core systems (display, game loop, block spawning, physics, scoring, observation/AI step API) all function correctly. Overall runtime analysis: PASSED."
+  "notes": [
+    "Application starts and remains stable in its main loop with no exceptions.",
+    "All core modules (block, physics, game, config) load without errors.",
+    "Target app was terminated automatically by the timeout wrapper; no user input required (unattended run)."
+  ],
+  "summary": "The Vector Brick Stacker Gravity Balance game builds and starts reliably. The main loop sustains stable execution for the monitored duration with no exceptions. Overall runtime analysis: PASSED."
 }
